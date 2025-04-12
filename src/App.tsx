@@ -1,59 +1,54 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import Skills from './pages/Skills';
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800">
-        <nav className="fixed top-0 w-full bg-slate-900/90 backdrop-blur-sm z-50 border-b border-slate-700">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-16">
-              <div className="flex items-center">
-                <Link to="/" className="text-xl font-bold text-white hover:text-purple-400 transition">Portfolio</Link>
-              </div>
-              <div className="flex items-center space-x-6">
-                <Link to="/about" className="text-gray-300 hover:text-purple-400 transition">À propos</Link>
-                <Link to="/projects" className="text-gray-300 hover:text-purple-400 transition">Projets</Link>
-                <Link to="/contact" className="text-gray-300 hover:text-purple-400 transition">Contact</Link>
-              </div>
-            </div>
-          </div>
-        </nav>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800">
+      <Router>
+        <AppContent /> {/* Composant enfant pour utiliser useLocation */}
+      </Router>
+    </div>
+  );
+}
 
-        <main className="pt-16">
-          <Routes>
+// Nouveau composant interne
+function AppContent() {
+  const location = useLocation(); // Maintenant valide car enfant de <Router>
+
+  return (
+    <>
+      <nav className="bg-black text-white p-4">
+        <div className="flex justify-center">
+          <ul className="flex space-x-4">
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/skills">Skills</Link></li>
+            <li><Link to="/projects">Projects</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+          </ul>
+        </div>
+      </nav>
+      <main className="pt-16">
+        <TransitionGroup>
+          <CSSTransition key={location.key} timeout={300} classNames="page-transition">
+            <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-
-        <footer className="bg-slate-900 text-white py-8 border-t border-slate-700">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400">© 2024 Portfolio. Tous droits réservés.</p>
-              <div className="flex space-x-6 mt-4 md:mt-0">
-                <a href="https://github.com" className="text-gray-400 hover:text-purple-400 transition">
-                  <Github className="w-6 h-6" />
-                </a>
-                <a href="https://linkedin.com" className="text-gray-400 hover:text-purple-400 transition">
-                  <Linkedin className="w-6 h-6" />
-                </a>
-                <a href="mailto:contact@example.com" className="text-gray-400 hover:text-purple-400 transition">
-                  <Mail className="w-6 h-6" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
-    </Router>
+                <Route path="/about" element={<About />} />
+                <Route path="/skills" element={<Skills />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<Home />} />
+            </Routes>
+          </CSSTransition>
+        </TransitionGroup>
+      </main>
+    </>
   );
 }
 

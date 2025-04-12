@@ -1,3 +1,74 @@
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;  
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;  
+  z-index: -1; 
+}
+
+body {
+  background-color: #0a0a0a; 
+  color: #f5f5f5; 
+   background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.8)
+  );
+  font-family: "Arial", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-transition {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.page-transition-enter {
+  opacity: 0;
+  transform: scale(0.9) rotate(-10deg);
+}
+
+.page-transition-enter-active,
+.page-transition-exit-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.page-transition-enter-done {
+  opacity: 1;
+  transform: none;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: none;
+}
+
+.page-transition-exit-active {
+  opacity: 0.7;
+  transform: scale(0.9) rotate(5deg);
+}
+
+.page-transition-exit-done {
+  opacity: 0.7;
+  transform: scale(0.9) rotate(5deg);
+}
+
+.text-primary {
+  color: #a5f3fc; 
+}
