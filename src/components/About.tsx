@@ -1,16 +1,16 @@
-  import React from 'react';
+import React from 'react';
 import { Download } from 'lucide-react';
 
 const skills = [
-  { name: 'React', level: 90 },
-  { name: 'JavaScript', level: 85 },
-  { name: 'TypeScript', level: 75 },
-  { name: 'Node.js', level: 70 },
+  { name: 'React', level: 40 },
+  { name: 'JavaScript', level: 70 },
+  { name: 'TypeScript', level: 30 },
+  { name: 'Node.js', level: 30 },
   { name: 'python', level: 60 },
   { name: 'php', level: 60 },
   { name: 'mysql/sql', level: 60 },
   { name: 'HTML/CSS', level: 95 },
-  { name: 'Git', level: 80 }
+  { name: 'Git', level: 70 }
 ];
 
 const About = () => {
@@ -25,8 +25,9 @@ const About = () => {
               Mon objectif est de créer des applications web modernes et performantes qui répondent aux besoins des utilisateurs.
             </p>
             <a
-              href="/cv.pdf"
+              href="cv.pdf"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+              download
             >
               Télécharger mon CV
               <Download className="ml-2 h-5 w-5" />

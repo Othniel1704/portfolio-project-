@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import Home from './pages/Home';
 import About from './pages/About';
+import CVPage from './pages/CVPage';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 
@@ -29,6 +30,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/cv" element={<CVPage />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
@@ -39,13 +41,13 @@ function App() {
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-gray-400">© 2024 Portfolio. Tous droits réservés.</p>
               <div className="flex space-x-6 mt-4 md:mt-0">
-                <a href="https://github.com" className="text-gray-400 hover:text-purple-400 transition">
+                <a href="https://github.com/Othniel1704" className="text-gray-400 hover:text-purple-400 transition">
                   <Github className="w-6 h-6" />
                 </a>
-                <a href="https://linkedin.com" className="text-gray-400 hover:text-purple-400 transition">
+                <a href="https://www.linkedin.com/in/othniel-kouakou" className="text-gray-400 hover:text-purple-400 transition">
                   <Linkedin className="w-6 h-6" />
                 </a>
-                <a href="mailto:contact@example.com" className="text-gray-400 hover:text-purple-400 transition">
+                <a href="mailto:kkonanothniel@gmail.com" className="text-gray-400 hover:text-purple-400 transition">
                   <Mail className="w-6 h-6" />
                 </a>
               </div>

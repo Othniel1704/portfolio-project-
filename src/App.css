@@ -3,17 +3,90 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background: linear-gradient(135deg, #1e3a8a, #4338ca, #7c3aed, #9333ea, #be185d, #d946ef);
+  background-size: 600% 600%;
+  color: #f8fafc;
+  overflow-x: hidden;
+  animation: gradientAnimation 20s ease infinite;
+  position: relative;
+  transition: all 0.5s ease; /* Smooth transition for all properties */
+}
+
+#root:hover{
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhance the shadow on hover */
+  transform: translateY(-5px); /* Slightly lift the container on hover */
+  background-size: 650% 650%;
+  
+
+}
+
+body {
+  font-family: 'Arial', sans-serif; /* More modern font */
+  line-height: 1.6; /* Improved line spacing for readability */
+  color: #333; /* Default body text color */
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  transition: all 0.5s ease;
+}
+
+body {
+  background-color: transparent;
+}
+
+
+.gradient-background {
+  background: linear-gradient(135deg, #1e3a8a, #4338ca, #7c3aed, #9333ea, #be185d, #d946ef);
+  
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+    background-size: 600% 600%;
+  }
+  25% {
+    background-position: 100% 0%;
+    background-size: 550% 550%;
+  }
+  50%{
+    background-position: 50% 100%;
+    background-size: 600% 600%;
+
+  }
+  75% {
+    background-position: 0% 100%;
+    background-size: 550% 550%;
+    
+  }
+  100% {
+    background-position: 0% 50%;
+    background-size: 600% 600%;
+  }
+  
 }
 
 .logo {
   height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  padding: 1.5em 0em;
+  animation: pulse 2s infinite;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer; /* Change cursor to indicate interactivity */
 }
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -33,10 +106,57 @@
   }
 }
 
+.dynamic-text {
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px); /* Increased the distance of the fade-in */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.page-transition {
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #f8fafc; /* Consistent heading color */
+  margin-bottom: 0.5em; /* Reduced margin below headings */
+  font-weight: 700; /* Bold font-weight for headings */
+}
+
+p {
+  margin-bottom: 1.2em; /* Increased margin between paragraphs */
+}
+
+
 .card {
   padding: 2em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box-shadow for depth */
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1); /* Adds a semi-transparent white background */
+  backdrop-filter: blur(10px); /* Blurs the background */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+.card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
 }
 
 .read-the-docs {
-  color: #888;
+  color: #f1f5f9;
+  animation: fadeIn 1s ease-in-out 0.5s both;
 }
