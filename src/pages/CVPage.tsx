@@ -8,7 +8,7 @@ const CVPage = () => {
     <div className="min-h-screen py-20 px-4 bg-slate-900">
       <div className="max-w-4xl mx-auto bg-slate-800 p-8 rounded-2xl border border-slate-700">
         <h2 className="text-3xl font-bold text-center text-white mb-8">Mon CV</h2>
-        <Worker workerUrl={`https://unpkg.com/pdfjs-dist@2.15.349/build/pdf.worker.min.js`}>
+        <Worker workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}>
           <div style={{ height: '600px' }}>
             <Viewer fileUrl="/cv.pdf" />
           </div>

@@ -1,3 +1,4 @@
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:842276496.
 import React from 'react';
 import { Github, ExternalLink } from 'lucide-react';
 
@@ -6,27 +7,32 @@ const projects = [
     title: "Jeu Snake en Python",
     description:
       "Jeu du Snake développé en Python, mettant en œuvre les principes de la programmation orientée objet. Ce projet inclut une interface graphique interactive et un système de gestion des scores, offrant une expérience utilisateur complète et engageante.",
-    image: "https://media.istockphoto.com/id/1430779013/vector/classic-snake-video-game-pixel-art-style-8-bit.jpg?s=612x612&w=0&k=20&c=6d987Y9mYk9R9G3h25QjN1qTq6_c2z92X6mE_bE31yQ=",
-    github: 'https://github.com/Othniel1704',
-    demo: "#",
+    image: "https://www.presse-citron.net/app/uploads/2019/10/google-snake.jpg",
+    github: 'https://github.com/Othniel1704/snake',
     tags: ["Python", "Pygame"],
   },
   {
-    title: "Application de Chat",
+    title: "Développement d'une Application de Chat Forum",
     description:
-      "Développement d'une application de chat en temps réel. Les utilisateurs peuvent s'inscrire, se connecter et échanger des messages instantanément. Le système inclut une authentification sécurisée et l'historique des messages est conservé.",
-    image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    github: "https://github.com/Othniel1704",
-    demo: "#",
-    tags: ["PHP", "HTML", "CSS", "MYSQL"],
+      "Ce projet vise à créer une application de type forum de chat offrant aux utilisateurs la possibilité d'échanger des messages instantanés, publics ou privés.Les utilisateurs peuvent s'inscrire et se connecter via une authentification sécurisée.Un système intégré permet de conserver l'historique des messages pour un accès ultérieur.",
+    image: "public/images/chat.png",
+    github: "https://github.com/Othniel1704/chat",
+    tags: ["PHP", "HTML", "CSS","SQL/MySQL"],
   },
   {
-    title: "Site E-commerce",
-    description: "Création d'une plateforme de e-commerce complète, incluant un catalogue de produits, un panier d'achat dynamique et un système de paiement sécurisé. Les clients peuvent parcourir les articles, ajouter des produits à leur panier et effectuer des achats.",
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=2980&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    github: "https://github.com/Othniel1704",
-    demo: "#",
-    tags: ["PHP", "JavaScipte", "HTML/CSS"],
+    title: "Portfolio",
+    description:
+      "Voici mon portfolio personnel, le site sur lequel vous vous trouvez en ce moment. Il présente mes compétences et mes projets, et sert de vitrine à mon expertise en développement web. La conception et le développement du site ont été entièrement réalisés par mes soins.",
+    image: "public/images/portfolio.png",
+    github: 'https://github.com/Othniel1704/portfolio-project-',
+    tags: ["React.js", "Tailwind"],
+  },
+  {
+    title: "Site d'annonces en ligne",
+    description: "Ce projet, développé dans le cadre de votre formation, est un clone de la plateforme Leboncoin, dédiée aux petites annonces en ligne. Il a été conçu pour offrir aux utilisateurs une expérience fluide et intuitive tant sur ordinateur que sur mobile. Faciliter la publication, la recherche et la consultation d'annonces classées.Mettre à disposition une interface simple et accessible à tous",
+    image: "public/images/ecommerce-site.PNG",
+    github: "https://github.com/Othniel1704/lebonbazaar",
+    tags: ["PHP", "JavaScipte", "HTML/CSS","SQL/MySQL"],
   },
 ];
 
@@ -70,16 +76,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             <Github className="h-5 w-5 mr-1" />
             Code
           </a>
-          <a
-            href={project.demo}
-            className="inline-flex items-center text-gray-400 hover:text-purple-400 transition"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ExternalLink className="h-5 w-5 mr-1" />
-            Demo
-          </a>
-
+          
         </div>
       </div>
     </div>

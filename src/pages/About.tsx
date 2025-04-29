@@ -26,15 +26,15 @@ const About = () => {
   return (
     <div className="min-h-screen py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center text-white mb-16">À propos de moi</h2>
+        <h2 className="text-4xl font-bold text-center text-white mb-16">À propos de </h2>
+        <h1 className='text-6xl font-bold text-center text-white mb-16'>Konan Othniel Kouakou</h1>
         <div className="grid grid-cols-1 gap-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="bg-slate-800/50 p-8 rounded-2xl border border-slate-700">
               <div className="text-lg text-gray-300 mb-8 leading-relaxed space-y-6">
                 <div>
                   <h3 className="text-xl text-purple-400 font-semibold mb-2">Ma passion</h3>
-                  <p>
-                    Ce que j’aime dans le développement web, c’est créer à partir de rien, juste avec des lignes de code. 
+                  <p>Ce que j’aime dans le développement web, c’est créer à partir de rien, juste avec des lignes de code.
                     J’adore comprendre la logique derrière une fonctionnalité, résoudre des bugs, et trouver des solutions aux problèmes concrets.
                   </p>
                 </div>

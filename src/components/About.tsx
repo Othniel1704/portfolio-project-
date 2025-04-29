@@ -1,6 +1,7 @@
 import React from 'react';
 import { Download } from 'lucide-react';
 
+
 const skills = [
   { name: 'React', level: 40 },
   { name: 'JavaScript', level: 70 },
@@ -45,7 +46,7 @@ const About = () => {
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div
                       className="bg-indigo-600 h-2 rounded-full"
-                      style={{ width: `${skill.level}%` }}
+                      style={{ width: ${skill.level}% }}
                     />
                   </div>
                 </div>

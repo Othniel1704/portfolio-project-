@@ -12,10 +12,10 @@ import {
 
 const skills = {
   Frontend: [
-    { name: 'React', level: 40, icon: <Atom /> }, // ici
-    { name: 'JavaScript', level: 70, icon: <FileCode2 /> },
-    { name: 'TypeScript', level: 30, icon: <FileCode /> },
-    { name: 'HTML/CSS', level: 95, icon: <FileJson2 /> },
+    { name: 'React', level: 80, icon: <Atom /> },
+    { name: 'JavaScript', level: 85, icon: <FileCode2 /> },
+    { name: 'TypeScript', level: 70, icon: <FileCode /> },
+    { name: 'HTML/CSS', level: 90, icon: <FileJson2 /> },
   ],  
   Backend: [
     { name: 'Node.js', level: 30, icon: <Server /> },
