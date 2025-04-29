@@ -15,7 +15,7 @@ const projects = [
     title: "Développement d'une Application de Chat Forum",
     description:
       "Ce projet vise à créer une application de type forum de chat offrant aux utilisateurs la possibilité d'échanger des messages instantanés, publics ou privés.Les utilisateurs peuvent s'inscrire et se connecter via une authentification sécurisée.Un système intégré permet de conserver l'historique des messages pour un accès ultérieur.",
-    image: "public/images/chat.png",
+    image: "images/chat.png",
     github: "https://github.com/Othniel1704/chat",
     tags: ["PHP", "HTML", "CSS","SQL/MySQL"],
   },
@@ -23,14 +23,14 @@ const projects = [
     title: "Portfolio",
     description:
       "Voici mon portfolio personnel, le site sur lequel vous vous trouvez en ce moment. Il présente mes compétences et mes projets, et sert de vitrine à mon expertise en développement web. La conception et le développement du site ont été entièrement réalisés par mes soins.",
-    image: "public/images/portfolio.png",
+    image: "images/portfolio.png",
     github: 'https://github.com/Othniel1704/portfolio-project-',
     tags: ["React.js", "Tailwind","css"],
   },
   {
     title: "Site d'annonces en ligne",
     description: "Ce projet, développé dans le cadre de votre formation, est un clone de la plateforme Leboncoin, dédiée aux petites annonces en ligne. Il a été conçu pour offrir aux utilisateurs une expérience fluide et intuitive tant sur ordinateur que sur mobile. Faciliter la publication, la recherche et la consultation d'annonces classées.Mettre à disposition une interface simple et accessible à tous",
-    image: "public/images/ecommerce-site.PNG",
+    image: "images/ecommerce-site.PNG",
     github: "https://github.com/Othniel1704/lebonbazaar",
     tags: ["PHP", "JavaScipte", "HTML/CSS","SQL/MySQL"],
   },
