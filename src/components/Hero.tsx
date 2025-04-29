@@ -91,8 +91,7 @@ const Hero = () => (
           className="mt-6 text-xl sm:text-2xl text-gray-300 mb-12"
           variants={itemFadeUp}
         >
-          Développeur web junior, je suis passionné par la création d'interfaces
-          utilisateur élégantes et fonctionnelles.
+          Développeur Full Stack passionné, je crée des interfaces élégantes et des services back-end robustes pour donner vie à vos projets.
         </motion.p>
 
         <motion.div

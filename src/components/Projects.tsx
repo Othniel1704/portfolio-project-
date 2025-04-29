@@ -25,7 +25,7 @@ const projects = [
       "Voici mon portfolio personnel, le site sur lequel vous vous trouvez en ce moment. Il présente mes compétences et mes projets, et sert de vitrine à mon expertise en développement web. La conception et le développement du site ont été entièrement réalisés par mes soins.",
     image: "public/images/portfolio.png",
     github: 'https://github.com/Othniel1704/portfolio-project-',
-    tags: ["React.js", "Tailwind"],
+    tags: ["React.js", "Tailwind","css"],
   },
   {
     title: "Site d'annonces en ligne",
@@ -51,7 +51,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       <img
         src={project.image}
         alt={project.title}
-        className="w-full h-48 object-cover"
+        className="w-full h-49 object-cover"
       />
       <div className="p-6">
         <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
