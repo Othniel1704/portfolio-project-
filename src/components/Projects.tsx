@@ -1,102 +1,134 @@
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:842276496.
 import React from 'react';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ArrowRight, Calendar } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { projectsData } from '../data/projectsData';
 
-const projects = [
-  {
-    title: "Jeu Snake en Python",
-    description:
-      "Jeu du Snake développé en Python, mettant en œuvre les principes de la programmation orientée objet. Ce projet inclut une interface graphique interactive et un système de gestion des scores, offrant une expérience utilisateur complète et engageante.",
-    image: "https://www.presse-citron.net/app/uploads/2019/10/google-snake.jpg",
-    github: 'https://github.com/Othniel1704/snake',
-    tags: ["Python", "Pygame"],
-  },
-  {
-    title: "Développement d'une Application de Chat Forum",
-    description:
-      "Ce projet vise à créer une application de type forum de chat offrant aux utilisateurs la possibilité d'échanger des messages instantanés, publics ou privés.Les utilisateurs peuvent s'inscrire et se connecter via une authentification sécurisée.Un système intégré permet de conserver l'historique des messages pour un accès ultérieur.",
-    image: "images/chat.png",
-    github: "https://github.com/Othniel1704/chat",
-    tags: ["PHP", "HTML", "CSS","SQL/MySQL"],
-  },
-  {
-    title: "Portfolio",
-    description:
-      "Voici mon portfolio personnel, le site sur lequel vous vous trouvez en ce moment. Il présente mes compétences et mes projets, et sert de vitrine à mon expertise en développement web. La conception et le développement du site ont été entièrement réalisés par mes soins.",
-    image: "images/portfolio.png",
-    github: 'https://github.com/Othniel1704/portfolio-project-',
-    tags: ["React.js", "Tailwind","css"],
-  },
-  {
-    title: "Site d'annonces en ligne",
-    description: "Ce projet, développé dans le cadre de votre formation, est un clone de la plateforme Leboncoin, dédiée aux petites annonces en ligne. Il a été conçu pour offrir aux utilisateurs une expérience fluide et intuitive tant sur ordinateur que sur mobile. Faciliter la publication, la recherche et la consultation d'annonces classées.Mettre à disposition une interface simple et accessible à tous",
-    image: "images/ecommerce-site.PNG",
-    github: "https://github.com/Othniel1704/lebonbazaar",
-    tags: ["PHP", "JavaScipte", "HTML/CSS","SQL/MySQL"],
-  },
-];
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
 
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  github: string;
-  demo: string;
-  tags: string[];
-}
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 50 }
+  }
+};
 
-const ProjectCard = ({ project }: { project: Project }) => {
+const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => {
   return (
-    <div className="bg-slate-800 rounded-xl shadow-xl overflow-hidden border border-slate-700 hover:border-purple-500 transition-all duration-300 hover:-translate-y-2">
-      <img
-        src={project.image}
-        alt={project.title}
-        className="w-full h-49 object-cover"
-      />
-      <div className="p-6">
-        <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
-        <p className="text-gray-300 mb-4">{project.description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag: string) => (
+    <motion.div
+      variants={cardVariants}
+      className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 flex flex-col h-full group"
+      whileHover={{ y: -5 }}
+    >
+      <Link to={`/projects/${project.id}`} className="block relative h-48 overflow-hidden bg-slate-900">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60" />
+        {project.duration && (
+          <div className="absolute top-4 right-4 px-3 py-1 bg-slate-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-full text-xs text-cyan-400 font-semibold flex items-center">
+            <Calendar className="w-3 h-3 mr-1" />
+            {project.duration}
+          </div>
+        )}
+      </Link>
+
+      <div className="p-6 flex flex-col flex-grow">
+        <Link to={`/projects/${project.id}`}>
+          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">{project.title}</h3>
+        </Link>
+        <p className="text-gray-400 mb-4 text-sm flex-grow leading-relaxed line-clamp-3">
+          {project.shortDescription}
+        </p>
+
+        {project.highlights && project.highlights.length > 0 && (
+          <div className="mb-4">
+            <h4 className="text-xs font-semibold text-gray-500 uppercase mb-2">Points clés</h4>
+            <ul className="space-y-1">
+              {project.highlights.slice(0, 3).map((highlight, idx) => (
+                <li key={idx} className="text-xs text-gray-400 flex items-start">
+                  <span className="text-cyan-400 mr-2">✓</span>
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div className="flex flex-wrap gap-2 mb-6">
+          {project.tags.slice(0, 4).map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-sm"
+              className="px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold rounded-full"
             >
               {tag}
             </span>
           ))}
         </div>
-        <div className="flex space-x-4">
-          <a
-            href={project.github}
-            className="inline-flex items-center text-gray-400 hover:text-purple-400 transition"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        <div className="mt-auto flex justify-between items-center">
+          <Link
+            to={`/projects/${project.id}`}
+            className="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors text-sm"
           >
-            <Github className="h-5 w-5 mr-1" />
-            Code
-          </a>
-          
+            Voir le détail
+            <ArrowRight className="w-4 h-4 ml-1" />
+          </Link>
+
+          {project.github && (
+            <a
+              href={project.github}
+              className="inline-flex items-center text-gray-400 hover:text-white font-medium transition-colors group/git"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github className="h-5 w-5 group-hover/git:scale-110 transition-transform" />
+            </a>
+          )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-slate-900">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-white mb-12">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-            Mes Projets
-          </span>
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
-          ))}
+    <section id="projects" className="py-24 bg-slate-950 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-20 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-white mb-4">
+            Mes <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Projets</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Une sélection de mes réalisations techniques et créatives, démontrant mes compétences en développement.
+          </p>
         </div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {projectsData.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </motion.div>
       </div>
     </section>
   );

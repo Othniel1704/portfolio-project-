@@ -2,26 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-  background-size: 300% 300%;
-  animation: gradientAnimation 15s ease infinite;
-  color: white;
-  font-family: 'Arial', sans-serif;
-  overflow-x: hidden;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+@layer base {
+  html {
+    font-family: 'Outfit', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-950 text-white antialiased;
+  }
 }
 
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+@layer utilities {
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500;
   }
 }
