@@ -146,7 +146,43 @@ export const projectsData: Project[] = [
         ],
         github: "https://github.com/Othniel1704/portfolio-project-",
         demo: "https://othniel-portfolio.netlify.app"
-    },
+    },{
+    id: "lebonbazaar",
+    title: "LebonBazaar",
+    shortDescription: "Plateforme de petites annonces avec gestion d'utilisateurs et messagerie interne.",
+    fullDescription: "Conception et développement d'une application de type 'LeBonCoin' permettant le dépôt d'annonces, la gestion de favoris et la mise en relation entre vendeurs et acheteurs. Le projet inclut une base de données relationnelle complexe avec gestion des catégories, des images multiples et un historique de visites.",
+    context: "Projet de développement web focalisé sur la gestion de bases de données relationnelles et le CRUD complet.",
+    role: "Développeur Full Stack",
+    duration: "4 semaines",
+    image: "images/lebonbazaar.png",
+    technologies: ["PHP", "MySQL", "CSS", "MariaDB"],
+    tags: ["E-commerce", "Base de données", "Full Stack"],
+    highlights: [
+        "Schéma de base de données relationnelle robuste (FK, contraintes)",
+        "Système de messagerie entre utilisateurs",
+        "Gestion dynamique des annonces et des catégories",
+        "Espace administration avec statistiques de visites"
+    ],
+    competencies: [
+        { 
+            name: "Concevoir et mettre en place une base de données", 
+            description: "Modélisation du schéma SQL et implémentation des relations (Users, Annonces, Messages)." 
+        },
+        { 
+            name: "Développer une interface utilisateur", 
+            description: "Réalisation de mises en page responsives pour le catalogue d'annonces et la messagerie." 
+        },
+        { 
+            name: "Gérer un back-end dynamique", 
+            description: "Traitement des formulaires de dépôt et gestion des sessions utilisateurs." 
+        }
+    ],
+    proofs: [
+        { title: "Dépôt GitHub", type: "link", url: "https://github.com/Othniel1704/lebonbazaar" },
+        { title: "Schéma SQL", type: "file", url: "leboncoindb.sql" }
+    ],
+    github: "https://github.com/Othniel1704/lebonbazaar"
+},
     {
         id: "chat-app",
         title: "Chat App Temps Réel",
@@ -217,22 +253,6 @@ export const projectsData: Project[] = [
         competencies: [],
         proofs: [],
         github: "https://github.com/Othniel1704/calculator"
-    },
-    {
-        id: "digital-clock",
-        title: "Horloge Monde",
-        shortDescription: "Horloge numérique multi-fuseaux horaires.",
-        fullDescription: "Application affichant l'heure précise dans différentes villes du monde. Intègre une fonctionnalité de réveil/alarme et un mode sombre automatique selon l'heure.",
-        context: "Découverte des API Temps Réel.",
-        role: "Développeur",
-        duration: "2 jours",
-        image: "https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&q=80&w=1000",
-        technologies: ["JavaScript", "Date API", "CSS"],
-        tags: ["Web", "Utility", "Temps Réel"],
-        highlights: ["Synchronisation NTP via API", "Local Storage des préférences", "Design minimaliste"],
-        competencies: [],
-        proofs: [],
-        github: "https://github.com/Othniel1704/digital-clock"
     },
     {
         id: "winforms-auth",
