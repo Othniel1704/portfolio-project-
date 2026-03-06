@@ -23,6 +23,8 @@ export interface Project {
     teamSize?: number;
     image: string;
     technologies: string[];
+    category: 'Stage' | 'Projet Personnel' | 'Projet Académique (PPE)';
+    projectSize?: 'Lourd' | 'Léger';
     competencies: ProjectCompetency[]; // Compétences du Bloc 1 validées
     proofs: ProjectProof[];
     github?: string;
@@ -42,6 +44,7 @@ export const projectsData: Project[] = [
         duration: "5 semaines",
         image: "images/nbautoecoledelamairie_homepage_1766077079814.png",
         technologies: ["React", "TypeScript", "Tailwind CSS", "EmailJS"],
+        category: 'Stage',
         tags: ["Stage", "Web", "Responsive"],
         highlights: ["Site en production", "SEO optimisé", "Design responsive"],
         competencies: [
@@ -58,6 +61,69 @@ export const projectsData: Project[] = [
         demo: "https://nbautoecoledelamairie.fr"
     },
     {
+        id: "hardware-management",
+        title: "Gestion de Parc Matériel Informatique",
+        shortDescription: "Application desktop pour l'inventaire et la maintenance de matériel informatique.",
+        fullDescription: "Application lourde développée en C# .NET 4.8 pour la gestion centralisée des équipements informatiques. Fonctionnalités clés : CRUD complet des matériels (PC, serveurs, périphériques), gestion des interventions de maintenance, et suivi des cycles de vie (MTBF). L'accès est sécurisé par une authentification forte (hachage PBKDF2) avec gestion des rôles (Admin/Technicien). L'interface WinForms utilise des DataGridView avancés pour le tri et le filtrage, et permet l'export des inventaires en CSV/Excel.",
+        context: "Projet de fin d'année - Gestion d'infrastructure.",
+        role: "Concepteur & Développeur Principal",
+        duration: "5 semaines",
+        image: "https://images.unsplash.com/photo-1591405351990-4726e331f141?auto=format&fit=crop&q=80&w=1000",
+        technologies: ["C#", ".NET Framework 4.8", "WinForms", "SQL Server", "ADO.NET"],
+        category: 'Projet Académique (PPE)',
+        projectSize: 'Lourd',
+        tags: ["Desktop", "Infrastructure", "Gestion"],
+        highlights: ["Architecture n-tiers (DAL/BLL/UI)", "Authentification sécurisée (PBKDF2)", "Reporting & Export"],
+        competencies: [
+            { name: "Gérer le patrimoine informatique", description: "Inventaire et suivi du cycle de vie des équipements" },
+            { name: "Répondre aux incidents et aux demandes d'assistance et d'évolution", description: "Suivi des maintenances et pannes" }
+        ],
+        proofs: [],
+        github: "https://github.com/Othniel1704/hardware-manager"
+    },
+    {
+        id: "portfolio",
+        title: "Portfolio Personnel",
+        shortDescription: "Mon portfolio professionnel présentant mes compétences et réalisations.",
+        fullDescription: "Conception et développement de mon portfolio personnel pour l'épreuve E4 du BTS SIO. L'objectif était de créer une identité numérique forte, de présenter mes projets de manière interactive et de démontrer mes compétences techniques en développement web moderne.",
+        context: "Projet personnel & Examen E4 (2024-2025).",
+        role: "Concepteur & Développeur",
+        duration: "Continu",
+        image: "images/portfolio.png",
+        technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+        category: 'Projet Personnel',
+        projectSize: 'Lourd',
+        tags: ["Personnel", "Web", "Design"],
+        highlights: ["Design System personnalisé", "Animations fluides", "Architecture composable"],
+        competencies: [
+            { name: "Gérer son identité professionnelle", description: "CV, présence en ligne, portfolio" },
+            { name: "Développer une interface utilisateur", description: "UX/UI, Responsive Design" }
+        ],
+        proofs: [
+            { title: "Code source", type: "link", url: "https://github.com/Othniel1704/portfolio-project-" },
+            { title: "Lighthouse Score", type: "image", url: "/images/proofs/lighthouse_score.png" }
+        ],
+        github: "https://github.com/Othniel1704/portfolio-project-",
+        demo: "https://othniel-portfolio.netlify.app"
+    },
+    {
+        id: "lebonbazaar",
+        title: "Lebonbazaar",
+        shortDescription: "Plateforme d'e-commerce (Détails à compléter).",
+        fullDescription: "Plateforme d'e-commerce en cours de développement ou réalisée récemment.",
+        context: "Projet Personnel",
+        role: "Développeur",
+        duration: "Variable",
+        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1000",
+        technologies: ["À définir"],
+        category: 'Projet Personnel',
+        projectSize: 'Léger',
+        tags: ["E-commerce", "Web"],
+        highlights: ["Projet léger", "Développement web"],
+        competencies: [],
+        proofs: []
+    },
+    {
         id: "game-connect",
         title: "Game Connect",
         shortDescription: "Plateforme sociale pour gamers permettant de former des équipes et organiser des tournois.",
@@ -67,6 +133,7 @@ export const projectsData: Project[] = [
         duration: "4 mois",
         image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=600&fit=crop", // Placeholder
         technologies: ["PHP", "Symfony", "MySQL", "Bootstrap"],
+        category: 'Projet Académique (PPE)',
         tags: ["PPE", "Backend", "Full Stack"],
         highlights: ["Architecture MVC", "Système d'authentification", "Gestion de tournois"],
         competencies: [
@@ -90,6 +157,7 @@ export const projectsData: Project[] = [
         duration: "2 semaines",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop", // Placeholder
         technologies: ["Java", "JavaFX", "MySQL"],
+        category: 'Projet Académique (PPE)',
         tags: ["Maintenance", "Desktop", "Java"],
         highlights: ["Correction de bugs critiques", "Ajout de fonctionnalités", "Refactoring"],
         competencies: [
@@ -113,6 +181,7 @@ export const projectsData: Project[] = [
         duration: "Ponctuel",
         image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?w=800&h=600&fit=crop", // Placeholder
         technologies: ["Linux", "Bash", "Wireshark", "Iptables"],
+        category: 'Projet Académique (PPE)',
         tags: ["Sécurité", "Réseau", "Linux"],
         highlights: ["Analyse de trafic", "Hardening serveur", "Scripting Bash"],
         competencies: [
@@ -125,29 +194,6 @@ export const projectsData: Project[] = [
         ]
     },
     {
-        id: "portfolio",
-        title: "Portfolio Personnel",
-        shortDescription: "Mon portfolio professionnel présentant mes compétences et réalisations.",
-        fullDescription: "Conception et développement de mon portfolio personnel pour l'épreuve E4 du BTS SIO. L'objectif était de créer une identité numérique forte, de présenter mes projets de manière interactive et de démontrer mes compétences techniques en développement web moderne.",
-        context: "Projet personnel & Examen E4 (2024-2025).",
-        role: "Concepteur & Développeur",
-        duration: "Continu",
-        image: "images/portfolio.png",
-        technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-        tags: ["Personnel", "Web", "Design"],
-        highlights: ["Design System personnalisé", "Animations fluides", "Architecture composable"],
-        competencies: [
-            { name: "Gérer son identité professionnelle", description: "CV, présence en ligne, portfolio" },
-            { name: "Développer une interface utilisateur", description: "UX/UI, Responsive Design" }
-        ],
-        proofs: [
-            { title: "Code source", type: "link", url: "https://github.com/Othniel1704/portfolio-project-" },
-            { title: "Lighthouse Score", type: "image", url: "/images/proofs/lighthouse_score.png" }
-        ],
-        github: "https://github.com/Othniel1704/portfolio-project-",
-        demo: "https://othniel-portfolio.netlify.app"
-    },
-    {
         id: "chat-app",
         title: "Chat App Temps Réel",
         shortDescription: "Application de messagerie instantanée avec salons et messages privés.",
@@ -157,6 +203,7 @@ export const projectsData: Project[] = [
         duration: "3 semaines",
         image: "images/chat.png",
         technologies: ["PHP", "MySQL", "JavaScript", "AJAX"],
+        category: 'Projet Personnel',
         tags: ["Personnel", "Full Stack", "Temps Réel"],
         highlights: ["Authentification sécurisée", "Base de données optimisée", "Interface mobile-first"],
         competencies: [
@@ -178,6 +225,7 @@ export const projectsData: Project[] = [
         duration: "2 mois",
         image: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=1000",
         technologies: ["Java", "JavaFX", "POO"],
+        category: 'Projet Personnel',
         tags: ["Desktop", "Jeu", "Algorithme"],
         highlights: ["Intelligence Artificielle (Minimax)", "Sauvegarde de partie", "Interface responsive"],
         competencies: [
@@ -185,6 +233,26 @@ export const projectsData: Project[] = [
         ],
         proofs: [],
         github: "https://github.com/Othniel1704/chess-game"
+    },
+    {
+        id: "winforms-auth",
+        title: "Application WinForms - Authentification",
+        shortDescription: "Système complet d'inscription et authentification sécurisé en C#.",
+        fullDescription: "Application de gestion utilisateurs développée en C# WinForms. Elle intègre un système d'inscription avec validation client (regex, complexité mdp) et une connexion sécurisée via hachage SHA-256. La base de données SQL Server stocke les informations utilisateurs. Une analyse critique de la sécurité (absence de sel, connexion synchrone) a été réalisée pour identifier les axes d'amélioration.",
+        context: "Projet scolaire - Développement d'application lourde.",
+        role: "Développeur .NET",
+        duration: "2 semaines",
+        image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1000",
+        technologies: ["C#", "WinForms", ".NET", "SQL Server"],
+        category: 'Projet Académique (PPE)',
+        tags: ["Desktop", "Security", "C#"],
+        highlights: ["Validation Regex", "Architecture 2-Tiers", "Hachage SHA-256", "Connexion SQL Server"],
+        competencies: [
+            { name: "Développer une solution applicative", description: "Application riche avec gestion d'événements" },
+            { name: "Gérer les données", description: "Interaction avec SQL Server via ADO.NET" }
+        ],
+        proofs: [],
+        github: "https://github.com/Othniel1704/winforms-auth"
     },
     {
         id: "quiz-interactive",
@@ -196,6 +264,8 @@ export const projectsData: Project[] = [
         duration: "1 semaine",
         image: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&q=80&w=1000",
         technologies: ["JavaScript", "HTML5", "CSS3"],
+        category: 'Projet Personnel',
+        projectSize: 'Léger',
         tags: ["Web", "Interactive", "Frontend"],
         highlights: ["Manipulation du DOM", "Stockage local (LocalStorage)", "Animations CSS"],
         competencies: [],
@@ -212,6 +282,8 @@ export const projectsData: Project[] = [
         duration: "3 jours",
         image: "https://images.unsplash.com/photo-1587145820266-a5951ee6f620?auto=format&fit=crop&q=80&w=1000",
         technologies: ["JavaScript", "CSS Grid", "HTML"],
+        category: 'Projet Personnel',
+        projectSize: 'Léger',
         tags: ["Outil", "Web", "Math"],
         highlights: ["Design Neumorphism", "Gestion des événements clavier", "Zéro framework"],
         competencies: [],
@@ -228,48 +300,12 @@ export const projectsData: Project[] = [
         duration: "2 jours",
         image: "https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&q=80&w=1000",
         technologies: ["JavaScript", "Date API", "CSS"],
+        category: 'Projet Personnel',
+        projectSize: 'Léger',
         tags: ["Web", "Utility", "Temps Réel"],
         highlights: ["Synchronisation NTP via API", "Local Storage des préférences", "Design minimaliste"],
         competencies: [],
         proofs: [],
         github: "https://github.com/Othniel1704/digital-clock"
-    },
-    {
-        id: "winforms-auth",
-        title: "Application WinForms - Authentification",
-        shortDescription: "Système complet d'inscription et authentification sécurisé en C#.",
-        fullDescription: "Application de gestion utilisateurs développée en C# WinForms. Elle intègre un système d'inscription avec validation client (regex, complexité mdp) et une connexion sécurisée via hachage SHA-256. La base de données SQL Server stocke les informations utilisateurs. Une analyse critique de la sécurité (absence de sel, connexion synchrone) a été réalisée pour identifier les axes d'amélioration.",
-        context: "Projet scolaire - Développement d'application lourde.",
-        role: "Développeur .NET",
-        duration: "2 semaines",
-        image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1000",
-        technologies: ["C#", "WinForms", ".NET", "SQL Server"],
-        tags: ["Desktop", "Security", "C#"],
-        highlights: ["Validation Regex", "Architecture 2-Tiers", "Hachage SHA-256", "Connexion SQL Server"],
-        competencies: [
-            { name: "Développer une solution applicative", description: "Application riche avec gestion d'événements" },
-            { name: "Gérer les données", description: "Interaction avec SQL Server via ADO.NET" }
-        ],
-        proofs: [],
-        github: "https://github.com/Othniel1704/winforms-auth"
-    },
-    {
-        id: "hardware-management",
-        title: "Gestion de Parc Matériel Informatique",
-        shortDescription: "Application desktop pour l'inventaire et la maintenance de matériel informatique.",
-        fullDescription: "Application lourde développée en C# .NET 4.8 pour la gestion centralisée des équipements informatiques. Fonctionnalités clés : CRUD complet des matériels (PC, serveurs, périphériques), gestion des interventions de maintenance, et suivi des cycles de vie (MTBF). L'accès est sécurisé par une authentification forte (hachage PBKDF2) avec gestion des rôles (Admin/Technicien). L'interface WinForms utilise des DataGridView avancés pour le tri et le filtrage, et permet l'export des inventaires en CSV/Excel.",
-        context: "Projet de fin d'année - Gestion d'infrastructure.",
-        role: "Concepteur & Développeur Principal",
-        duration: "5 semaines",
-        image: "https://images.unsplash.com/photo-1591405351990-4726e331f141?auto=format&fit=crop&q=80&w=1000",
-        technologies: ["C#", ".NET Framework 4.8", "WinForms", "SQL Server", "ADO.NET"],
-        tags: ["Desktop", "Infrastructure", "Gestion"],
-        highlights: ["Architecture n-tiers (DAL/BLL/UI)", "Authentification sécurisée (PBKDF2)", "Reporting & Export"],
-        competencies: [
-            { name: "Gérer le patrimoine informatique", description: "Inventaire et suivi du cycle de vie des équipements" },
-            { name: "Répondre aux incidents et aux demandes d'assistance et d'évolution", description: "Suivi des maintenances et pannes" }
-        ],
-        proofs: [],
-        github: "https://github.com/Othniel1704/hardware-manager"
     }
 ];
