@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, User, Code2, Link as LinkIcon, FileText, CheckCircle2, Image as ImageIcon } from 'lucide-react';
 import { projectsData } from '../data/projectsData';
+import { getCompetencyById } from '../data/btsSioCompetencies';
 
 const ProjectDetail = () => {
     const { id } = useParams<{ id: string }>();
@@ -157,19 +158,30 @@ const ProjectDetail = () => {
                                 Compétences Validées
                             </h3>
                             <div className="space-y-4">
-                                {project.competencies.map((comp, idx) => (
-                                    <div key={idx} className="flex items-start">
-                                        <div className="mt-1 mr-3 min-w-[20px]">
-                                            <div className="w-2 h-2 rounded-full bg-cyan-500" />
+                                {project.competencies.map((comp, idx) => {
+                                    const btsComp = getCompetencyById(comp.id);
+                                    if (!btsComp) return null;
+                                    return (
+                                        <div key={idx} className="flex items-start bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 hover:border-cyan-500/30 transition-colors">
+                                            <div className="mt-0.5 mr-4 min-w-[32px]">
+                                                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-400 text-sm font-bold border border-cyan-500/20 shadow-inner">
+                                                    {btsComp.id}
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div className="flex items-center gap-2 mb-1.5">
+                                                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-700 text-gray-300">
+                                                        {btsComp.bloc}
+                                                    </span>
+                                                </div>
+                                                <h4 className="text-white font-medium mb-1">{btsComp.name}</h4>
+                                                {comp.description && (
+                                                    <p className="text-gray-400 text-sm leading-relaxed">{comp.description}</p>
+                                                )}
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h4 className="text-white font-medium text-sm">{comp.name}</h4>
-                                            {comp.description && (
-                                                <p className="text-gray-500 text-xs mt-1">{comp.description}</p>
-                                            )}
-                                        </div>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </div>
                         </div>
 

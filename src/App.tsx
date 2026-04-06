@@ -12,6 +12,7 @@ import AdminLogin from './pages/admin/Login';
 import Dashboard from './pages/admin/Dashboard';
 import ProjectDetail from './pages/ProjectDetail';
 import Legal from './pages/Legal';
+import EpreuveE5 from './pages/EpreuveE5';
 
 
 import Navbar from './components/Navbar';
@@ -31,6 +32,7 @@ function App() {
             <Route path="/projects/:id" element={<ProjectDetail />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/veille" element={<TechWatch />} />
+            <Route path="/epreuve-e5" element={<EpreuveE5 />} />
             <Route path="/mentions-legales" element={<Legal />} />
 
             {/* Admin Routes */}
