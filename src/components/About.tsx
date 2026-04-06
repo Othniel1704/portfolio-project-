@@ -3,15 +3,15 @@ import { Download } from 'lucide-react';
 
 
 const skills = [
-  { name: 'React', level: 40 },
-  { name: 'JavaScript', level: 70 },
-  { name: 'TypeScript', level: 30 },
-  { name: 'Node.js', level: 30 },
-  { name: 'python', level: 60 },
-  { name: 'php', level: 60 },
-  { name: 'mysql/sql', level: 60 },
-  { name: 'HTML/CSS', level: 95 },
-  { name: 'Git', level: 70 }
+  { name: 'React' },
+  { name: 'JavaScript' },
+  { name: 'TypeScript' },
+  { name: 'Node.js' },
+  { name: 'python' },
+  { name: 'php' },
+  { name: 'mysql/sql' },
+  { name: 'HTML/CSS' },
+  { name: 'Git' }
 ];
 
 const About = () => {
@@ -22,8 +22,8 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <p className="text-lg text-gray-600 mb-6">
-              Actuellement étudiant en BTS SIO, je suis passionné par le développement web et les nouvelles technologies.
-              Mon objectif est de créer des applications web modernes et performantes qui répondent aux besoins des utilisateurs.
+              Étudiant en BTS SIO, je me spécialise en développement web avec une approche orientée sur la résolution de problèmes techniques.
+              Je conçois et déploie des applications modernes en optimisant le code, de la structuration des bases de données jusqu'à l'interface utilisateur.
             </p>
             <a
               href="cv.pdf"
@@ -36,20 +36,14 @@ const About = () => {
           </div>
           <div>
             <h3 className="text-xl font-semibold text-gray-900 mb-6">Mes compétences</h3>
-            <div className="space-y-4">
+            <div className="flex flex-wrap gap-3">
               {skills.map((skill) => (
-                <div key={skill.name}>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-gray-700">{skill.name}</span>
-                    <span className="text-gray-500">{skill.level}%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div
-                      className="bg-indigo-600 h-2 rounded-full"
-                      style={{ width: ${skill.level}% }}
-                    />
-                  </div>
-                </div>
+                <span
+                  key={skill.name}
+                  className="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full font-medium"
+                >
+                  {skill.name}
+                </span>
               ))}
             </div>
           </div>

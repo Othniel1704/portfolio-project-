@@ -7,14 +7,14 @@ const experiences = [
     date: '2024 - Present',
     title: 'BTS Services Informatiques aux Organisations (option SLAM)',
     institution: 'Institut F2I, Vincennes',
-    description: '',
+    description: 'Développement d\'applications logicielles et web, bases de données, cybersécurité et administration réseau. Réalisation de projets complets en respectant les bonnes pratiques.',
   },
   {
     type: 'education',
     date: '2020 - 2023',
     title: 'Licence 2 Mathématiques Informatiques',
     institution: 'Université Gustave Eiffel, Champs-sur-Marne',
-    description: '',
+    description: 'Algorithmique, programmation (Python, C), mathématiques appliquées et bases théoriques de l\'informatique.',
   },
   {
     type: 'education',
@@ -22,20 +22,6 @@ const experiences = [
     title: 'Baccalauréat',
     institution: 'Lycée scientifique, Yamoussoukro, Côte d\'Ivoire',
     description: '',
-  },
-  {
-    type: 'work',
-    date: '2021 - 2022',
-    title: 'Aide aux devoirs et babysitting',
-    institution: 'La Courneuve, France',
-    description: 'Soutien scolaire pour enfants en primaire et lycée, organisation d\'activités ludiques et éducatives, mise en place d\'un emploi du temps.',
-  },
-  {
-    type: 'work',
-    date: 'Août 2020',
-    title: 'Professeur particulier (Bénévolat)',
-    institution: 'Abidjan, Côte d\'Ivoire',
-    description: 'Initiation à l\'informatique, enseignement des bases du traitement de texte, installation de logiciels et sensibilisation à la sécurité informatique.',
   },
 ];
 
@@ -50,7 +36,7 @@ const Education = () => {
         return <Code className="w-6 h-6 text-purple-400" />;
       default:
         return <Calendar className="w-6 h-6 text-purple-400" />;
-    } 
+    }
   };
 
   return (

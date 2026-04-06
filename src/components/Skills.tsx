@@ -11,7 +11,7 @@ import {
   Network,
   Lock,
 } from 'lucide-react';
-
+import { motion } from 'framer-motion';
 
 const skills = {
   Frontend: [
@@ -38,26 +38,54 @@ const skills = {
   ],
 };
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } }
+};
+
 const Skills = () => {
   return (
     <section className="py-24 bg-slate-900 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-white mb-16 text-center">
-          Mes <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Compétences</span>
-        </h2>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-white mb-4">
+            Mes <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Compétences</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Découvrez les technologies et outils que je maîtrise, répartis par domaine d'expertise.
+          </p>
+        </div>
 
         {Object.entries(skills).map(([category, skillList], index) => (
-          <div key={index} className="mb-16 last:mb-0">
-            <h3 className="text-2xl font-bold text-gray-200 mb-8 border-l-4 border-cyan-500 pl-4">
+          <motion.div
+            key={index}
+            className="mb-16 last:mb-0"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            <h3 className="text-2xl font-bold text-gray-200 mb-8 border-l-4 border-cyan-500 pl-4 inline-block">
               {category}
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {skillList.map((skill, skillIndex) => (
-                <div
+                <motion.div
                   key={skillIndex}
+                  variants={itemVariants}
+                  whileHover={{ y: -5, scale: 1.02 }}
                   className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300 group"
                 >
                   <div className="flex justify-between items-center mb-4">
@@ -72,15 +100,18 @@ const Skills = () => {
                   <h4 className="text-lg font-semibold text-white mb-3">{skill.name}</h4>
 
                   <div className="w-full bg-slate-700/50 rounded-full h-2 overflow-hidden">
-                    <div
-                      className="bg-gradient-to-r from-cyan-500 to-blue-500 h-2 rounded-full transition-all duration-1000 ease-out"
-                      style={{ width: `${skill.level}%` }}
+                    <motion.div
+                      className="bg-gradient-to-r from-cyan-500 to-blue-500 h-2 rounded-full"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.level}%` }}
+                      transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+                      viewport={{ once: true }}
                     />
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

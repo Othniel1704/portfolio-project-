@@ -4,23 +4,22 @@ import { Download, Atom, FileCode, FileCode2, FileJson2, Server, Database, GitBr
 
 import Education from '../components/Education';
 import Certifications from '../components/Certifications';
-import Testimonials from '../components/Testimonials';
 
 const skills = {
   Frontend: [
-    { name: 'React', level: 40, icon: <Atom size={18} /> },
-    { name: 'JavaScript', level: 70, icon: <FileCode2 size={18} /> },
-    { name: 'TypeScript', level: 30, icon: <FileCode size={18} /> },
-    { name: 'HTML/CSS', level: 95, icon: <FileJson2 size={18} /> },
+    { name: 'React', icon: <Atom size={18} /> },
+    { name: 'JavaScript', icon: <FileCode2 size={18} /> },
+    { name: 'TypeScript', icon: <FileCode size={18} /> },
+    { name: 'HTML/CSS', icon: <FileJson2 size={18} /> },
   ],
   Backend: [
-    { name: 'Node.js', level: 30, icon: <Server size={18} /> },
-    { name: 'Python', level: 60, icon: <FileCode size={18} /> },
-    { name: 'PHP', level: 60, icon: <FileCode size={18} /> },
-    { name: 'MySQL/SQL', level: 60, icon: <Database size={18} /> },
+    { name: 'Node.js', icon: <Server size={18} /> },
+    { name: 'Python', icon: <FileCode size={18} /> },
+    { name: 'PHP', icon: <FileCode size={18} /> },
+    { name: 'MySQL/SQL', icon: <Database size={18} /> },
   ],
-  Autres: [
-    { name: 'Git', level: 70, icon: <GitBranch size={18} /> },
+  "Outils & DevOps": [
+    { name: 'Git', icon: <GitBranch size={18} /> },
   ],
 };
 
@@ -35,29 +34,29 @@ const About = () => {
             <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700/50 hover:border-cyan-500/50 transition-colors">
               <div className="text-lg text-gray-300 mb-8 leading-relaxed space-y-6">
                 <div>
-                  <h3 className="text-xl text-cyan-400 font-semibold mb-2">Ma passion</h3>
-                  <p>Ce que j'aime dans le développement web, c'est créer à partir de rien, juste avec des lignes de code.
-                    J'adore comprendre la logique derrière une fonctionnalité, résoudre des bugs, et trouver des solutions aux problèmes concrets.
+                  <h3 className="text-xl text-cyan-400 font-semibold mb-2">Mon approche technique</h3>
+                  <p>Ce que j'aime dans le développement, c'est concevoir des solutions robustes à des problèmes concrets.
+                    J'ai notamment travaillé sur l'optimisation d'architectures de bases de données, la structuration d'API performantes et la création d'interfaces utilisateur interactives. Chaque bug est pour moi une opportunité d'améliorer la fiabilité du code.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-xl text-cyan-400 font-semibold mb-2">Mon parcours</h3>
                   <p>
-                    J'ai découvert la programmation en licence Math-Info, en développant des fonctions mathématiques pour résoudre des équations ou calculer des périmètres.
-                    Puis, j'ai rapidement évolué vers des mini-jeux en Python et JavaScript — et c'est là que ma passion s'est vraiment révélée.
+                    J'ai découvert la programmation en licence Math-Info, où j'ai conçu des algorithmes d'optimisation en Python et structuré des logiques complexes.
+                    J'ai ensuite mis en pratique ces compétences en créant des applications complètes, ce qui a confirmé ma volonté d'en faire mon métier.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-xl text-cyan-400 font-semibold mb-2">Projet Professionnel</h3>
                   <p>
-                    Aujourd'hui, je suis étudiant en BTS SIO. Mon ambition est de poursuivre en Licence Professionnelle puis en Master ou École d'Ingénieur pour devenir Expert en Développement Logiciel ou Architecte Cloud.
-                    Je vise des postes de Développeur Full Stack ou Backend dans des environnements innovants.
+                    Aujourd'hui étudiant en BTS SIO (option SLAM), je me spécialise en développement Full Stack et Backend.
+                    Mon ambition est de concevoir des infrastructures logicielles fiables et évolutives, en intégrant les meilleures pratiques de modélisation de données et d'architecture.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-xl text-cyan-400 font-semibold mb-2">Mes valeurs</h3>
                   <p>
-                    Je suis curieux, autonome, j'aime le travail bien fait, et je crois fortement à l'esprit d'équipe pour faire avancer les choses.
+                    Je suis curieux, autonome, j'aime le code propre et maintenable, et je crois fortement à l'esprit d'équipe pour construire des projets ambitieux.
                   </p>
                 </div>
               </div>
@@ -88,22 +87,11 @@ const About = () => {
                 {Object.entries(skills).map(([category, skillList]) => (
                   <div key={category}>
                     <h4 className="text-xl text-cyan-400 font-semibold mb-4">{category}</h4>
-                    <div className="space-y-4">
+                    <div className="grid grid-cols-2 lg:grid-cols-2 gap-4">
                       {skillList.map((skill) => (
-                        <div key={skill.name}>
-                          <div className="flex justify-between items-center mb-1">
-                            <span className="text-gray-300 flex items-center gap-2">
-                              {skill.icon}
-                              {skill.name}
-                            </span>
-                            <span className="text-cyan-400">{skill.level}%</span>
-                          </div>
-                          <div className="w-full bg-slate-700/50 rounded-full h-2">
-                            <div
-                              className="bg-gradient-to-r from-cyan-400 to-blue-500 h-2 rounded-full transition-all duration-500"
-                              style={{ width: `${skill.level}%` }}
-                            />
-                          </div>
+                        <div key={skill.name} className="flex items-center gap-3 p-3 bg-slate-700/30 rounded-lg border border-slate-700/50">
+                          <span className="text-cyan-400">{skill.icon}</span>
+                          <span className="text-gray-300 font-medium">{skill.name}</span>
                         </div>
                       ))}
                     </div>
@@ -113,7 +101,6 @@ const About = () => {
             </div>
           </div>
           <Certifications />
-          <Testimonials />
           <Education />
         </div>
       </div>

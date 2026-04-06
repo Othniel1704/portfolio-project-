@@ -17,6 +17,7 @@ const certifications = [
         status: "Obtenu",
         description: "Formation en sécurité informatique : cryptographie, sécurisation des systèmes, et bonnes pratiques",
         icon: <CheckCircle className="w-6 h-6" />,
+        fileUrl: "/certif_ANSSI..pdf"
     },
     {
         title: "Introduction à la Cybersécurité",
@@ -25,6 +26,7 @@ const certifications = [
         status: "Obtenu",
         description: "Fondamentaux de la cybersécurité, protection des données, et sécurité des réseaux",
         icon: <CheckCircle className="w-6 h-6" />,
+        fileUrl: "/Introduction_to_Cybersecurity_certificate_kkonanothniel-gmail-com_19a402e8-8a99-4c74-9794-dd67322d84b4.pdf"
     },
     {
         title: "Licence Mathématiques-Informatique",
@@ -72,6 +74,19 @@ const Certifications = () => {
                                         {cert.date}
                                     </p>
                                     <p className="text-sm text-gray-400 leading-relaxed">{cert.description}</p>
+                                    {cert.fileUrl && (
+                                        <a
+                                            href={cert.fileUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="mt-4 inline-flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300 font-medium transition-colors"
+                                        >
+                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                            Voir le certificat
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                         </div>

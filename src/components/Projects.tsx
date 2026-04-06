@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Github, ArrowRight, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -35,12 +35,20 @@ const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60" />
-        {project.duration && (
-          <div className="absolute top-4 right-4 px-3 py-1 bg-slate-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-full text-xs text-cyan-400 font-semibold flex items-center">
-            <Calendar className="w-3 h-3 mr-1" />
-            {project.duration}
-          </div>
-        )}
+        <div className="absolute top-4 right-4 flex flex-col items-end gap-2">
+          {project.duration && (
+            <div className="px-3 py-1 bg-slate-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-full text-xs text-cyan-400 font-semibold flex items-center shadow-lg">
+              <Calendar className="w-3 h-3 mr-1" />
+              {project.duration}
+            </div>
+          )}
+          {project.projectSize && (
+            <div className={`px-3 py-1 bg-slate-900/80 backdrop-blur-sm border rounded-full text-xs font-semibold flex items-center shadow-lg ${project.projectSize === 'Lourd' ? 'border-purple-500/30 text-purple-400' : 'border-emerald-500/30 text-emerald-400'
+              }`}>
+              {project.projectSize === 'Lourd' ? '💪 Projet Lourd' : '⚡ Projet Léger'}
+            </div>
+          )}
+        </div>
       </Link>
 
       <div className="p-6 flex flex-col flex-grow">
@@ -102,6 +110,20 @@ const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => {
 };
 
 const Projects = () => {
+  const [activeCategory, setActiveCategory] = useState<string>('Tous');
+  const [filter, setFilter] = useState('Tous');
+
+  const categories = ['Tous', 'Stage', 'Projet Personnel', 'Projet Académique (PPE)'];
+
+  // Extract all unique tags
+  const allTags = ['Tous', ...Array.from(new Set(projectsData.flatMap(project => project.tags)))];
+
+  const filteredProjects = projectsData.filter(project => {
+    const matchesCategory = activeCategory === 'Tous' || project.category === activeCategory;
+    const matchesTag = filter === 'Tous' || project.tags.includes(filter);
+    return matchesCategory && matchesTag;
+  });
+
   return (
     <section id="projects" className="py-24 bg-slate-950 relative overflow-hidden">
       {/* Background decorations */}
@@ -109,26 +131,90 @@ const Projects = () => {
       <div className="absolute bottom-20 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-white mb-4">
             Mes <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Projets</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-400 max-w-2xl mx-auto mb-8">
             Une sélection de mes réalisations techniques et créatives, démontrant mes compétences en développement.
           </p>
+
+          {/* Filters - Tags */}
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {allTags.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => setFilter(tag)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  filter === tag
+                    ? 'bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/30'
+                    : 'bg-slate-800 text-gray-400 border border-slate-700 hover:bg-slate-700 hover:text-white'
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+
+          {/* Filters - Categories */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${activeCategory === category
+                  ? 'bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/25'
+                  : 'bg-slate-800/50 text-gray-400 border border-slate-700/50 hover:border-cyan-500/50 hover:text-cyan-400'
+                  }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {projectsData.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </motion.div>
+        {activeCategory === 'Tous' && filter === 'Tous' ? (
+          <div className="space-y-16">
+            {categories.filter(c => c !== 'Tous').map(category => {
+              const categoryProjects = projectsData.filter(p => p.category === category);
+              if (categoryProjects.length === 0) return null;
+
+              return (
+                <div key={category}>
+                  <h3 className="text-2xl font-bold text-white mb-6 border-b border-slate-700/50 pb-2">
+                    {category === 'Stage' && '💼 '}
+                    {category === 'Projet Académique (PPE)' && '🎓 '}
+                    {category === 'Projet Personnel' && '🚀 '}
+                    {category}
+                  </h3>
+                  <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                  >
+                    {categoryProjects.map((project) => (
+                      <ProjectCard key={project.id} project={project} />
+                    ))}
+                  </motion.div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {filteredProjects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </motion.div>
+        )}
       </div>
     </section>
   );

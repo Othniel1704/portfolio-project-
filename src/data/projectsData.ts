@@ -1,5 +1,3 @@
-
-
 export interface ProjectProof {
     title: string;
     type: 'image' | 'link' | 'pdf' | 'code';
@@ -8,7 +6,7 @@ export interface ProjectProof {
 }
 
 export interface ProjectCompetency {
-    name: string;
+    id: string; // The ID of the BTS SIO competency (e.g. 'B1.1')
     description?: string;
 }
 
@@ -23,273 +21,362 @@ export interface Project {
     teamSize?: number;
     image: string;
     technologies: string[];
-    competencies: ProjectCompetency[]; // Compétences du Bloc 1 validées
+    category: 'Stage' | 'Projet Personnel' | 'Projet Académique (PPE)' | 'Autre';
+    projectSize?: 'Lourd' | 'Léger';
+    competencies: ProjectCompetency[]; // Compétences du Bloc 1, 2 ou 3 validées
     proofs: ProjectProof[];
     github?: string;
     demo?: string;
     tags: string[];
     highlights: string[];
+    showInE5?: boolean;
+    e5Order?: number;
 }
 
 export const projectsData: Project[] = [
+    // --- OFFICIALLY MAPPED E5 PROJECTS ---
+
     {
-        id: "nb-auto-ecole",
-        title: "NB Auto École de la Mairie",
-        shortDescription: "Site vitrine moderne pour une auto-école avec système de contact et présentation des formations.",
-        fullDescription: "Réalisation d'un site web professionnel pour l'auto-école NB Auto École de la Mairie située à Vigneux-sur-Seine. Le projet consistait à moderniser l'image de l'entreprise, faciliter la prise de contact pour les élèves et présenter clairement les différentes offres de formation (Permis B, AAC, Conduite Supervisée).",
-        context: "Stage de première année (Mai-Juin 2024). Demande de la gérante pour remplacer une page Google Business obsolète.",
-        role: "Développeur Full Stack (Stagiaire)",
-        duration: "5 semaines",
-        image: "images/nbautoecoledelamairie_homepage_1766077079814.png",
-        technologies: ["React", "TypeScript", "Tailwind CSS", "EmailJS"],
-        tags: ["Stage", "Web", "Responsive"],
-        highlights: ["Site en production", "SEO optimisé", "Design responsive"],
+        id: "dhcp-dns",
+        title: "Mise en place de services réseaux d'infrastructure (DHCP et DNS)",
+        shortDescription: "Configuration et déploiement de services réseaux de base sur une architecture locale.",
+        fullDescription: "Installation, configuration et test de serveurs DHCP et DNS pour attribuer automatiquement des adresses IP et résoudre les noms de domaine dans un réseau local professionnel simulé.",
+        context: "Projet scolaire (2024-2025)",
+        role: "Administrateur Réseau",
+        duration: "1 semaine",
+        image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?w=800&h=600&fit=crop",
+        technologies: ["Windows Server / Linux", "DHCP", "DNS", "Réseau Local"],
+        category: 'Projet Académique (PPE)',
+        tags: ["Infrastructure", "Réseau"],
+        highlights: ["Adressage dynamique", "Résolution de nom"],
         competencies: [
-            { name: "Gérer le patrimoine informatique", description: "Mise en place de sauvegardes et versioning" },
-            { name: "Développer la présence en ligne de l'organisation", description: "Création du site et référencement local" },
-            { name: "Travailler en mode projet", description: "Respect du cahier des charges et délais" }
+            { id: "B1.1", description: "Recensement et exploitation du réseau (DHCP/DNS)." },
+            { id: "B1.5", description: "Mise à disposition du service de connectivité réseau pour les utilisateurs." }
         ],
-        proofs: [
-            { title: "Site en ligne", type: "link", url: "https://nbautoecoledelamairie.fr" },
-            { title: "Cahier des charges", type: "pdf", url: "/documents/cahier_des_charges_autoecole.pdf" },
-            { title: "Maquettes Figma", type: "image", url: "/images/proofs/maquette_autoecole.png" }
-        ],
-        github: "https://github.com/Othniel1704/nb-auto-ecole", // Placeholder if private
-        demo: "https://nbautoecoledelamairie.fr"
+        proofs: [],
+        showInE5: true,
+        e5Order: 1
     },
     {
-        id: "game-connect",
-        title: "Game Connect",
-        shortDescription: "Plateforme sociale pour gamers permettant de former des équipes et organiser des tournois.",
-        fullDescription: "Application web de mise en relation de joueurs de jeux vidéo. Les utilisateurs peuvent créer des profils, rechercher des coéquipiers selon des critères (niveau, jeu, disponibilité), créer des équipes et organiser des matchs amicaux ou tournois.",
-        context: "Projet scolaire (PPE) - 2ème année. Travail en équipe de 3 étudiants.",
-        role: "Développeur Backend & Base de données",
-        duration: "4 mois",
-        image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=600&fit=crop", // Placeholder
-        technologies: ["PHP", "Symfony", "MySQL", "Bootstrap"],
-        tags: ["PPE", "Backend", "Full Stack"],
-        highlights: ["Architecture MVC", "Système d'authentification", "Gestion de tournois"],
+        id: "labtainer",
+        title: "Audit de sécurité applicative : Injection SQL (TP Labtainer)",
+        shortDescription: "Exercices de cybersécurité et analyse de vulnérabilités.",
+        fullDescription: "Réalisation d'audits de sécurité sur des environnements virtuels (Labtainers) pour identifier et exploiter des failles d'injection SQL afin de comprendre les mécanismes d'attaque et proposer des correctifs.",
+        context: "Ateliers de Cybersécurité (2024-2025)",
+        role: "Testeur de pénétration / Analyste Sécurité",
+        duration: "Ponctuel",
+        image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?w=800&h=600&fit=crop",
+        technologies: ["Linux", "SQL", "Cybersec Tools"],
+        category: 'Projet Académique (PPE)',
+        tags: ["Sécurité", "Audit", "SQL"],
+        highlights: ["Identification de vulnérabilités applicatives", "Rapport d'audit"],
         competencies: [
-            { name: "Concevoir et développer une solution applicative", description: "Architecture MVC, diagrammes UML" },
-            { name: "Gérer les données", description: "Schéma relationnel, requêtes SQL complexes" }
+            { id: "B1.1", description: "Exploitation d'un environnement vulnérable à auditer." },
+            { id: "B1.2", description: "Traitement d'incidents de sécurité simulés." },
+            { id: "B1.5", description: "Accompagnement sur les bonnes pratiques de sécurité (remédiation)." },
+            { id: "B3.3", description: "Détection des failles applicatives (SQLi)." }
         ],
         proofs: [
-            { title: "Diagramme de la Base de Données (MCD/MPD)", type: "image", url: "/images/proofs/gameconnect_mcd.png" },
-            { title: "Captures du code (Contrôleurs)", type: "code", url: "/images/proofs/gameconnect_code.png" },
-            { title: "Dépôt GitHub", type: "link", url: "https://github.com/Othniel1704/game-connect" }
+            { title: "Capture Wireshark (Analyse)", type: "image", url: "/images/proofs/wireshark_capture.png" }
         ],
-        github: "https://github.com/Othniel1704/game-connect"
+        showInE5: true,
+        e5Order: 2
+    },
+    {
+        id: "quiz-interactive",
+        title: "Développement d'une plateforme de QCM interactif avec statistiques",
+        shortDescription: "Application web de quiz dynamique intégrant un suivi des scores.",
+        fullDescription: "Plateforme de quiz interactive pour évaluer les connaissances des utilisateurs. Intègre un calcul de score temps réel, un tableau de bord statistique et une interface dynamique.",
+        context: "Projet scolaire (2024-2025)",
+        role: "Développeur Front-End",
+        duration: "1 semaine",
+        image: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&q=80&w=1000",
+        technologies: ["JavaScript", "HTML5", "CSS3"],
+        category: 'Projet Académique (PPE)',
+        tags: ["Web", "Interactive"],
+        highlights: ["Statistiques temps réel", "Interface réactive"],
+        competencies: [
+            { id: "B1.5", description: "Déploiement et mise à disposition de l'application de QCM." },
+            { id: "B2.1", description: "Conception du front-end et logique métier en JavaScript." }
+        ],
+        proofs: [],
+        github: "https://github.com/Othniel1704/quiz-app",
+        showInE5: true,
+        e5Order: 3
     },
     {
         id: "trac",
-        title: "TRAC (Ticket Management System)",
-        shortDescription: "Système de gestion de tickets d'incidents pour le support informatique.",
-        fullDescription: "Développement et maintenance d'un outil de ticketing utilisé par le service support. Le projet incluait la correction de bugs sur l'assignation des tickets et l'ajout d'une fonctionnalité de statistiques pour les administrateurs.",
-        context: "Projet en cours de formation (Atelier professionnel). Simulation d'un environnement de maintenance corrective et évolutive.",
-        role: "Développeur maintenance",
+        title: "Gestion des demandes et incidents avec l'outil TRAC (TP BlueTeam)",
+        shortDescription: "Utilisation et personnalisation d'un système de gestion de tickets d'incidents.",
+        fullDescription: "Mise en situation de support informatique de niveau 1 et 2 (BlueTeam). Utilisation de TRAC pour créer, assigner, suivre et résoudre des tickets d'incidents, tout en respectant les SLAs du service.",
+        context: "Atelier professionnel (2024-2025)",
+        role: "Technicien Support & Maintenance",
         duration: "2 semaines",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop", // Placeholder
-        technologies: ["Java", "JavaFX", "MySQL"],
-        tags: ["Maintenance", "Desktop", "Java"],
-        highlights: ["Correction de bugs critiques", "Ajout de fonctionnalités", "Refactoring"],
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+        technologies: ["TRAC", "ITSM", "Ticketing"],
+        category: 'Projet Académique (PPE)',
+        tags: ["Maintenance", "Support"],
+        highlights: ["Gestion du cycle de vie des incidents", "Communication utilisateur"],
         competencies: [
-            { name: "Maintenir et faire évoluer une solution applicative", description: "Correction d'anomalies, ajouts fonctionnels" },
-            { name: "Gérer les incidents", description: "Suivi et résolution de tickets" }
+            { id: "B1.2", description: "Collecte, suivi et résolution des demandes d'assistance." },
+            { id: "B1.4", description: "Analyse des objectifs de résolution et indicateurs de suivi (SLA)." },
+            { id: "B2.2", description: "Correction d'anomalies logiciels." }
         ],
         proofs: [
             { title: "Capture Ticket Avant Correction", type: "image", url: "/images/proofs/trac_bug_before.png" },
             { title: "Capture Ticket Après Correction", type: "image", url: "/images/proofs/trac_bug_after.png" },
             { title: "Rapport de maintenance", type: "pdf", url: "/documents/rapport_maintenance_trac.pdf" }
         ],
-        github: "https://github.com/Othniel1704/trac-maintenance"
-    },
-    {
-        id: "labtainer",
-        title: "Labtainer - Sécurité Réseau",
-        shortDescription: "Exercices de cybersécurité et administration réseau sous Linux.",
-        fullDescription: "Réalisation de laboratoires virtuels (Labtainers) pour l'apprentissage de la cybersécurité. Configuration de pare-feu, analyse de trames réseaux, sécurisation de services SSH/HTTP.",
-        context: "Ateliers de Cybersécurité (2ème année).",
-        role: "Administrateur Système & Réseau",
-        duration: "Ponctuel",
-        image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?w=800&h=600&fit=crop", // Placeholder
-        technologies: ["Linux", "Bash", "Wireshark", "Iptables"],
-        tags: ["Sécurité", "Réseau", "Linux"],
-        highlights: ["Analyse de trafic", "Hardening serveur", "Scripting Bash"],
-        competencies: [
-            { name: "Protéger les services et les données", description: "Configuration firewall, chiffrement" },
-            { name: "Administrer des systèmes", description: "Gestion utilisateurs, droits, services" }
-        ],
-        proofs: [
-            { title: "Compte-rendu TP Firewall", type: "pdf", url: "/documents/tp_firewall.pdf" },
-            { title: "Capture Wireshark (Analyse)", type: "image", url: "/images/proofs/wireshark_capture.png" }
-        ]
+        github: "https://github.com/Othniel1704/trac-maintenance",
+        showInE5: true,
+        e5Order: 4
     },
     {
         id: "portfolio",
-        title: "Portfolio Personnel",
-        shortDescription: "Mon portfolio professionnel présentant mes compétences et réalisations.",
-        fullDescription: "Conception et développement de mon portfolio personnel pour l'épreuve E4 du BTS SIO. L'objectif était de créer une identité numérique forte, de présenter mes projets de manière interactive et de démontrer mes compétences techniques en développement web moderne.",
-        context: "Projet personnel & Examen E4 (2024-2025).",
-        role: "Concepteur & Développeur",
+        title: "Portfolio Professionnel et Veille Technologique",
+        shortDescription: "Plateforme web personnelle incluant CV, projets et agrégation de veille.",
+        fullDescription: "Conception et développement d'un portfolio servant d'identité numérique et de plateforme de veille technologique. Reflète mes compétences professionnelles et ma démarche continue d'apprentissage (2024-2026).",
+        context: "Examen E4 et E5 (2024-2026)",
+        role: "Développeur Full Stack",
         duration: "Continu",
         image: "images/portfolio.png",
-        technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-        tags: ["Personnel", "Web", "Design"],
-        highlights: ["Design System personnalisé", "Animations fluides", "Architecture composable"],
+        technologies: ["React", "TypeScript", "Tailwind CSS"],
+        category: 'Projet Personnel',
+        projectSize: 'Lourd',
+        tags: ["Personnel", "Veille", "Identité Numérique"],
+        highlights: ["Outils de veille intégrés", "Déploiement CI/CD"],
         competencies: [
-            { name: "Gérer son identité professionnelle", description: "CV, présence en ligne, portfolio" },
-            { name: "Développer une interface utilisateur", description: "UX/UI, Responsive Design" }
+            { id: "B1.1", description: "Gestion du patrimoine avec versioning (GitHub) du code source." },
+            { id: "B1.3", description: "Développement d'une présence en ligne professionnelle." },
+            { id: "B1.6", description: "Gestion de l'identité professionnelle et des outils de veille." },
+            { id: "B2.1", description: "Développement UI avec React." }
         ],
         proofs: [
-            { title: "Code source", type: "link", url: "https://github.com/Othniel1704/portfolio-project-" },
-            { title: "Lighthouse Score", type: "image", url: "/images/proofs/lighthouse_score.png" }
+            { title: "Code source", type: "link", url: "https://github.com/Othniel1704/portfolio-project-" }
         ],
         github: "https://github.com/Othniel1704/portfolio-project-",
-        demo: "https://othniel-portfolio.netlify.app"
-    },{
-    id: "lebonbazaar",
-    title: "LebonBazaar",
-    shortDescription: "Plateforme de petites annonces avec gestion d'utilisateurs et messagerie interne.",
-    fullDescription: "Conception et développement d'une application de type 'LeBonCoin' permettant le dépôt d'annonces, la gestion de favoris et la mise en relation entre vendeurs et acheteurs. Le projet inclut une base de données relationnelle complexe avec gestion des catégories, des images multiples et un historique de visites.",
-    context: "Projet de développement web focalisé sur la gestion de bases de données relationnelles et le CRUD complet.",
-    role: "Développeur Full Stack",
-    duration: "4 semaines",
-    image: "images/lebonbazaar.png",
-    technologies: ["PHP", "MySQL", "CSS", "MariaDB"],
-    tags: ["E-commerce", "Base de données", "Full Stack"],
-    highlights: [
-        "Schéma de base de données relationnelle robuste (FK, contraintes)",
-        "Système de messagerie entre utilisateurs",
-        "Gestion dynamique des annonces et des catégories",
-        "Espace administration avec statistiques de visites"
-    ],
-    competencies: [
-        { 
-            name: "Concevoir et mettre en place une base de données", 
-            description: "Modélisation du schéma SQL et implémentation des relations (Users, Annonces, Messages)." 
-        },
-        { 
-            name: "Développer une interface utilisateur", 
-            description: "Réalisation de mises en page responsives pour le catalogue d'annonces et la messagerie." 
-        },
-        { 
-            name: "Gérer un back-end dynamique", 
-            description: "Traitement des formulaires de dépôt et gestion des sessions utilisateurs." 
-        }
-    ],
-    proofs: [
-        { title: "Dépôt GitHub", type: "link", url: "https://github.com/Othniel1704/lebonbazaar" },
-        { title: "Schéma SQL", type: "file", url: "leboncoindb.sql" }
-    ],
-    github: "https://github.com/Othniel1704/lebonbazaar"
-},
+        demo: "https://othniel-portfolio.netlify.app",
+        showInE5: true,
+        e5Order: 5
+    },
+    {
+        id: "game-connect",
+        title: "Développement du réseau social \"Game Connect\" avec intégration évolutive d'un Chat",
+        shortDescription: "Plateforme sociale pour gamers permettant la mise en relation et incluant un chat.",
+        fullDescription: "Application web de mise en relation de joueurs (profils, équipes, tournois). Intégration d'un module de chat pour faciliter la communication directe entre membres de l'équipe.",
+        context: "Projet de groupe (2024-2025)",
+        role: "Développeur Backend & Base de données",
+        duration: "4 mois",
+        image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=600&fit=crop",
+        technologies: ["PHP", "Symfony", "MySQL"],
+        category: 'Projet Académique (PPE)',
+        tags: ["Social", "Full Stack"],
+        highlights: ["Architecture MVC", "Système d'authentification", "Chat intégré"],
+        competencies: [
+            { id: "B1.3", description: "Participation au framework web pour valoriser les interactions sociales." },
+            { id: "B1.4", description: "Travail coopératif en groupe, planification des activités via un backlog." },
+            { id: "B1.5", description: "Intégration d'un module de chat et déploiement." },
+            { id: "B2.1", description: "Architecture MVC via Symfony." },
+            { id: "B2.3", description: "Requêtes complexes et Doctrine." }
+        ],
+        proofs: [
+            { title: "Diagramme MCD", type: "image", url: "/images/proofs/gameconnect_mcd.png" },
+            { title: "Dépôt GitHub", type: "link", url: "https://github.com/Othniel1704/game-connect" }
+        ],
+        github: "https://github.com/Othniel1704/game-connect",
+        showInE5: true,
+        e5Order: 6
+    },
     {
         id: "chat-app",
-        title: "Chat App Temps Réel",
-        shortDescription: "Application de messagerie instantanée avec salons et messages privés.",
-        fullDescription: "Développement d'une application de chat permettant aux utilisateurs de discuter en temps réel dans des salons publics ou en privé. Utilisation d'AJAX pour le rafraîchissement des messages sans rechargement de page (ou WebSockets selon l'implémentation choisie).",
-        context: "Projet personnel d'approfondissement JS/PHP.",
-        role: "Développeur Full Stack",
+        title: "Module de Chat type Forum",
+        shortDescription: "Application de discussion thématique en ligne.",
+        fullDescription: "Création d'un chat organisé en salles de type forum pour centraliser les échanges. Les utilisateurs peuvent poster des messages asynchrones et lire l'historique des canaux.",
+        context: "Projet scolaire (2024-2025)",
+        role: "Développeur Front/Back",
         duration: "3 semaines",
         image: "images/chat.png",
         technologies: ["PHP", "MySQL", "JavaScript", "AJAX"],
-        tags: ["Personnel", "Full Stack", "Temps Réel"],
-        highlights: ["Authentification sécurisée", "Base de données optimisée", "Interface mobile-first"],
+        category: 'Projet Académique (PPE)',
+        tags: ["Messagerie", "Temps Réel"],
+        highlights: ["Actualisation AJAX", "Gestion de l'historique"],
         competencies: [
-            { name: "Développer une solution applicative", description: "Logique client/serveur" },
-            { name: "Gérer les données", description: "Stockage des messages et utilisateurs" }
+            { id: "B1.5", description: "Tests d'intégration et déploiement du service de messagerie auprès des camarades." },
+            { id: "B2.1", description: "Logique applicative client/serveur." }
         ],
         proofs: [
             { title: "Dépôt GitHub", type: "link", url: "https://github.com/Othniel1704/chat" }
         ],
-        github: "https://github.com/Othniel1704/chat"
+        github: "https://github.com/Othniel1704/chat",
+        showInE5: true,
+        e5Order: 7
     },
+    {
+        id: "lebonbazaar",
+        title: "Application web de petites annonces (type \"leboncoin\")",
+        shortDescription: "Plateforme complète C2C (Client-to-Client) pour l'échange de biens.",
+        fullDescription: "Développement d'une application de petites annonces avec dépôt d'annonces multicatégories, gestion des utilisateurs, recherche avancée et tableau de bord administration sécurisé.",
+        context: "Projet personnel formatif (2024-2025)",
+        role: "Développeur Full Stack",
+        duration: "4 semaines",
+        image: "images/lebonbazaar.png",
+        technologies: ["PHP", "MySQL", "CSS", "MariaDB"],
+        category: 'Projet Académique (PPE)',
+        projectSize: 'Léger',
+        tags: ["E-commerce", "Base de données"],
+        highlights: ["Relationnel complexe", "Interface vendeur/acheteur"],
+        competencies: [
+            { id: "B1.1", description: "Sécurisation et définition des droits d'accès administrateur/visiteur." },
+            { id: "B1.4", description: "Analyse des objectifs fonctionnels et conception des maquettes en amont." },
+            { id: "B2.3", description: "Modélisation des relations (Users, Annonces)." }
+        ],
+        proofs: [
+            { title: "Dépôt GitHub", type: "link", url: "https://github.com/Othniel1704/lebonbazaar" }
+        ],
+        github: "https://github.com/Othniel1704/lebonbazaar",
+        showInE5: true,
+        e5Order: 8
+    },
+    {
+        id: "hardware-management",
+        title: "Application WinForms Gestion de Parc Matériel Informatique",
+        shortDescription: "Logiciel client lourd pour l'inventaire physique et logiciel.",
+        fullDescription: "Application Desktop sécurisée en C# pour référencer le parc informatique d'une entreprise fictive, suivre les attributions de postes et tracer l'historique des pannes ainsi que l'usure.",
+        context: "Projet de gestion d'infrastructure (2025-2026)",
+        role: "Développeur .NET",
+        duration: "5 semaines",
+        image: "https://images.unsplash.com/photo-1591405351990-4726e331f141?auto=format&fit=crop&q=80&w=1000",
+        technologies: ["C#", ".NET", "WinForms", "SQL Server"],
+        category: 'Projet Académique (PPE)',
+        projectSize: 'Lourd',
+        tags: ["Gestion de parc", "Desktop .NET"],
+        highlights: ["Génération de rapports d'inventaire", "Authentification sécurisée"],
+        competencies: [
+            { id: "B1.1", description: "Centralisation de l'inventaire et suivi du cycle de vie des équipements." },
+            { id: "B1.2", description: "Processus de signalement matériel des erreurs de maintenance." },
+            { id: "B1.4", description: "Identification du cahier des charges et évaluation de l'avancement." },
+            { id: "B1.5", description: "Déploiement de l'exécutable client sur les postes techniciens." },
+            { id: "B2.1", description: "Architecture n-tiers." }
+        ],
+        proofs: [],
+        github: "https://github.com/Othniel1704/hardware-manager",
+        showInE5: true,
+        e5Order: 9
+    },
+    {
+        id: "vlan-config",
+        title: "Configuration de VLAN POUR separer les réseaux",
+        shortDescription: "Segmentation logique d'architectures réseaux d'entreprise.",
+        fullDescription: "Paramétrage de commutateurs Cisco pour isoler les flux réseaux (ex: Direction, Compta, Invités) via des Virtual LAN. Sécurisation du réseau niveau 2.",
+        context: "Atelier Réseau (2024-2025)",
+        role: "Administrateur Systèmes et Réseaux",
+        duration: "1 semaine",
+        image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?w=800&h=600&fit=crop",
+        technologies: ["Cisco IOS", "Packet Tracer", "VLAN", "Ethernet"],
+        category: 'Projet Académique (PPE)',
+        tags: ["Réseau", "Infrastucture"],
+        highlights: ["Segmentation V-LAN", "Isolation du trafic broadcast"],
+        competencies: [
+            { id: "B1.1", description: "Application des règles de séparation logique sur le matériel." },
+            { id: "B1.5", description: "Déploiement d'un service de connectivité étanche." }
+        ],
+        proofs: [],
+        showInE5: true,
+        e5Order: 10
+    },
+    {
+        id: "stage-1-auto-ecole",
+        title: "Stage 1ère année : Conception et déploiement d'un site Web pour une auto-école",
+        shortDescription: "Réalisation d'un site vitrine complet remplaçant une page Google d'entreprise.",
+        fullDescription: "Recueil du besoin client auprès de l'auto-école, rédaction du cahier des charges, maquettage Figma et développement d'un site sur-mesure. Le site a été hébergé et est utilisé quotidiennement pour attirer des prospects.",
+        context: "Stage en milieu professionnel (juin-juillet 2025)",
+        role: "Développeur Full Stack",
+        duration: "5 semaines",
+        image: "images/nbautoecoledelamairie_homepage_1766077079814.png",
+        technologies: ["React", "HTML/CSS", "Hébergement web"],
+        category: 'Stage',
+        tags: ["Stage", "Web Corporate"],
+        highlights: ["Passage en production", "Relation client directe"],
+        competencies: [
+            { id: "B1.1", description: "Mise en ligne, gestion de l'hébergement et du nom de domaine." },
+            { id: "B1.3", description: "Optimisation de la présence en ligne locale (SEO) et e-boutique." },
+            { id: "B1.4", description: "Direction du projet en autonomie de A à Z (Cahier des charges)." },
+            { id: "B1.5", description: "Accompagnement de la cliente pour la gestion des demandes de contact." },
+            { id: "B2.1", description: "Développement frontend." }
+        ],
+        proofs: [
+            { title: "Cahier des charges", type: "pdf", url: "/documents/cahier_des_charges_autoecole.pdf" },
+            { title: "Site en ligne", type: "link", url: "https://nbautoecoledelamairie.fr" }
+        ],
+        github: "https://github.com/Othniel1704/nb-auto-ecole",
+        demo: "https://nbautoecoledelamairie.fr",
+        showInE5: true,
+        e5Order: 11
+    },
+    {
+        id: "stage-2-prototype",
+        title: "Stage 2ème année : Analyse et prototypage d'une application Web (Projet interrompu)",
+        shortDescription: "Travaux d'avant-vente et d'architecture pour une plateforme web complexe.",
+        fullDescription: "Participation à la phase d'étude d'un nouveau produit numérique. Création de spécifications techniques, de maquettes d'interface utilisateur et de POCs (Proof Of Concept) avant interruption décisionnelle du projet.",
+        context: "Stage en milieu professionnel (décembre 2025-janvier 2026)",
+        role: "Assistant Chef de Projet / Développeur",
+        duration: "6 semaines",
+        image: "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=800&h=600&fit=crop",
+        technologies: ["Figma", "UML", "Prototypage Rapide"],
+        category: 'Stage',
+        tags: ["Stage", "Management", "Design"],
+        highlights: ["Rédaction de spécifications", "Modélisation UML"],
+        competencies: [
+            { id: "B1.4", description: "Planification d'un projet, analyse de faisabilité et arrêt prématuré (gestion des risques)." },
+            { id: "B1.6", description: "Adaptation professionnelle face à un aléa (projet interrompu) et prise de recul." }
+        ],
+        proofs: [
+            { title: "Maquettes & Spécifications (Interne)", type: "pdf", url: "#" }
+        ],
+        showInE5: true,
+        e5Order: 12
+    },
+
+    // --- NON-E5 PROJECTS (Kept for normal projects route, hidden from E5 table) ---
+
     {
         id: "chess-game",
         title: "Jeu d'Expert - Échecs",
         shortDescription: "Jeu d'échecs complet développé en Java avec interface graphique.",
-        fullDescription: "Implémentation d'un jeu d'échecs complet respectant les règles FIDE. Gestion des déplacements, promotion, roque, et fin de partie (échec et mat, pat). Interface graphique développée en JavaFX.",
+        fullDescription: "Implémentation d'un jeu d'échecs complet respectant les règles FIDE. Interface graphique développée en JavaFX.",
         context: "Projet personnel d'approfondissement Java.",
         role: "Développeur",
         duration: "2 mois",
         image: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=1000",
         technologies: ["Java", "JavaFX", "POO"],
+        category: 'Projet Personnel',
         tags: ["Desktop", "Jeu", "Algorithme"],
-        highlights: ["Intelligence Artificielle (Minimax)", "Sauvegarde de partie", "Interface responsive"],
+        highlights: ["Intelligence Artificielle (Minimax)", "Sauvegarde de partie"],
         competencies: [
-            { name: "Concevoir et développer une solution applicative", description: "Programmation Orientée Objet avancée" }
+            { id: "B2.1", description: "Programmation Orientée Objet avancée" }
         ],
         proofs: [],
-        github: "https://github.com/Othniel1704/chess-game"
-    },
-    {
-        id: "quiz-interactive",
-        title: "QCM Interactif",
-        shortDescription: "Application web de quiz dynamique avec calcul de score.",
-        fullDescription: "Plateforme de quiz permettant de tester ses connaissances sur divers sujets (Développement Web, Culture Générale). Système de feedback immédiat, chronomètre par question et classement des meilleurs scores.",
-        context: "Projet de validation des acquis JS.",
-        role: "Développeur Front-End",
-        duration: "1 semaine",
-        image: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&q=80&w=1000",
-        technologies: ["JavaScript", "HTML5", "CSS3"],
-        tags: ["Web", "Interactive", "Frontend"],
-        highlights: ["Manipulation du DOM", "Stockage local (LocalStorage)", "Animations CSS"],
-        competencies: [],
-        proofs: [],
-        github: "https://github.com/Othniel1704/quiz-app"
-    },
-    {
-        id: "scientific-calculator",
-        title: "Calculatrice Scientifique",
-        shortDescription: "Outil web de calcul mathématique avancé.",
-        fullDescription: "Calculatrice web responsive intégrant les opérations standard et scientifiques (trigonométrie, logarithmes). Gestion de l'historique des calculs et support du clavier physique.",
-        context: "Exercice d'algorithmie et interface.",
-        role: "Développeur",
-        duration: "3 jours",
-        image: "https://images.unsplash.com/photo-1587145820266-a5951ee6f620?auto=format&fit=crop&q=80&w=1000",
-        technologies: ["JavaScript", "CSS Grid", "HTML"],
-        tags: ["Outil", "Web", "Math"],
-        highlights: ["Design Neumorphism", "Gestion des événements clavier", "Zéro framework"],
-        competencies: [],
-        proofs: [],
-        github: "https://github.com/Othniel1704/calculator"
+        github: "https://github.com/Othniel1704/chess-game",
+        showInE5: false
     },
     {
         id: "winforms-auth",
         title: "Application WinForms - Authentification",
         shortDescription: "Système complet d'inscription et authentification sécurisé en C#.",
-        fullDescription: "Application de gestion utilisateurs développée en C# WinForms. Elle intègre un système d'inscription avec validation client (regex, complexité mdp) et une connexion sécurisée via hachage SHA-256. La base de données SQL Server stocke les informations utilisateurs. Une analyse critique de la sécurité (absence de sel, connexion synchrone) a été réalisée pour identifier les axes d'amélioration.",
+        fullDescription: "Application de gestion utilisateurs développée en C# WinForms. Intègre validation client et connexion sécurisée.",
         context: "Projet scolaire - Développement d'application lourde.",
         role: "Développeur .NET",
         duration: "2 semaines",
         image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1000",
         technologies: ["C#", "WinForms", ".NET", "SQL Server"],
+        category: 'Projet Académique (PPE)',
         tags: ["Desktop", "Security", "C#"],
-        highlights: ["Validation Regex", "Architecture 2-Tiers", "Hachage SHA-256", "Connexion SQL Server"],
+        highlights: ["Validation Regex", "Hachage SHA-256"],
         competencies: [
-            { name: "Développer une solution applicative", description: "Application riche avec gestion d'événements" },
-            { name: "Gérer les données", description: "Interaction avec SQL Server via ADO.NET" }
+            { id: "B2.1", description: "Application riche avec gestion d'événements" }
         ],
         proofs: [],
-        github: "https://github.com/Othniel1704/winforms-auth"
-    },
-    {
-        id: "hardware-management",
-        title: "Gestion de Parc Matériel Informatique",
-        shortDescription: "Application desktop pour l'inventaire et la maintenance de matériel informatique.",
-        fullDescription: "Application lourde développée en C# .NET 4.8 pour la gestion centralisée des équipements informatiques. Fonctionnalités clés : CRUD complet des matériels (PC, serveurs, périphériques), gestion des interventions de maintenance, et suivi des cycles de vie (MTBF). L'accès est sécurisé par une authentification forte (hachage PBKDF2) avec gestion des rôles (Admin/Technicien). L'interface WinForms utilise des DataGridView avancés pour le tri et le filtrage, et permet l'export des inventaires en CSV/Excel.",
-        context: "Projet de fin d'année - Gestion d'infrastructure.",
-        role: "Concepteur & Développeur Principal",
-        duration: "5 semaines",
-        image: "https://images.unsplash.com/photo-1591405351990-4726e331f141?auto=format&fit=crop&q=80&w=1000",
-        technologies: ["C#", ".NET Framework 4.8", "WinForms", "SQL Server", "ADO.NET"],
-        tags: ["Desktop", "Infrastructure", "Gestion"],
-        highlights: ["Architecture n-tiers (DAL/BLL/UI)", "Authentification sécurisée (PBKDF2)", "Reporting & Export"],
-        competencies: [
-            { name: "Gérer le patrimoine informatique", description: "Inventaire et suivi du cycle de vie des équipements" },
-            { name: "Répondre aux incidents et aux demandes d'assistance et d'évolution", description: "Suivi des maintenances et pannes" }
-        ],
-        proofs: [],
-        github: "https://github.com/Othniel1704/hardware-manager"
+        github: "https://github.com/Othniel1704/winforms-auth",
+        showInE5: false
     }
 ];
