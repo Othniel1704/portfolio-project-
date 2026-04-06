@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Github, ArrowRight, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -102,6 +102,15 @@ const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => {
 };
 
 const Projects = () => {
+  const [filter, setFilter] = useState('Tous');
+
+  // Extract all unique tags
+  const allTags = ['Tous', ...Array.from(new Set(projectsData.flatMap(project => project.tags)))];
+
+  const filteredProjects = filter === 'Tous'
+    ? projectsData
+    : projectsData.filter(project => project.tags.includes(filter));
+
   return (
     <section id="projects" className="py-24 bg-slate-950 relative overflow-hidden">
       {/* Background decorations */}
@@ -109,13 +118,30 @@ const Projects = () => {
       <div className="absolute bottom-20 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-white mb-4">
             Mes <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Projets</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-400 max-w-2xl mx-auto mb-8">
             Une sélection de mes réalisations techniques et créatives, démontrant mes compétences en développement.
           </p>
+
+          {/* Filters */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {allTags.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => setFilter(tag)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  filter === tag
+                    ? 'bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/30'
+                    : 'bg-slate-800 text-gray-400 border border-slate-700 hover:bg-slate-700 hover:text-white'
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
         </div>
 
         <motion.div
@@ -125,7 +151,7 @@ const Projects = () => {
           viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {projectsData.map((project) => (
+          {filteredProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </motion.div>
