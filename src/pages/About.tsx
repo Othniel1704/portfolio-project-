@@ -49,7 +49,7 @@ const About = () => {
                 <div>
                   <h3 className="text-xl text-cyan-400 font-semibold mb-2">Projet Professionnel</h3>
                   <p>
-                    Aujourd'hui étudiant en BTS SIO (option SLAM), je me spécialise en développement Full Stack et Backend.
+                    Aujourd'hui étudiant en BTS SIO (option SLAM), je me spécialise en développement Full Stack.
                     Mon ambition est de concevoir des infrastructures logicielles fiables et évolutives, en intégrant les meilleures pratiques de modélisation de données et d'architecture.
                   </p>
                 </div>

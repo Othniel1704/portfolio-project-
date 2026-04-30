@@ -2,14 +2,7 @@ import React from 'react';
 import { Award, Calendar, CheckCircle } from 'lucide-react';
 
 const certifications = [
-    {
-        title: "BTS SIO (Services Informatiques aux Organisations)",
-        issuer: "Éducation Nationale",
-        date: "En cours - 2025",
-        status: "En cours",
-        description: "Formation complète en développement d'applications et administration de systèmes",
-        icon: <Award className="w-6 h-6" />,
-    },
+   
     {
         title: "MOOC Cybersécurité",
         issuer: "ANSSI (Agence Nationale de la Sécurité des Systèmes d'Information)",
@@ -27,15 +20,7 @@ const certifications = [
         description: "Fondamentaux de la cybersécurité, protection des données, et sécurité des réseaux",
         icon: <CheckCircle className="w-6 h-6" />,
         fileUrl: "/Introduction_to_Cybersecurity_certificate_kkonanothniel-gmail-com_19a402e8-8a99-4c74-9794-dd67322d84b4.pdf"
-    },
-    {
-        title: "Licence Mathématiques-Informatique",
-        issuer: "Université",
-        date: "2023",
-        status: "Obtenu",
-        description: "Fondamentaux de la programmation et des mathématiques appliquées",
-        icon: <CheckCircle className="w-6 h-6" />,
-    },
+    }
 ];
 
 const Certifications = () => {

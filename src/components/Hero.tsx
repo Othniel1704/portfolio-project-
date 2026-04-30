@@ -34,94 +34,125 @@ const Hero = () => (
       initial="hidden"
       animate="visible"
     >
-      <div className="max-w-4xl">
-        <motion.div variants={itemFadeUp}>
-          <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-medium text-sm mb-6">
-            💼 Disponible pour stage/alternance • BTS SIO
-          </span>
-        </motion.div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-4xl">
+          <motion.div variants={itemFadeUp}>
+            <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-medium text-sm mb-6">
+              💼 Disponible pour stage/alternance • BTS SIO
+            </span>
+          </motion.div>
 
-        <motion.h1
-          className="text-5xl sm:text-7xl font-bold text-white tracking-tight leading-tight mb-8"
-          variants={itemFadeUp}
-        >
-          Développeur Full Stack{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+          <motion.h1
+            className="text-2xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-8"
+            variants={itemFadeUp}
+          >
+            <span className='text-cyan-400 text-2xl'>
+              Bonjour, je m'appelle
+            </span>
+            <br />
+            Kouakou Konan Othniel
+            <br />
+          </motion.h1>
+          <motion.h2
+            className="text-2xl sm:text-5xl font-bold text-cyan-400 tracking-tight leading-tight mb-8"
+            variants={itemFadeUp}
+          >
+            Développeur Full Stack{' '}
+            <br />
             passionné par le code
-          </span>
-        </motion.h1>
+          </motion.h2>
 
-        <motion.p
-          className="text-xl sm:text-2xl text-gray-300 max-w-2xl mb-6 leading-relaxed"
-          variants={itemFadeUp}
-        >
-          Je transforme vos idées en applications web performantes et élégantes.
-          Spécialisé en <span className="text-cyan-400 font-semibold">React</span> et développement <span className="text-cyan-400 font-semibold">Full Stack</span>.
-        </motion.p>
+          <motion.p
+            className="text-xl sm:text-2xl text-gray-300 max-w-2xl mb-6 leading-relaxed"
+            variants={itemFadeUp}
+          >
+            Je transforme vos idées en applications web performantes et élégantes.
+            Spécialisé en <span className="text-cyan-400 font-semibold">React</span> et développement <span className="text-cyan-400 font-semibold">Full Stack</span>.
+          </motion.p>
+
+          <motion.div
+            className="flex flex-wrap gap-6 mb-10 text-gray-400"
+            variants={itemFadeUp}
+          >
+            <div className="flex items-center gap-2">
+              <span className="text-2xl font-bold text-cyan-400">7+</span>
+              <span className="text-sm">Projets<br />réalisés</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-2xl font-bold text-cyan-400">12+</span>
+              <span className="text-sm">Technologies</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-2xl font-bold text-cyan-400">100%</span>
+              <span className="text-sm">Motivé &<br />autonome</span>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4"
+            variants={itemFadeUp}
+          >
+            <MotionLink
+              to="/projects"
+              className="inline-flex justify-center items-center px-8 py-4 bg-cyan-500 text-slate-950 rounded-xl text-lg font-bold shadow-lg shadow-cyan-500/30 hover:bg-cyan-400 hover:shadow-cyan-400/40 transition-all duration-300"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Voir mes projets
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </MotionLink>
+
+            <MotionLink
+              to="/contact"
+              className="inline-flex justify-center items-center px-8 py-4 bg-slate-800 text-white border border-slate-700 rounded-xl text-lg font-semibold hover:border-cyan-500/50 hover:bg-slate-700 transition-all duration-300"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Me contacter
+            </MotionLink>
+
+            <motion.a
+              href="/cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex justify-center items-center px-8 py-4 bg-slate-800 text-white border border-slate-700 rounded-xl text-lg font-semibold hover:border-cyan-500/50 hover:bg-slate-700 transition-all duration-300"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Télécharger CV
+            </motion.a>
+          </motion.div>
+
+          <motion.div
+            className="flex gap-6 mt-12"
+            variants={itemFadeUp}
+          >
+            <a href="https://github.com/Othniel1704" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <Github size={32} />
+            </a>
+            <a href="https://www.linkedin.com/in/othniel-kouakou" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-500 transition-colors">
+              <Linkedin size={32} />
+            </a>
+          </motion.div>
+        </div>
 
         <motion.div
-          className="flex flex-wrap gap-6 mb-10 text-gray-400"
-          variants={itemFadeUp}
+          className="relative hidden lg:block"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-cyan-400">7+</span>
-            <span className="text-sm">Projets<br />réalisés</span>
+          <div className="relative z-10 w-full max-w-[500px] mx-auto aspect-square rounded-3xl overflow-hidden border-2 border-cyan-500/30 shadow-2xl shadow-cyan-500/20">
+            <img
+              src="/images/hero-avatar.png"
+              alt="Konan Othniel Portrait"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-cyan-400">12+</span>
-            <span className="text-sm">Technologies<br />maîtrisées</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-cyan-400">100%</span>
-            <span className="text-sm">Motivé &<br />autonome</span>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4"
-          variants={itemFadeUp}
-        >
-          <MotionLink
-            to="/projects"
-            className="inline-flex justify-center items-center px-8 py-4 bg-cyan-500 text-slate-950 rounded-xl text-lg font-bold shadow-lg shadow-cyan-500/30 hover:bg-cyan-400 hover:shadow-cyan-400/40 transition-all duration-300"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Voir mes projets
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </MotionLink>
-
-          <MotionLink
-            to="/contact"
-            className="inline-flex justify-center items-center px-8 py-4 bg-slate-800 text-white border border-slate-700 rounded-xl text-lg font-semibold hover:border-cyan-500/50 hover:bg-slate-700 transition-all duration-300"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Me contacter
-          </MotionLink>
-
-          <motion.a
-            href="/cv.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex justify-center items-center px-8 py-4 bg-slate-800 text-white border border-slate-700 rounded-xl text-lg font-semibold hover:border-cyan-500/50 hover:bg-slate-700 transition-all duration-300"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Télécharger CV
-          </motion.a>
-        </motion.div>
-
-        <motion.div
-          className="flex gap-6 mt-12"
-          variants={itemFadeUp}
-        >
-          <a href="https://github.com/Othniel1704" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-            <Github size={32} />
-          </a>
-          <a href="https://www.linkedin.com/in/othniel-kouakou" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-500 transition-colors">
-            <Linkedin size={32} />
-          </a>
+          {/* Decorative elements */}
+          <div className="absolute -top-6 -right-6 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl animate-pulse" />
+          <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
         </motion.div>
       </div>
     </motion.div>

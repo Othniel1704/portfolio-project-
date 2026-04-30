@@ -138,11 +138,15 @@ const Projects = () => {
           {categories.map((category) => (
             <button
               key={category}
+              aria-pressed={activeCategory === category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${activeCategory === category
-                ? 'bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/25'
-                : 'bg-slate-800/50 text-gray-400 border border-slate-700/50 hover:border-cyan-500/50 hover:text-cyan-400'
-                }`}
+              className={`
+                px-5 py-2 rounded-full text-sm font-semibold
+                transition-all duration-300 focus:outline-none focus:ring-2
+                ${activeCategory === category
+                  ? 'bg-cyan-500 text-slate-950 shadow-lg'
+                  : 'bg-slate-800/60 text-gray-400 hover:text-cyan-400'}
+              `}
             >
               {category}
             </button>
@@ -180,6 +184,7 @@ const Projects = () => {
           </div>
         ) : (
           <motion.div
+            key={activeCategory}
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -190,6 +195,12 @@ const Projects = () => {
               <ProjectCard key={project.id} project={project} />
             ))}
           </motion.div>
+        )}
+
+        {filteredProjects.length === 0 && (
+          <p className="text-center text-gray-400 mt-12">
+            Aucun projet dans cette catégorie pour le moment 👀
+          </p>
         )}
       </div>
     </section>

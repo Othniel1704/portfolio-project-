@@ -1,15 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import { techWatchData } from '../data/techWatchData'; // Fallback data
-import { ExternalLink, Calendar, Brain, Sparkles, Code2, Bot, Rss, Twitter, Search, Newspaper, Monitor, Layers, Zap } from 'lucide-react';
+import { fetchRSS, RSSArticle } from '../services/rssService';
+import { ExternalLink, Calendar, Brain, Sparkles, Code2, Bot, Rss, Twitter, Search, Newspaper, Monitor, Layers, Zap, RefreshCw } from 'lucide-react';
 
 const TechWatch = () => {
     const [articles, setArticles] = useState<any[]>([]);
+    const [rssArticles, setRssArticles] = useState<RSSArticle[]>([]);
     const [loading, setLoading] = useState(true);
+    const [rssLoading, setRssLoading] = useState(false);
+
+    const loadRSS = async () => {
+        setRssLoading(true);
+        // Flux RSS de Dev.to (IA)
+        const dailyArticles = await fetchRSS('https://dev.to/feed/tag/ai');
+        setRssArticles(dailyArticles.slice(0, 6)); // Garder les 6 derniers
+        setRssLoading(false);
+    };
 
     useEffect(() => {
         const fetchArticles = async () => {
-            // If no Supabase client or URL, use static data
+            // Logic for static/supabase articles
             if (!supabase) {
                 setArticles(techWatchData);
                 setLoading(false);
@@ -36,6 +47,7 @@ const TechWatch = () => {
         };
 
         fetchArticles();
+        loadRSS();
     }, []);
 
     const getIconForCategory = (category: string) => {
@@ -55,10 +67,10 @@ const TechWatch = () => {
     ];
 
     const themes = [
-        { name: "Intelligence Artificielle", icon: <Brain />, description: "LLMs, Agents autonomes, RAG" },
-        { name: "Vibe Coding", icon: <Sparkles />, description: "Nouvelle approche du dev assisté par IA" },
-        { name: "Performance Web", icon: <Zap />, description: "Core Web Vitals, Optimisation React" },
-        { name: "Architecture", icon: <Layers />, description: "Micro-frontends, Server Components" }
+        { name: "L'IA dans le métier de développeur", icon: <Brain />, description: "Exploration de l'IA comme 'Pair Programmer'. Mon focus : automatisation des tests, génération de boilerplate et aide au débogage via LLMs (Cursor, Copilot)." },
+        { name: "Vibe Coding", icon: <Sparkles />, description: "Programmation assistée par langage naturel pour prototyper rapidement." },
+        { name: "Automatisation de la Veille", icon: <Zap />, description: "Utilisation d'APIs et d'agents IA pour filtrer et agréger les flux RSS et réseaux sociaux." },
+        { name: "Architecture & DevOps", icon: <Layers />, description: "Modernisation des pipelines CI/CD et surveillance des systèmes via l'IA." }
     ];
 
     return (
@@ -99,22 +111,103 @@ const TechWatch = () => {
                         <Layers className="mr-3 text-purple-400" />
                         Thèmes Suivis
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {themes.map((theme, idx) => (
-                            <div key={idx} className="flex items-start p-6 bg-slate-900 rounded-xl border-l-4 border-cyan-500">
-                                <div className="mr-4 mt-1 text-cyan-400">
+                    
+                    {/* Featured Theme */}
+                    <div className="mb-12">
+                        <div className="relative group">
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                            <div className="relative flex flex-col md:flex-row items-center p-8 bg-slate-900 rounded-2xl border border-slate-800 leading-none">
+                                <div className="p-5 bg-cyan-500/10 rounded-2xl text-cyan-400 mb-6 md:mb-0 md:mr-8 shrink-0">
+                                    <Brain size={48} />
+                                </div>
+                                <div className="flex-1">
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <span className="px-2 py-1 bg-cyan-500 text-slate-950 text-[10px] font-black uppercase rounded tracking-widest">Thème Principal</span>
+                                        <span className="text-gray-500 text-xs">• Veille Active</span>
+                                    </div>
+                                    <h3 className="text-3xl font-bold text-white mb-4">L'IA dans le métier de développeur</h3>
+                                    <p className="text-gray-400 text-lg leading-relaxed max-w-3xl">
+                                        Exploration quotidienne de l'IA comme "Pair Programmer". Mon focus actuel porte sur l'optimisation des flux de travail via les LLMs, l'automatisation des tests unitaires et la génération de boilerplate intelligente avec des outils comme Cursor et GitHub Copilot.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {themes.filter(t => t.name !== "L'IA dans le métier de développeur").map((theme, idx) => (
+                            <div key={idx} className="flex flex-col p-6 bg-slate-900/50 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
+                                <div className="mb-4 text-cyan-400">
                                     {theme.icon}
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold text-white mb-1">{theme.name}</h3>
-                                    <p className="text-gray-400">{theme.description}</p>
+                                    <h3 className="text-lg font-bold text-white mb-2">{theme.name}</h3>
+                                    <p className="text-gray-400 text-sm leading-relaxed">{theme.description}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </section>
 
-                {/* Section 3: Synthèse & Actualités */}
+                {/* Section 3: Veille Active en Direct */}
+                <section className="mb-20">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-10 border-b border-slate-800 pb-4 gap-4">
+                        <h2 className="text-3xl font-bold text-white flex items-center">
+                            <Rss className="mr-3 text-orange-400" />
+                            Flux en Direct : IA & Code
+                        </h2>
+                        <button 
+                            onClick={loadRSS}
+                            disabled={rssLoading}
+                            className="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-cyan-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50"
+                        >
+                            <RefreshCw className={`w-4 h-4 ${rssLoading ? 'animate-spin' : ''}`} />
+                            {rssLoading ? 'Actualisation...' : 'Actualiser'}
+                        </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {rssLoading ? (
+                            Array(6).fill(0).map((_, i) => (
+                                <div key={i} className="bg-slate-900/50 rounded-xl h-48 animate-pulse border border-slate-800"></div>
+                            ))
+                        ) : rssArticles.length > 0 ? (
+                            rssArticles.map((article, idx) => {
+                                // Strip HTML tags from description
+                                const plainDesc = article.description ? article.description.replace(/<[^>]*>?/gm, '') : '';
+                                return (
+                                    <a 
+                                        key={idx}
+                                        href={article.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex flex-col p-6 bg-slate-900/50 rounded-xl border border-slate-800 hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/10 hover:-translate-y-1 transition-all group"
+                                    >
+                                        <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                                            <Calendar size={14} />
+                                            {new Date(article.pubDate).toLocaleDateString('fr-FR')}
+                                        </div>
+                                        <h3 className="text-lg font-bold text-white mb-3 group-hover:text-orange-400 transition-colors line-clamp-2">
+                                            {article.title}
+                                        </h3>
+                                        <p className="text-gray-400 text-sm flex-grow line-clamp-3 mb-4">
+                                            {plainDesc}
+                                        </p>
+                                        <div className="mt-auto text-orange-400 text-sm font-medium flex items-center">
+                                            Lire sur Dev.to <ExternalLink size={14} className="ml-1" />
+                                        </div>
+                                    </a>
+                                );
+                            })
+                        ) : (
+                            <div className="col-span-full text-center text-gray-500 py-8 bg-slate-900/30 rounded-xl border border-slate-800 border-dashed">
+                                Impossible de charger le flux RSS pour le moment.
+                            </div>
+                        )}
+                    </div>
+                </section>
+
+                {/* Section 4: Mes Synthèses */}
                 <section>
                     <h2 className="text-3xl font-bold text-white mb-10 flex items-center border-b border-slate-800 pb-4">
                         <Newspaper className="mr-3 text-green-400" />

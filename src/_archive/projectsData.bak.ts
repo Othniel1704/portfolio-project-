@@ -35,6 +35,7 @@ export interface Project {
 
 export const projectsData: Project[] = [
     // --- OFFICIALLY MAPPED E5 PROJECTS ---
+
     {
         id: "dhcp-dns",
         title: "Mise en place de services réseaux d'infrastructure (DHCP et DNS)",
@@ -43,7 +44,7 @@ export const projectsData: Project[] = [
         context: "Projet scolaire (2024-2025)",
         role: "Administrateur Réseau",
         duration: "1 semaine",
-        image: "/images/network.jpg",
+        image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?w=800&h=600&fit=crop",
         technologies: ["Windows Server / Linux", "DHCP", "DNS", "Réseau Local"],
         category: 'Projet Académique (PPE)',
         tags: ["Infrastructure", "Réseau"],
@@ -64,7 +65,7 @@ export const projectsData: Project[] = [
         context: "Ateliers de Cybersécurité (2024-2025)",
         role: "Testeur de pénétration / Analyste Sécurité",
         duration: "Ponctuel",
-        image: "/images/security.jpg",
+        image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?w=800&h=600&fit=crop",
         technologies: ["Linux", "SQL", "Cybersec Tools"],
         category: 'Projet Académique (PPE)',
         tags: ["Sécurité", "Audit", "SQL"],
@@ -110,7 +111,7 @@ export const projectsData: Project[] = [
         fullDescription: "Mise en situation de support informatique de niveau 1 et 2 (BlueTeam). Utilisation de TRAC pour créer, assigner, suivre et résoudre des tickets d'incidents, tout en respectant les SLAs du service.",
         context: "Atelier professionnel (2024-2025)",
         role: "Technicien Support & Maintenance",
-        duration: "1 semaines",
+        duration: "2 semaines",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
         technologies: ["TRAC", "ITSM", "Ticketing"],
         category: 'Projet Académique (PPE)',
@@ -122,7 +123,11 @@ export const projectsData: Project[] = [
             { id: "B2.2", description: "Correction d'anomalies logiciels." }
         ],
         proofs: [
+            { title: "Capture Ticket Avant Correction", type: "image", url: "/images/proofs/trac_bug_before.png" },
+            { title: "Capture Ticket Après Correction", type: "image", url: "/images/proofs/trac_bug_after.png" },
+            { title: "Rapport de maintenance", type: "pdf", url: "/documents/rapport_maintenance_trac.pdf" }
         ],
+        showInE5: true,
         e5Order: 4
     },
     {
@@ -160,7 +165,7 @@ export const projectsData: Project[] = [
         fullDescription: "Application web de mise en relation de joueurs (profils, équipes, tournois). Intégration d'un module de chat pour faciliter la communication directe entre membres de l'équipe.",
         context: "Projet de groupe (2024-2025)",
         role: "Développeur Backend & Base de données",
-        duration: "4 semaines",
+        duration: "4 mois",
         image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=600&fit=crop",
         technologies: ["PHP", "Symfony", "MySQL"],
         category: 'Projet Académique (PPE)',
@@ -212,8 +217,8 @@ export const projectsData: Project[] = [
         fullDescription: "Développement d'une application de petites annonces avec dépôt d'annonces multicatégories, gestion des utilisateurs, recherche avancée et tableau de bord administration sécurisé.",
         context: "Projet personnel formatif (2024-2025)",
         role: "Développeur Full Stack",
-        duration: "5 semaines",
-        image: "/images/lebonbazaar.png",
+        duration: "4 semaines",
+        image: "images/lebonbazaar.png",
         technologies: ["PHP", "MySQL", "CSS", "MariaDB"],
         category: 'Projet Académique (PPE)',
         projectSize: 'Léger',
@@ -265,7 +270,7 @@ export const projectsData: Project[] = [
         context: "Atelier Réseau (2024-2025)",
         role: "Administrateur Systèmes et Réseaux",
         duration: "1 semaine",
-        image: "/images/vlan.jpg",
+        image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?w=800&h=600&fit=crop",
         technologies: ["Cisco IOS", "Packet Tracer", "VLAN", "Ethernet"],
         category: 'Projet Académique (PPE)',
         tags: ["Réseau", "Infrastucture"],
@@ -285,8 +290,8 @@ export const projectsData: Project[] = [
         fullDescription: "Recueil du besoin client auprès de l'auto-école, rédaction du cahier des charges, maquettage Figma et développement d'un site sur-mesure. Le site a été hébergé et est utilisé quotidiennement pour attirer des prospects.",
         context: "Stage en milieu professionnel (juin-juillet 2025)",
         role: "Développeur Full Stack",
-        duration: "7 semaines",
-        image: "/images/nbautoecoledelamairie_homepage_1766077079814.png",
+        duration: "5 semaines",
+        image: "images/nbautoecoledelamairie_homepage_1766077079814.png",
         technologies: ["React", "HTML/CSS", "Hébergement web"],
         category: 'Stage',
         tags: ["Stage", "Web Corporate"],
@@ -323,7 +328,7 @@ export const projectsData: Project[] = [
             { id: "B1.6", description: "Adaptation professionnelle face à un aléa (projet interrompu) et prise de recul." }
         ],
         proofs: [
-            { title: "Maquettes & Spécifications (Interne)", type: "pdf", url: "#" }
+            
         ],
         showInE5: true,
         e5Order: 12
@@ -351,5 +356,5 @@ export const projectsData: Project[] = [
         github: "https://github.com/Othniel1704/chess-game",
         showInE5: false
     },
-
+   
 ];

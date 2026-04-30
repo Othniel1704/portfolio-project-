@@ -26,15 +26,8 @@ const skills = {
     { name: 'PHP', icon: <FileCode className="text-indigo-400" /> },
     { name: 'MySQL/SQL', icon: <Database className="text-blue-300" /> },
   ],
-  "Réseaux & Sécurité": [
-    { name: 'Linux (Apache, SSH, FTP)', icon: <Server className="text-orange-400" /> },
-    { name: 'VLAN & Routage', icon: <Network className="text-purple-400" /> },
-    { name: 'Wireshark & ARP Spoofing', icon: <Shield className="text-red-400" /> },
-    { name: 'Sécurisation SSH/Telnet', icon: <Lock className="text-green-400" /> },
-  ],
   "Outils & DevOps": [
     { name: 'Git', icon: <GitBranch className="text-red-400" /> },
-    { name: 'Cisco Packet Tracer', icon: <Network className="text-blue-400" /> },
   ],
 };
 

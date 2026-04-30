@@ -41,7 +41,7 @@ const EpreuveE5 = () => {
                         Support et mise à disposition de services informatiques
                     </p>
                     <p className="text-lg text-gray-400">
-                        Tableau de synthèse des réalisations professionnelles (Bloc 1 strict)
+                        Tableau de synthèse des réalisations professionnelles
                     </p>
                 </motion.div>
 

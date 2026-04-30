@@ -7,9 +7,6 @@ import CVPage from './pages/CVPage';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import TechWatch from './pages/TechWatch';
-import AdminLayout from './components/admin/AdminLayout';
-import AdminLogin from './pages/admin/Login';
-import Dashboard from './pages/admin/Dashboard';
 import ProjectDetail from './pages/ProjectDetail';
 import Legal from './pages/Legal';
 import EpreuveE5 from './pages/EpreuveE5';
@@ -35,12 +32,7 @@ function App() {
             <Route path="/epreuve-e5" element={<EpreuveE5 />} />
             <Route path="/mentions-legales" element={<Legal />} />
 
-            {/* Admin Routes */}
-            <Route path="/admin" element={<AdminLayout />}>
-              <Route path="login" element={<AdminLogin />} />
-              <Route path="dashboard" element={<Dashboard />} />
-              <Route index element={<AdminLogin />} />
-            </Route>
+
 
           </Routes>
         </main>
