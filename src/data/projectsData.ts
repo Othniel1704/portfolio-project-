@@ -306,24 +306,37 @@ export const projectsData: Project[] = [
         e5Order: 11
     },
     {
-        id: "stage-2-prototype",
-        title: "Stage 2ème année : Analyse et prototypage d'une application Web (Projet interrompu)",
-        shortDescription: "Travaux d'avant-vente et d'architecture pour une plateforme web complexe.",
-        fullDescription: "Participation à la phase d'étude d'un nouveau produit numérique. Création de spécifications techniques, de maquettes d'interface utilisateur et de POCs (Proof Of Concept) avant interruption décisionnelle du projet.",
+        id: "stage-2-palais-mobile",
+        title: "Stage 2ème année : Palais Mobile — Plateforme d'achat international ",
+        shortDescription: "Application web full-stack facilitant l'achat de produits à l'international avec suivi de commande en temps réel et chat intégré.",
+        fullDescription: "Initialement prévu pour créer un portail d'auto-école (projet bloqué par des problèmes de locaux), le stage a été réorienté vers Palais Mobile, un projet stratégique. L'application permet aux résidents d'Afrique de l'Ouest de commander des produits depuis l'Europe, les USA et l'Asie. Elle gère le cycle complet : soumission de demande d'achat (via URL ou saisie manuelle), génération de devis, validation, paiement, suivi de livraison en temps réel et messagerie avec le support. Le projet a été réalisé en binôme avec répartition des tâches via Git (branches et merge requests).",
         context: "Stage en milieu professionnel (décembre 2025-janvier 2026)",
-        role: "Assistant Chef de Projet / Développeur",
+        role: "Développeur Full Stack (Dashboard Client, Auth, Sécurité, Chat temps réel)",
         duration: "6 semaines",
-        image: "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=800&h=600&fit=crop",
-        technologies: ["Figma", "UML", "Prototypage Rapide"],
+        teamSize: 2,
+        image: "/images/palais-mobile.png",
+        technologies: ["React 19", "TypeScript", "Tailwind CSS", "Firebase (Firestore, Auth, Hosting)", "Cloud Functions", "Google Gemini API", "Git/GitHub"],
         category: 'Stage',
-        tags: ["Stage", "Management", "Design"],
-        highlights: ["Rédaction de spécifications", "Modélisation UML"],
+        projectSize: 'Lourd',
+        tags: ["Stage", "E-commerce", "Full Stack", "Firebase", "IA"],
+        highlights: [
+            "Suivi de commande en temps réel (WebSockets Firestore)",
+            "Chat client-support intégré",
+            "Sécurité granulaire via Firestore Rules",
+            "Intégration IA Gemini (sécurisée via Cloud Functions)",
+            "Travail en binôme avec Git (branches, merge requests)"
+        ],
         competencies: [
-            { id: "B1.4", description: "Planification d'un projet, analyse de faisabilité et arrêt prématuré (gestion des risques)." },
-            { id: "B1.6", description: "Adaptation professionnelle face à un aléa (projet interrompu) et prise de recul." }
+            { id: "B1.1", description: "Gestion du code source avec Git/GitHub (branches, merge requests) et sécurisation des données utilisateur via Firestore Rules." },
+            { id: "B1.2", description: "Traitement des demandes clients via le système de chat temps réel et suivi des commandes." },
+            { id: "B1.4", description: "Travail coopératif en binôme : répartition des tâches (Dashboard Client vs Admin), synchronisation quotidienne, planification des sprints." },
+            { id: "B1.5", description: "Déploiement de l'application sur Firebase Hosting et mise à disposition du service pour les utilisateurs finaux." },
+            { id: "B2.1", description: "Développement frontend React 19 avec TypeScript, architecture par composants, hooks personnalisés (useEffect, observeOrders)." },
+            { id: "B2.3", description: "Modélisation NoSQL (collections Firestore : users, orders, conversations/messages) et requêtes temps réel." },
+            { id: "B3.3", description: "Sécurisation de l'API Gemini via migration côté serveur (Cloud Functions), règles Firestore empêchant la modification de prix par le client." }
         ],
         proofs: [
-            { title: "Maquettes & Spécifications (Interne)", type: "pdf", url: "#" }
+            { title: "Lien Démo", type: "link", url: "https://palaismobile.com/" }
         ],
         showInE5: true,
         e5Order: 12
