@@ -104,28 +104,6 @@ export const projectsData: Project[] = [
         e5Order: 3
     },
     {
-        id: "trac",
-        title: "Gestion des demandes et incidents avec l'outil TRAC (TP BlueTeam)",
-        shortDescription: "Utilisation et personnalisation d'un système de gestion de tickets d'incidents.",
-        fullDescription: "Mise en situation de support informatique de niveau 1 et 2 (BlueTeam). Utilisation de TRAC pour créer, assigner, suivre et résoudre des tickets d'incidents, tout en respectant les SLAs du service.",
-        context: "Atelier professionnel (2024-2025)",
-        role: "Technicien Support & Maintenance",
-        duration: "1 semaines",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-        technologies: ["TRAC", "ITSM", "Ticketing"],
-        category: 'Projet Académique (PPE)',
-        tags: ["Maintenance", "Support"],
-        highlights: ["Gestion du cycle de vie des incidents", "Communication utilisateur"],
-        competencies: [
-            { id: "B1.2", description: "Collecte, suivi et résolution des demandes d'assistance." },
-            { id: "B1.4", description: "Analyse des objectifs de résolution et indicateurs de suivi (SLA)." },
-            { id: "B2.2", description: "Correction d'anomalies logiciels." }
-        ],
-        proofs: [
-        ],
-        e5Order: 4
-    },
-    {
         id: "portfolio",
         title: "Portfolio Professionnel et Veille Technologique",
         shortDescription: "Plateforme web personnelle incluant CV, projets et agrégation de veille.",
@@ -282,12 +260,12 @@ export const projectsData: Project[] = [
         id: "stage-1-auto-ecole",
         title: "Stage 1ère année : Conception et déploiement d'un site Web pour une auto-école",
         shortDescription: "Réalisation d'un site vitrine complet remplaçant une page Google d'entreprise.",
-        fullDescription: "Recueil du besoin client auprès de l'auto-école, rédaction du cahier des charges, maquettage Figma et développement d'un site sur-mesure. Le site a été hébergé et est utilisé quotidiennement pour attirer des prospects.",
+        fullDescription: "Recueil du besoin client auprès de l'auto-école, rédaction du cahier des charges et développement d'un site sur-mesure. Le site a été hébergé et est utilisé quotidiennement pour attirer des prospects.",
         context: "Stage en milieu professionnel (juin-juillet 2025)",
         role: "Développeur Full Stack",
         duration: "7 semaines",
         image: "/images/nbautoecoledelamairie_homepage_1766077079814.png",
-        technologies: ["React", "HTML/CSS", "Hébergement web"],
+        technologies: ["Nextjs","TypeScript", "CSS","Hébergement web","hostinger"],
         category: 'Stage',
         tags: ["Stage", "Web Corporate"],
         highlights: ["Passage en production", "Relation client directe"],
@@ -315,7 +293,7 @@ export const projectsData: Project[] = [
         duration: "6 semaines",
         teamSize: 2,
         image: "/images/palais-mobile.png",
-        technologies: ["React 19", "TypeScript", "Tailwind CSS", "Firebase (Firestore, Auth, Hosting)", "Cloud Functions", "Google Gemini API", "Git/GitHub"],
+        technologies: ["React 19", "", "Tailwind CSS", "Firebase (Firestore, Auth, Hosting)", "Cloud Functions", "Google Gemini API", "Git/GitHub"],
         category: 'Stage',
         projectSize: 'Lourd',
         tags: ["Stage", "E-commerce", "Full Stack", "Firebase", "IA"],

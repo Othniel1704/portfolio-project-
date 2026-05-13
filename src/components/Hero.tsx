@@ -38,7 +38,7 @@ const Hero = () => (
         <div className="max-w-4xl">
           <motion.div variants={itemFadeUp}>
             <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-medium text-sm mb-6">
-              💼 Disponible pour stage/alternance • BTS SIO
+              🎓 Portfolio Professionnel • Épreuve E5 BTS SIO
             </span>
           </motion.div>
 
@@ -57,17 +57,16 @@ const Hero = () => (
             className="text-2xl sm:text-5xl font-bold text-cyan-400 tracking-tight leading-tight mb-8"
             variants={itemFadeUp}
           >
-            Développeur Full Stack{' '}
+            Candidat au BTS SIO   
             <br />
-            passionné par le code
+            Spécialité SLAM
           </motion.h2>
 
           <motion.p
             className="text-xl sm:text-2xl text-gray-300 max-w-2xl mb-6 leading-relaxed"
             variants={itemFadeUp}
           >
-            Je transforme vos idées en applications web performantes et élégantes.
-            Spécialisé en <span className="text-cyan-400 font-semibold">React</span> et développement <span className="text-cyan-400 font-semibold">Full Stack</span>.
+            Bienvenue sur mon portfolio. Découvrez mes réalisations professionnelles, mes projets académiques et les compétences validées durant mon parcours en développement <span className="text-cyan-400 font-semibold">Full Stack</span>.
           </motion.p>
 
           <motion.div

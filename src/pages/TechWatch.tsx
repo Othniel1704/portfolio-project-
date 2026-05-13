@@ -125,10 +125,26 @@ const TechWatch = () => {
                                         <span className="px-2 py-1 bg-cyan-500 text-slate-950 text-[10px] font-black uppercase rounded tracking-widest">Thème Principal</span>
                                         <span className="text-gray-500 text-xs">• Veille Active</span>
                                     </div>
-                                    <h3 className="text-3xl font-bold text-white mb-4">L'IA dans le métier de développeur</h3>
-                                    <p className="text-gray-400 text-lg leading-relaxed max-w-3xl">
-                                        Exploration quotidienne de l'IA comme "Pair Programmer". Mon focus actuel porte sur l'optimisation des flux de travail via les LLMs, l'automatisation des tests unitaires et la génération de boilerplate intelligente avec des outils comme Cursor et GitHub Copilot.
-                                    </p>
+                                    <h3 className="text-3xl font-bold text-white mb-4">L'impact de l'IA sur le métier de développeur</h3>
+                                    <div className="text-gray-400 text-base lg:text-lg leading-relaxed max-w-4xl space-y-4">
+                                        <p>
+                                            Pour ma veille technologique, je me suis intéressé à l'impact de l'intelligence artificielle sur le métier de développeur — un sujet que j'ai vécu directement durant mes deux stages.
+                                        </p>
+                                        <p>
+                                            Aujourd'hui, l'IA s'est imposée comme un outil quotidien. Le <strong>State of Developer Ecosystem Report 2025 de JetBrains</strong> montre que la quasi-totalité des développeurs ont intégré l'IA dans leur workflow. J'ai personnellement utilisé <strong>GitHub Copilot</strong> et <strong>Firebase Studio</strong> (basé sur Gemini) sur mes projets. Une étude de GitHub a d'ailleurs montré que les développeurs réalisent certaines tâches jusqu'à <strong>55 % plus rapidement</strong> grâce à l'IA.
+                                        </p>
+                                        <p>
+                                            Mais au-delà de la productivité, c'est la <strong>transformation du rôle du développeur</strong> qui est centrale. L'IA prend en charge les tâches répétitives (générer des composants, compléter des structures), ce qui nous libère pour nous concentrer sur l'essentiel : <strong>comprendre le besoin métier, définir l'architecture, et sécuriser les données</strong>.
+                                        </p>
+                                        <p>
+                                            C'est exactement ce que j'ai vécu. Sur le projet d'auto-école, je générais des composants avec l'IA, puis je les évaluais et les adaptais au contexte réel. L'IA m'a fait gagner du temps, mais c'est moi qui ai défini les choix techniques et les contraintes.
+                                        </p>
+                                        <div className="p-5 mt-6 bg-cyan-500/10 border border-cyan-500/20 rounded-xl">
+                                            <p className="text-cyan-400 font-medium italic">
+                                                "Ma conclusion : L'IA n'est pas une menace pour le développeur — c'est un amplificateur de compétences, à condition de savoir évaluer ce qu'elle produit."
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
