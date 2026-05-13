@@ -66,12 +66,6 @@ const TechWatch = () => {
         { name: "GitHub Trending", icon: <Search className="text-gray-200" />, description: "Découverte des nouveaux repos et outils open-source." }
     ];
 
-    const themes = [
-        { name: "L'IA dans le métier de développeur", icon: <Brain />, description: "Exploration de l'IA comme 'Pair Programmer'. Mon focus : automatisation des tests, génération de boilerplate et aide au débogage via LLMs (Cursor, Copilot)." },
-        { name: "Vibe Coding", icon: <Sparkles />, description: "Programmation assistée par langage naturel pour prototyper rapidement." },
-        { name: "Automatisation de la Veille", icon: <Zap />, description: "Utilisation d'APIs et d'agents IA pour filtrer et agréger les flux RSS et réseaux sociaux." },
-        { name: "Architecture & DevOps", icon: <Layers />, description: "Modernisation des pipelines CI/CD et surveillance des systèmes via l'IA." }
-    ];
 
     return (
         <div className="min-h-screen bg-slate-950 pt-24 pb-16 px-4 sm:px-6 lg:px-8">
@@ -150,19 +144,7 @@ const TechWatch = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {themes.filter(t => t.name !== "L'IA dans le métier de développeur").map((theme, idx) => (
-                            <div key={idx} className="flex flex-col p-6 bg-slate-900/50 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
-                                <div className="mb-4 text-cyan-400">
-                                    {theme.icon}
-                                </div>
-                                <div>
-                                    <h3 className="text-lg font-bold text-white mb-2">{theme.name}</h3>
-                                    <p className="text-gray-400 text-sm leading-relaxed">{theme.description}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+
                 </section>
 
                 {/* Section 3: Veille Active en Direct */}

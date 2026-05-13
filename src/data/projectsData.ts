@@ -329,12 +329,12 @@ export const projectsData: Project[] = [
         fullDescription: "Implémentation d'un jeu d'échecs complet respectant les règles FIDE. Interface graphique développée en JavaFX.",
         context: "Projet personnel d'approfondissement Java.",
         role: "Développeur",
-        duration: "2 mois",
+        duration: "",
         image: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=1000",
         technologies: ["Java", "JavaFX", "POO"],
         category: 'Projet Personnel',
         tags: ["Desktop", "Jeu", "Algorithme"],
-        highlights: ["Intelligence Artificielle (Minimax)", "Sauvegarde de partie"],
+        highlights: ["Sauvegarde de partie"],
         competencies: [
             { id: "B2.1", description: "Programmation Orientée Objet avancée" }
         ],
