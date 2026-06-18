@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Atom,
   FileCode2,
@@ -7,9 +6,6 @@ import {
   Server,
   Database,
   GitBranch,
-  Shield,
-  Network,
-  Lock,
 } from 'lucide-react';
 
 

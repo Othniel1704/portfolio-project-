@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import { techWatchData } from '../data/techWatchData'; // Fallback data
 import { fetchRSS, RSSArticle } from '../services/rssService';
-import { ExternalLink, Calendar, Brain, Sparkles, Code2, Bot, Rss, Twitter, Search, Newspaper, Monitor, Layers, Zap, RefreshCw } from 'lucide-react';
+import { ExternalLink, Calendar, Brain, Sparkles, Code2, Bot, Rss, Twitter, Search, Newspaper, Monitor, Layers, RefreshCw } from 'lucide-react';
 
 const TechWatch = () => {
     const [articles, setArticles] = useState<any[]>([]);

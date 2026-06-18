@@ -1,5 +1,4 @@
-import React from 'react';
-import { Award, Calendar, CheckCircle } from 'lucide-react';
+import { Calendar, CheckCircle } from 'lucide-react';
 
 const certifications = [
    
