@@ -1,17 +1,25 @@
-
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Github, Linkedin, Mail } from 'lucide-react';
-import Home from './pages/Home';
-import About from './pages/About';
-import CVPage from './pages/CVPage';
-import Projects from './pages/Projects';
-import Contact from './pages/Contact';
-import TechWatch from './pages/TechWatch';
-import ProjectDetail from './pages/ProjectDetail';
-import Legal from './pages/Legal';
-
 
 import Navbar from './components/Navbar';
+
+// Chargement paresseux des pages : chaque route est un chunk séparé,
+// ce qui allège le bundle initial (notamment la visionneuse PDF du CV).
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const CVPage = lazy(() => import('./pages/CVPage'));
+const Projects = lazy(() => import('./pages/Projects'));
+const Contact = lazy(() => import('./pages/Contact'));
+const TechWatch = lazy(() => import('./pages/TechWatch'));
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
+const Legal = lazy(() => import('./pages/Legal'));
+
+const PageLoader = () => (
+  <div className="flex items-center justify-center min-h-[60vh] text-cyan-400">
+    <div className="w-10 h-10 border-2 border-cyan-500/30 border-t-cyan-400 rounded-full animate-spin" />
+  </div>
+);
 
 function App() {
   return (
@@ -20,19 +28,18 @@ function App() {
         <Navbar />
 
         <main className="pt-16">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/cv" element={<CVPage />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/projects/:id" element={<ProjectDetail />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/veille" element={<TechWatch />} />
-            <Route path="/mentions-legales" element={<Legal />} />
-
-
-
-          </Routes>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/cv" element={<CVPage />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/projects/:id" element={<ProjectDetail />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/veille" element={<TechWatch />} />
+              <Route path="/mentions-legales" element={<Legal />} />
+            </Routes>
+          </Suspense>
         </main>
 
 

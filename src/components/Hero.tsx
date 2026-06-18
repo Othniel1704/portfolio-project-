@@ -81,8 +81,8 @@ const Hero = () => (
               <span className="text-sm">Technologies</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-cyan-400">100%</span>
-              <span className="text-sm">Motivé &<br />autonome</span>
+              <span className="text-2xl font-bold text-cyan-400">2</span>
+              <span className="text-sm">Stages en<br />entreprise</span>
             </div>
           </motion.div>
 

@@ -48,8 +48,8 @@ const About = () => {
                 <div>
                   <h3 className="text-xl text-cyan-400 font-semibold mb-2">Projet Professionnel</h3>
                   <p>
-                    Aujourd'hui étudiant en BTS SIO (option SLAM), je me spécialise en développement Full Stack.
-                    Mon ambition est de concevoir des infrastructures logicielles fiables et évolutives, en intégrant les meilleures pratiques de modélisation de données et d'architecture.
+                    Issu d'une formation BTS SIO (option SLAM), je me spécialise en développement Full Stack.
+                    Je recherche une <span className="text-cyan-400 font-semibold">alternance d'un an en Île-de-France pour la rentrée de septembre 2026</span>, sur des missions de développement web (front-end, back-end ou full stack). Mon objectif : monter en compétence sur des projets concrets tout en apportant l'autonomie et la rigueur acquises durant mes stages.
                   </p>
                 </div>
                 <div>
