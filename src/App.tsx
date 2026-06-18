@@ -9,7 +9,6 @@ import Contact from './pages/Contact';
 import TechWatch from './pages/TechWatch';
 import ProjectDetail from './pages/ProjectDetail';
 import Legal from './pages/Legal';
-import EpreuveE5 from './pages/EpreuveE5';
 
 
 import Navbar from './components/Navbar';
@@ -29,7 +28,6 @@ function App() {
             <Route path="/projects/:id" element={<ProjectDetail />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/veille" element={<TechWatch />} />
-            <Route path="/epreuve-e5" element={<EpreuveE5 />} />
             <Route path="/mentions-legales" element={<Legal />} />
 
 
@@ -42,7 +40,7 @@ function App() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
               <div className="text-gray-400 text-sm">
-                <p>© 2024 Konan Othniel Kouakou.</p>
+                <p>© 2026 Konan Othniel Kouakou.</p>
                 <Link to="/mentions-legales" className="hover:text-cyan-400 transition">Mentions Légales</Link>
               </div>
               <div className="flex space-x-6 mt-4 md:mt-0">

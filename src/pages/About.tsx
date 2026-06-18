@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, Atom, FileCode, FileCode2, FileJson2, Server, Database, GitBranch, FileText } from 'lucide-react';
+import { Download, Atom, FileCode, FileCode2, FileJson2, Server, Database, GitBranch } from 'lucide-react';
 
 
 import Education from '../components/Education';
@@ -69,15 +69,6 @@ const About = () => {
                 >
                   Télécharger mon CV
                   <Download className="ml-2 h-5 w-5" />
-                </a>
-                <a
-                  href="/tableau_synthese.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 bg-slate-700 text-white rounded-full text-lg font-bold hover:bg-slate-600 transition transform hover:scale-105 border border-slate-600"
-                >
-                  Tableau de Synthèse
-                  <FileText className="ml-2 h-5 w-5" />
                 </a>
               </div>
             </div>
