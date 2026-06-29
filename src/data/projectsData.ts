@@ -284,19 +284,52 @@ export const projectsData: Project[] = [
         e5Order: 11
     },
     {
-        id: "stage-2-palais-mobile",
-        title: "Stage 2ème année : Palais Mobile — Plateforme d'achat international ",
+        id: "stage-2-menad-conseil",
+        title: "Stage 2ème année : MENAD CONSEIL & FORMATION — Chilly-Mazarin",
+        shortDescription: "Conception et développement d'un site web responsive, structuration des contenus et optimisation de l'affichage mobile pour l'auto-école.",
+        fullDescription: "Ce projet de stage a consisté à concevoir et développer le site web responsive de l'auto-école MENAD CONSEIL & FORMATION (opérant sous le nom commercial Mazarin Conduite & Formation) à Chilly-Mazarin. L'objectif principal était de structurer et d'intégrer les différents contenus (présentation de l'établissement, formules et tarifs des permis, code de la route, contact) afin de remplacer la présence en ligne existante par une solution moderne. Une attention particulière a été accordée à l'optimisation mobile (Responsive Design) et à l'amélioration globale de l'expérience utilisateur (UX/UI). Tout au long du projet, des échanges réguliers ont été menés avec le client afin d'adapter l'arborescence, valider le design et répondre précisément à ses attentes professionnelles.",
+        context: "Stage en milieu professionnel (décembre 2025 - janvier 2026)",
+        role: "Développeur Web & Concepteur UX/UI",
+        duration: "6 semaines",
+        image: "/images/mazarin-conduite.jpg",
+        technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "SEO", "Responsive Design"],
+        category: 'Stage',
+        projectSize: 'Léger',
+        tags: ["Stage", "Web Showcase", "Responsive Design", "Client Relations"],
+        highlights: [
+            "Conception et développement d'un site web responsive",
+            "Intégration et structuration des contenus (présentation, services, contact)",
+            "Optimisation de l'affichage mobile et amélioration de l'expérience utilisateur",
+            "Échanges réguliers et validations de livrables avec le client"
+        ],
+        competencies: [
+            { id: "B1.2", description: "Prise en compte des retours et demandes d'évolution du client pour adapter l'arborescence et l'interface." },
+            { id: "B1.3", description: "Structuration et intégration complète des contenus professionnels pour valoriser la présence en ligne locale." },
+            { id: "B1.4", description: "Travail en mode projet avec le client via des échanges réguliers et des revues de maquettes périodiques." },
+            { id: "B1.5", description: "Optimisation de l'accessibilité mobile, des performances d'affichage et mise en production du site." },
+            { id: "B2.1", description: "Développement frontend moderne avec Next.js et Tailwind CSS d'un site web responsive et adaptatif." }
+        ],
+        proofs: [
+            { title: "Site en ligne", type: "link", url: "https://mazarinconduiteformation.fr/" }
+        ],
+        demo: "https://mazarinconduiteformation.fr/",
+        showInE5: true,
+        e5Order: 12
+    },
+    {
+        id: "palais-mobile",
+        title: "Palais Mobile — Plateforme d'achat international",
         shortDescription: "Application web full-stack facilitant l'achat de produits à l'international avec suivi de commande en temps réel et chat intégré.",
-        fullDescription: "Initialement prévu pour créer un portail d'auto-école (projet bloqué par des problèmes de locaux), le stage a été réorienté vers Palais Mobile, un projet stratégique. L'application permet aux résidents d'Afrique de l'Ouest de commander des produits depuis l'Europe, les USA et l'Asie. Elle gère le cycle complet : soumission de demande d'achat (via URL ou saisie manuelle), génération de devis, validation, paiement, suivi de livraison en temps réel et messagerie avec le support. Le projet a été réalisé en binôme avec répartition des tâches via Git (branches et merge requests).",
-        context: "Stage en milieu professionnel (décembre 2025-janvier 2026)",
+        fullDescription: "Palais Mobile est une application web full-stack conçue pour faciliter l'achat de produits à l'international. L'application permet aux résidents d'Afrique de l'Ouest de commander des produits depuis l'Europe, les USA et l'Asie. Elle gère le cycle complet : soumission de demande d'achat (via URL ou saisie manuelle), génération de devis, validation, paiement, suivi de livraison en temps réel et messagerie directe avec le support client. Le projet a été réalisé en binôme avec répartition des tâches via Git (branches et merge requests).",
+        context: "Projet personnel de développement (2025-2026)",
         role: "Développeur Full Stack (Dashboard Client, Auth, Sécurité, Chat temps réel)",
         duration: "6 semaines",
         teamSize: 2,
         image: "/images/palais-mobile.png",
-        technologies: ["React 19", "", "Tailwind CSS", "Firebase (Firestore, Auth, Hosting)", "Cloud Functions", "Google Gemini API", "Git/GitHub"],
-        category: 'Stage',
+        technologies: ["React 19", "Tailwind CSS", "Firebase (Firestore, Auth, Hosting)", "Cloud Functions", "Google Gemini API", "Git/GitHub"],
+        category: 'Projet Personnel',
         projectSize: 'Lourd',
-        tags: ["Stage", "E-commerce", "Full Stack", "Firebase", "IA"],
+        tags: ["Personnel", "E-commerce", "Full Stack", "Firebase", "IA"],
         highlights: [
             "Suivi de commande en temps réel (WebSockets Firestore)",
             "Chat client-support intégré",
@@ -316,8 +349,9 @@ export const projectsData: Project[] = [
         proofs: [
             { title: "Lien Démo", type: "link", url: "https://palaismobile.com/" }
         ],
+        demo: "https://palaismobile.com/",
         showInE5: true,
-        e5Order: 12
+        e5Order: 13
     },
 
     // --- NON-E5 PROJECTS (Kept for normal projects route, hidden from E5 table) ---
