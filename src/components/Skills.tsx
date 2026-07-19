@@ -6,24 +6,43 @@ import {
   Server,
   Database,
   GitBranch,
+  Github,
+  Brain,
+  BarChart3,
+  Flame,
+  Boxes,
+  FileSpreadsheet,
+  Braces,
 } from 'lucide-react';
 
 
 const skills = {
+  "Data & BI": [
+    { name: 'SQL avancé', icon: <Database className="text-blue-300" /> },
+    { name: 'PostgreSQL / Supabase', icon: <Database className="text-emerald-400" /> },
+    { name: 'SQL Server / MySQL', icon: <Database className="text-sky-400" /> },
+    { name: 'Machine Learning (notions)', icon: <Brain className="text-pink-400" /> },
+    { name: 'Analyse & KPI', icon: <BarChart3 className="text-cyan-400" /> },
+  ],
   Frontend: [
     { name: 'React', icon: <Atom className="text-cyan-400" /> },
     { name: 'JavaScript', icon: <FileCode2 className="text-yellow-400" /> },
     { name: 'TypeScript', icon: <FileCode className="text-blue-400" /> },
     { name: 'HTML/CSS', icon: <FileJson2 className="text-orange-400" /> },
   ],
-  Backend: [
-    { name: 'Node.js', icon: <Server className="text-green-400" /> },
+  "Backend & API": [
     { name: 'Python', icon: <FileCode className="text-yellow-500" /> },
+    { name: 'FastAPI', icon: <Server className="text-teal-400" /> },
+    { name: 'C# / .NET', icon: <Braces className="text-violet-400" /> },
     { name: 'PHP', icon: <FileCode className="text-indigo-400" /> },
-    { name: 'MySQL/SQL', icon: <Database className="text-blue-300" /> },
+    { name: 'Node.js', icon: <Server className="text-green-400" /> },
   ],
   "Outils & DevOps": [
     { name: 'Git', icon: <GitBranch className="text-red-400" /> },
+    { name: 'GitHub', icon: <Github className="text-gray-300" /> },
+    { name: 'Firebase', icon: <Flame className="text-amber-400" /> },
+    { name: '.NET', icon: <Boxes className="text-purple-400" /> },
+    { name: 'Excel', icon: <FileSpreadsheet className="text-green-500" /> },
   ],
 };
 

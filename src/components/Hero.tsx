@@ -56,16 +56,16 @@ const Hero = () => (
             className="text-2xl sm:text-5xl font-bold text-cyan-400 tracking-tight leading-tight mb-8"
             variants={itemFadeUp}
           >
-            Développeur Full Stack
+            Data · BI · Développement
             <br />
-            <span className="text-xl sm:text-3xl text-gray-400 font-semibold">Formation BTS SIO · option SLAM</span>
+            <span className="text-xl sm:text-3xl text-gray-400 font-semibold">Bachelor Data &amp; IA (PST&amp;B) · BTS SIO option SLAM</span>
           </motion.h2>
 
           <motion.p
             className="text-xl sm:text-2xl text-gray-300 max-w-2xl mb-6 leading-relaxed"
             variants={itemFadeUp}
           >
-            Je recherche une <span className="text-cyan-400 font-semibold">alternance d'un an en Île-de-France pour la rentrée de septembre 2026</span>. Découvrez mes projets, mes stages en entreprise et mon CV.
+            Je recherche une <span className="text-cyan-400 font-semibold">alternance en Data / BI / Développement en Île-de-France pour la rentrée de septembre 2026</span> (2 jours école / 3 jours entreprise). Découvrez mes projets, mes stages en entreprise et mon CV.
           </motion.p>
 
           <motion.div

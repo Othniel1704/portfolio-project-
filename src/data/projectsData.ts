@@ -377,4 +377,31 @@ export const projectsData: Project[] = [
         showInE5: false
     },
 
+    {
+        id: "stagematch",
+        title: "StageMatch — Matching stages / alternances",
+        shortDescription: "Plateforme de mise en relation candidats / offres avec matching automatique par compétences et KPI.",
+        fullDescription: "StageMatch met en relation candidats et entreprises pour des stages et alternances. L'application s'appuie sur une architecture de données PostgreSQL / Supabase et un moteur de matching automatique qui score la compatibilité entre profils et offres à partir des compétences et d'indicateurs (KPI). Une API FastAPI expose la gestion des candidatures et des offres.",
+        context: "Projet personnel Data (2025-2026)",
+        role: "Développeur & Data / Architecture BDD",
+        duration: "En cours",
+        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1000",
+        technologies: ["Python", "FastAPI", "PostgreSQL", "Supabase", "SQL avancé"],
+        category: 'Projet Personnel',
+        projectSize: 'Lourd',
+        tags: ["Data", "Matching", "API", "Base de données"],
+        highlights: [
+            "Architecture de données PostgreSQL / Supabase",
+            "Matching automatique par compétences et KPI",
+            "API FastAPI pour la gestion des candidatures et des offres"
+        ],
+        competencies: [
+            { id: "B2.1", description: "Développement de l'API et de la logique de matching en Python (FastAPI)." },
+            { id: "B2.3", description: "Modélisation et exploitation d'une base relationnelle (PostgreSQL / Supabase) et requêtes avancées." }
+        ],
+        proofs: [],
+        github: "https://github.com/Othniel1704/stagematch",
+        showInE5: false
+    },
+
 ];

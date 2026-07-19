@@ -1,24 +1,36 @@
-import { Download, Atom, FileCode, FileCode2, FileJson2, Server, Database, GitBranch } from 'lucide-react';
+import { Download, Atom, FileCode, FileCode2, FileJson2, Server, Database, GitBranch, Github, Brain, BarChart3, Flame, Boxes, FileSpreadsheet, Braces } from 'lucide-react';
 
 
 import Education from '../components/Education';
 import Certifications from '../components/Certifications';
 
 const skills = {
+  "Data & BI": [
+    { name: 'SQL avancé', icon: <Database size={18} /> },
+    { name: 'PostgreSQL / Supabase', icon: <Database size={18} /> },
+    { name: 'SQL Server / MySQL', icon: <Database size={18} /> },
+    { name: 'Machine Learning (notions)', icon: <Brain size={18} /> },
+    { name: 'Analyse & KPI', icon: <BarChart3 size={18} /> },
+  ],
   Frontend: [
     { name: 'React', icon: <Atom size={18} /> },
     { name: 'JavaScript', icon: <FileCode2 size={18} /> },
     { name: 'TypeScript', icon: <FileCode size={18} /> },
     { name: 'HTML/CSS', icon: <FileJson2 size={18} /> },
   ],
-  Backend: [
-    { name: 'Node.js', icon: <Server size={18} /> },
+  "Backend & API": [
     { name: 'Python', icon: <FileCode size={18} /> },
+    { name: 'FastAPI', icon: <Server size={18} /> },
+    { name: 'C# / .NET', icon: <Braces size={18} /> },
     { name: 'PHP', icon: <FileCode size={18} /> },
-    { name: 'MySQL/SQL', icon: <Database size={18} /> },
+    { name: 'Node.js', icon: <Server size={18} /> },
   ],
   "Outils & DevOps": [
     { name: 'Git', icon: <GitBranch size={18} /> },
+    { name: 'GitHub', icon: <Github size={18} /> },
+    { name: 'Firebase', icon: <Flame size={18} /> },
+    { name: '.NET', icon: <Boxes size={18} /> },
+    { name: 'Excel', icon: <FileSpreadsheet size={18} /> },
   ],
 };
 
@@ -42,14 +54,14 @@ const About = () => {
                   <h3 className="text-xl text-cyan-400 font-semibold mb-2">Mon parcours</h3>
                   <p>
                     J'ai découvert la programmation en licence Math-Info, où j'ai conçu des algorithmes d'optimisation en Python et structuré des logiques complexes.
-                    J'ai ensuite mis en pratique ces compétences en créant des applications complètes, ce qui a confirmé ma volonté d'en faire mon métier.
+                    Après un BTS SIO (option SLAM), je poursuis aujourd'hui un <span className="text-cyan-400 font-semibold">Bachelor Data &amp; Intelligence Artificielle (3ᵉ année) à PST&amp;B</span>, en mettant ces compétences au service de projets data et applicatifs concrets.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-xl text-cyan-400 font-semibold mb-2">Projet Professionnel</h3>
                   <p>
-                    Issu d'une formation BTS SIO (option SLAM), je me spécialise en développement Full Stack.
-                    Je recherche une <span className="text-cyan-400 font-semibold">alternance d'un an en Île-de-France pour la rentrée de septembre 2026</span>, sur des missions de développement web (front-end, back-end ou full stack). Mon objectif : monter en compétence sur des projets concrets tout en apportant l'autonomie et la rigueur acquises durant mes stages.
+                    Entre développement Full Stack et Data / BI, je m'appuie sur une solide base en SQL, en conception de bases de données et en analyse de données.
+                    Je recherche une <span className="text-cyan-400 font-semibold">alternance en Data / BI / Développement en Île-de-France pour la rentrée de septembre 2026</span> (rythme 2 jours école / 3 jours entreprise). Mon objectif : monter en compétence sur des projets concrets tout en apportant l'autonomie et la rigueur acquises durant mes stages.
                   </p>
                 </div>
                 <div>
