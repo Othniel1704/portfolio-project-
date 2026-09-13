@@ -1,12 +1,12 @@
 import React from 'react';
-import { Award, Calendar, CheckCircle } from 'lucide-react';
+import { Calendar, CheckCircle, Clock } from 'lucide-react';
 
 const certifications = [
    
     {
         title: "MOOC Cybersécurité",
         issuer: "ANSSI (Agence Nationale de la Sécurité des Systèmes d'Information)",
-        date: "2024",
+        date: "Octobre 2025",
         status: "Obtenu",
         description: "Formation en sécurité informatique : cryptographie, sécurisation des systèmes, et bonnes pratiques",
         icon: <CheckCircle className="w-6 h-6" />,
@@ -15,11 +15,20 @@ const certifications = [
     {
         title: "Introduction à la Cybersécurité",
         issuer: "Cisco Networking Academy",
-        date: "2024",
+        date: "Octobre 2025",
         status: "Obtenu",
         description: "Fondamentaux de la cybersécurité, protection des données, et sécurité des réseaux",
         icon: <CheckCircle className="w-6 h-6" />,
         fileUrl: "/Introduction_to_Cybersecurity_certificate_kkonanothniel-gmail-com_19a402e8-8a99-4c74-9794-dd67322d84b4.pdf"
+    },
+    {
+        title: "Prompt Engineering & Programming with OpenAI",
+        issuer: "Columbia University (edX)",
+        date: "2026",
+        status: "En cours",
+        description: "Conception de prompts, appels d'API de modèles de langage et intégration de l'IA générative dans des applications",
+        icon: <Clock className="w-6 h-6" />,
+        fileUrl: ""
     }
 ];
 

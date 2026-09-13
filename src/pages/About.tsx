@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, Atom, FileCode, FileCode2, FileJson2, Server, Database, GitBranch, FileText } from 'lucide-react';
+import { Download, Atom, FileCode, FileCode2, FileJson2, Server, Database, GitBranch, FileText, Brain, BarChart3, Workflow, Bot, Cloud, Terminal } from 'lucide-react';
 
 
 import Education from '../components/Education';
@@ -18,8 +18,19 @@ const skills = {
     { name: 'PHP', icon: <FileCode size={18} /> },
     { name: 'MySQL/SQL', icon: <Database size={18} /> },
   ],
+  "Data & IA": [
+    { name: 'pandas / NumPy', icon: <BarChart3 size={18} /> },
+    { name: 'scikit-learn', icon: <Brain size={18} /> },
+    { name: 'SQL avancé', icon: <Database size={18} /> },
+    { name: 'Power BI (notions)', icon: <BarChart3 size={18} /> },
+    { name: 'APIs IA (OpenAI, Gemini)', icon: <Bot size={18} /> },
+    { name: 'Automatisation n8n', icon: <Workflow size={18} /> },
+  ],
   "Outils & DevOps": [
-    { name: 'Git', icon: <GitBranch size={18} /> },
+    { name: 'Git / GitHub', icon: <GitBranch size={18} /> },
+    { name: 'Firebase', icon: <Cloud size={18} /> },
+    { name: 'PostgreSQL / Supabase', icon: <Database size={18} /> },
+    { name: 'Linux / Proxmox', icon: <Terminal size={18} /> },
   ],
 };
 
@@ -35,22 +46,22 @@ const About = () => {
               <div className="text-lg text-gray-300 mb-8 leading-relaxed space-y-6">
                 <div>
                   <h3 className="text-xl text-cyan-400 font-semibold mb-2">Mon approche technique</h3>
-                  <p>Ce que j'aime dans le développement, c'est concevoir des solutions robustes à des problèmes concrets.
-                    J'ai notamment travaillé sur l'optimisation d'architectures de bases de données, la structuration d'API performantes et la création d'interfaces utilisateur interactives. Chaque bug est pour moi une opportunité d'améliorer la fiabilité du code.
+                  <p>Ce que j'aime, c'est transformer des données brutes et des besoins flous en solutions exploitables.
+                    Je travaille aussi bien sur la modélisation et l'interrogation de bases de données (SQL avancé, PostgreSQL, SQL Server) que sur des modèles de prédiction en Python et sur l'intégration d'API d'intelligence artificielle dans des applications réelles.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-xl text-cyan-400 font-semibold mb-2">Mon parcours</h3>
                   <p>
                     J'ai découvert la programmation en licence Math-Info, où j'ai conçu des algorithmes d'optimisation en Python et structuré des logiques complexes.
-                    J'ai ensuite mis en pratique ces compétences en créant des applications complètes, ce qui a confirmé ma volonté d'en faire mon métier.
+                    J'ai poursuivi en BTS SIO option SLAM (obtenu en 2026, Institut F2I), avec deux stages en entreprise : un site vitrine Next.js passé en production pour une auto-école, puis Palais Mobile, une plateforme d'achat international développée en binôme sur Firebase.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-xl text-cyan-400 font-semibold mb-2">Projet Professionnel</h3>
                   <p>
-                    Aujourd'hui étudiant en BTS SIO (option SLAM), je me spécialise en développement Full Stack.
-                    Mon ambition est de concevoir des infrastructures logicielles fiables et évolutives, en intégrant les meilleures pratiques de modélisation de données et d'architecture.
+                    Je suis aujourd'hui en Bachelor Data & Intelligence Artificielle (3ème année) à Paris School of Technology & Business, et je recherche une alternance à partir de septembre 2026 sur un poste Data Analyst, Développeur BI ou IA appliquée.
+                    Mon objectif : m'appuyer sur ma base de développeur pour livrer des analyses et des automatisations qui servent directement une décision métier.
                   </p>
                 </div>
                 <div>

@@ -127,7 +127,7 @@ export const projectsData: Project[] = [
             { title: "Code source", type: "link", url: "https://github.com/Othniel1704/portfolio-project-" }
         ],
         github: "https://github.com/Othniel1704/portfolio-project-",
-        demo: "https://othniel-portfolio.netlify.app",
+        demo: "https://studiokonan.netlify.app",
         showInE5: true,
         e5Order: 5
     },
@@ -340,6 +340,106 @@ export const projectsData: Project[] = [
         ],
         proofs: [],
         github: "https://github.com/Othniel1704/chess-game",
+        showInE5: false
+    },
+
+    // --- PROJETS DATA / IA & DEV (Bachelor Data & IA, 2026) ---
+
+    {
+        id: "fixinfo",
+        title: "Fixinfo : gestion de parc et suivi des interventions de maintenance",
+        shortDescription: "Application desktop C# de suivi du matériel informatique et des interventions techniques.",
+        fullDescription: "Application Windows Forms permettant de référencer le matériel informatique d'une organisation, d'enregistrer les interventions de maintenance et d'alerter sur les équipements en fin de vie. Authentification utilisateur avec changement de mot de passe, recherche filtrée sur le parc, calcul automatique des durées d'intervention et signalement visuel des matériels dont le MTBF passe sous le seuil de 1000 heures.",
+        context: "Projet d'examen BTS SIO, épreuve E6 (2025-2026)",
+        role: "Développeur .NET (conception, base de données, IHM)",
+        duration: "6 semaines",
+        image: "/images/fixinfo.svg",
+        technologies: ["C#", ".NET Framework 4.8", "Windows Forms", "SQL Server Express", "ADO.NET"],
+        category: 'Projet Académique (PPE)',
+        projectSize: 'Lourd',
+        tags: ["Desktop .NET", "Base de données", "Maintenance"],
+        highlights: [
+            "Alerte visuelle sur le matériel en fin de vie (MTBF sous 1000 h)",
+            "Coloration conditionnelle des lignes du DataGridView",
+            "Recherche filtrée SQL de type LIKE sur le parc",
+            "Authentification et changement de mot de passe sécurisés"
+        ],
+        competencies: [
+            { id: "B1.1", description: "Centralisation de l'inventaire du parc et suivi du cycle de vie des équipements." },
+            { id: "B1.2", description: "Enregistrement et traitement des interventions de maintenance." },
+            { id: "B2.1", description: "Développement C# en couches (accès données ADO.NET, IHM WinForms)." },
+            { id: "B2.3", description: "Modélisation relationnelle SQL Server (Login, Materiel, Inter) et requêtes paramétrées." }
+        ],
+        proofs: [],
+        showInE5: false
+    },
+    {
+        id: "stagematch",
+        title: "StageMatch : moteur de mise en relation stages et candidats",
+        shortDescription: "API de matching entre offres de stage et profils étudiants, avec traitement du langage naturel.",
+        fullDescription: "Projet Data orienté service : une API REST expose un moteur de rapprochement entre des offres de stage et des profils candidats. Les descriptions d'offres et les CV sont normalisés, les compétences sont extraites automatiquement, puis un score de correspondance est calculé et classé par requêtes SQL avancées (agrégations, fonctions de fenêtrage).",
+        context: "Projet personnel Data / BI (2026)",
+        role: "Développeur Data (modélisation, SQL, API)",
+        duration: "Continu",
+        image: "/images/stagematch.svg",
+        technologies: ["Python", "FastAPI", "PostgreSQL", "Supabase", "spaCy", "SQL avancé"],
+        category: 'Projet Personnel',
+        projectSize: 'Lourd',
+        tags: ["Data", "API", "NLP", "SQL"],
+        highlights: [
+            "Extraction automatique des compétences depuis les offres et les CV",
+            "Score de correspondance calculé côté base (SQL avancé)",
+            "API REST documentée avec FastAPI",
+            "Base PostgreSQL hébergée sur Supabase"
+        ],
+        competencies: [],
+        proofs: [],
+        showInE5: false
+    },
+    {
+        id: "credit-scoring",
+        title: "Scoring de risque de crédit : prédiction du défaut de paiement",
+        shortDescription: "Modèle de classification prédisant le risque de défaut sur un jeu de 150 000 emprunteurs.",
+        fullDescription: "Projet de machine learning appliqué au risque bancaire, à partir du jeu de données public Give Me Some Credit (150 000 emprunteurs). Nettoyage et exploration des données en Python, requêtes d'analyse en SQL sur PostgreSQL, puis entraînement d'une régression logistique évaluée par AUC-ROC et matrice de confusion. Les emprunteurs sont ensuite segmentés en trois classes de risque exploitables par un métier.",
+        context: "Projet personnel Data / Machine Learning (2026)",
+        role: "Data Analyst (préparation, modélisation, évaluation)",
+        duration: "3 semaines",
+        image: "/images/credit-scoring.svg",
+        technologies: ["Python", "pandas", "scikit-learn", "PostgreSQL", "Matplotlib"],
+        category: 'Projet Personnel',
+        projectSize: 'Lourd',
+        tags: ["Data", "Machine Learning", "SQL", "Analyse de risque"],
+        highlights: [
+            "150 000 emprunteurs nettoyés et explorés (pandas, SQL)",
+            "Régression logistique évaluée par AUC-ROC et matrice de confusion",
+            "Segmentation des emprunteurs en 3 classes de risque",
+            "Lecture métier des résultats plutôt que score brut"
+        ],
+        competencies: [],
+        proofs: [],
+        showInE5: false
+    },
+    {
+        id: "ai-document-generator",
+        title: "AI Document Generator : chaîne d'automatisation n8n",
+        shortDescription: "Workflow automatisé qui génère, vérifie et archive des lettres de motivation personnalisées.",
+        fullDescription: "Automatisation de bout en bout construite sur n8n. Un formulaire collecte le nom, l'entreprise, le poste, le contexte et l'offre, un modèle OpenAI rédige la lettre de motivation, un nœud de vérification contrôle la conformité du texte, et une boucle de correction relance la génération tant que le résultat ne convient pas. Le document validé est créé dans Google Drive puis notifié par Gmail avec son lien.",
+        context: "Projet personnel IA et automatisation (2026)",
+        role: "Concepteur du workflow (prompting, logique de contrôle, intégrations)",
+        duration: "1 semaine",
+        image: "/images/ai-doc-generator.svg",
+        technologies: ["n8n", "OpenAI API", "Google Drive API", "Gmail API", "Prompt engineering"],
+        category: 'Projet Personnel',
+        projectSize: 'Léger',
+        tags: ["IA", "Automatisation", "No-code", "API"],
+        highlights: [
+            "Boucle de vérification et de correction automatique du texte généré",
+            "Archivage automatique du document dans Google Drive",
+            "Notification Gmail avec le lien du document",
+            "Workflow publié et réutilisable pour chaque candidature"
+        ],
+        competencies: [],
+        proofs: [],
         showInE5: false
     },
 

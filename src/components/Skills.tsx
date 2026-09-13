@@ -7,9 +7,12 @@ import {
   Server,
   Database,
   GitBranch,
-  Shield,
-  Network,
-  Lock,
+  Brain,
+  BarChart3,
+  Workflow,
+  Bot,
+  Cloud,
+  Terminal,
 } from 'lucide-react';
 
 
@@ -26,8 +29,19 @@ const skills = {
     { name: 'PHP', icon: <FileCode className="text-indigo-400" /> },
     { name: 'MySQL/SQL', icon: <Database className="text-blue-300" /> },
   ],
+  "Data & IA": [
+    { name: 'pandas / NumPy', icon: <BarChart3 className="text-emerald-400" /> },
+    { name: 'scikit-learn', icon: <Brain className="text-purple-400" /> },
+    { name: 'SQL avancé', icon: <Database className="text-blue-300" /> },
+    { name: 'Power BI (notions)', icon: <BarChart3 className="text-yellow-400" /> },
+    { name: 'APIs IA (OpenAI, Gemini)', icon: <Bot className="text-cyan-400" /> },
+    { name: 'Automatisation n8n', icon: <Workflow className="text-pink-400" /> },
+  ],
   "Outils & DevOps": [
-    { name: 'Git', icon: <GitBranch className="text-red-400" /> },
+    { name: 'Git / GitHub', icon: <GitBranch className="text-red-400" /> },
+    { name: 'Firebase', icon: <Cloud className="text-amber-400" /> },
+    { name: 'PostgreSQL / Supabase', icon: <Database className="text-emerald-400" /> },
+    { name: 'Linux / Proxmox', icon: <Terminal className="text-slate-300" /> },
   ],
 };
 

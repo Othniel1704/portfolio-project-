@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="StageMatch">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="15%" r="60%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#glow)"/>
+  <g stroke="#22d3ee" stroke-opacity="0.12" stroke-width="1">
+    <line x1="0" y1="0" x2="800" y2="0"/><line x1="0" y1="50" x2="800" y2="50"/><line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="150" x2="800" y2="150"/><line x1="0" y1="200" x2="800" y2="200"/><line x1="0" y1="250" x2="800" y2="250"/><line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="350" x2="800" y2="350"/><line x1="0" y1="400" x2="800" y2="400"/><line x1="0" y1="450" x2="800" y2="450"/><line x1="0" y1="500" x2="800" y2="500"/><line x1="0" y1="550" x2="800" y2="550"/><line x1="0" y1="600" x2="800" y2="600"/><line x1="0" y1="0" x2="0" y2="600"/><line x1="50" y1="0" x2="50" y2="600"/><line x1="100" y1="0" x2="100" y2="600"/><line x1="150" y1="0" x2="150" y2="600"/><line x1="200" y1="0" x2="200" y2="600"/><line x1="250" y1="0" x2="250" y2="600"/><line x1="300" y1="0" x2="300" y2="600"/><line x1="350" y1="0" x2="350" y2="600"/><line x1="400" y1="0" x2="400" y2="600"/><line x1="450" y1="0" x2="450" y2="600"/><line x1="500" y1="0" x2="500" y2="600"/><line x1="550" y1="0" x2="550" y2="600"/><line x1="600" y1="0" x2="600" y2="600"/><line x1="650" y1="0" x2="650" y2="600"/><line x1="700" y1="0" x2="700" y2="600"/><line x1="750" y1="0" x2="750" y2="600"/><line x1="800" y1="0" x2="800" y2="600"/>
+  </g>
+  <g transform="translate(64,180)">
+    <rect x="0" y="-56" width="123" height="34" rx="17" fill="#22d3ee" fill-opacity="0.15" stroke="#22d3ee" stroke-opacity="0.4"/>
+    <text x="18" y="-33" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#22d3ee">Projet Data</text>
+    <text x="0" y="40" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="52" font-weight="700" fill="#ffffff">StageMatch</text>
+    <text x="0" y="104" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="52" font-weight="700" fill="#22d3ee">Moteur de matching</text>
+    <text x="0" y="168" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" fill="#94a3b8">Offres de stage et profils candidats</text>
+  </g>
+  <g transform="translate(64,470)">
+    <g transform="translate(0,0)"><rect width="80" height="38" rx="19" fill="#1e293b" stroke="#22d3ee" stroke-opacity="0.3"/><text x="40.0" y="24" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#cbd5e1">Python</text></g><g transform="translate(94,0)"><rect width="90" height="38" rx="19" fill="#1e293b" stroke="#22d3ee" stroke-opacity="0.3"/><text x="45.0" y="24" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#cbd5e1">FastAPI</text></g><g transform="translate(198,0)"><rect width="120" height="38" rx="19" fill="#1e293b" stroke="#22d3ee" stroke-opacity="0.3"/><text x="60.0" y="24" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#cbd5e1">PostgreSQL</text></g><g transform="translate(332,0)"><rect width="70" height="38" rx="19" fill="#1e293b" stroke="#22d3ee" stroke-opacity="0.3"/><text x="35.0" y="24" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#cbd5e1">spaCy</text></g>
+  </g>
+</svg>
