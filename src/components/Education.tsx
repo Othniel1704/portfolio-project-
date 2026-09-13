@@ -1,20 +1,19 @@
-import React from 'react';
 import { Calendar, Briefcase, Code } from 'lucide-react';
 
 const experiences = [
   {
     type: 'education',
-    date: '2026 - 2027',
-    title: 'Bachelor Data & Intelligence Artificielle (3ème année)',
-    institution: 'Paris School of Technology & Business (PST&B)',
-    description: 'Analyse de données, SQL avancé, machine learning, visualisation et intégration d\'API d\'intelligence artificielle. Formation en alternance, actuellement en recherche d\'une entreprise d\'accueil.',
+    date: 'En cours - 2026',
+    title: 'Bachelor Data & Intelligence Artificielle (3ᵉ année)',
+    institution: 'Paris School of Technology & Business (PST&B), Paris',
+    description: 'Data / BI, bases de données relationnelles, analyse de données et KPI, notions de Machine Learning et développement d\'applications. En recherche d\'alternance (2 jours école / 3 jours entreprise).',
   },
   {
     type: 'education',
     date: '2024 - 2026',
     title: 'BTS Services Informatiques aux Organisations (option SLAM)',
     institution: 'Institut F2I, Vincennes',
-    description: 'Développement d\'applications logicielles et web, bases de données, cybersécurité et administration réseau. Deux stages en entreprise et réalisation de projets complets de bout en bout.',
+    description: 'Développement d\'applications logicielles et web, bases de données, cybersécurité et administration réseau. Réalisation de projets complets en respectant les bonnes pratiques.',
   },
   {
     type: 'education',

@@ -108,10 +108,10 @@ export const projectsData: Project[] = [
         title: "Portfolio Professionnel et Veille Technologique",
         shortDescription: "Plateforme web personnelle incluant CV, projets et agrégation de veille.",
         fullDescription: "Conception et développement d'un portfolio servant d'identité numérique et de plateforme de veille technologique. Reflète mes compétences professionnelles et ma démarche continue d'apprentissage (2024-2026).",
-        context: "Examen E4 et E5 (2024-2026)",
+        context: "Projet personnel (2024-2026)",
         role: "Développeur Full Stack",
         duration: "Continu",
-        image: "images/portfolio.png",
+        image: "/images/portfolio.png",
         technologies: ["React", "TypeScript", "Tailwind CSS"],
         category: 'Projet Personnel',
         projectSize: 'Lourd',
@@ -127,7 +127,7 @@ export const projectsData: Project[] = [
             { title: "Code source", type: "link", url: "https://github.com/Othniel1704/portfolio-project-" }
         ],
         github: "https://github.com/Othniel1704/portfolio-project-",
-        demo: "https://studiokonan.netlify.app",
+        demo: "https://othniel-portfolio.netlify.app",
         showInE5: true,
         e5Order: 5
     },
@@ -167,7 +167,7 @@ export const projectsData: Project[] = [
         context: "Projet scolaire (2024-2025)",
         role: "Développeur Front/Back",
         duration: "3 semaines",
-        image: "images/chat.png",
+        image: "/images/chat.png",
         technologies: ["PHP", "MySQL", "JavaScript", "AJAX"],
         category: 'Projet Académique (PPE)',
         tags: ["Messagerie", "Temps Réel"],
@@ -284,19 +284,52 @@ export const projectsData: Project[] = [
         e5Order: 11
     },
     {
-        id: "stage-2-palais-mobile",
-        title: "Stage 2ème année : Palais Mobile — Plateforme d'achat international ",
+        id: "stage-2-menad-conseil",
+        title: "Stage 2ème année : MENAD CONSEIL & FORMATION — Chilly-Mazarin",
+        shortDescription: "Conception et développement d'un site web responsive, structuration des contenus et optimisation de l'affichage mobile pour l'auto-école.",
+        fullDescription: "Ce projet de stage a consisté à concevoir et développer le site web responsive de l'auto-école MENAD CONSEIL & FORMATION (opérant sous le nom commercial Mazarin Conduite & Formation) à Chilly-Mazarin. L'objectif principal était de structurer et d'intégrer les différents contenus (présentation de l'établissement, formules et tarifs des permis, code de la route, contact) afin de remplacer la présence en ligne existante par une solution moderne. Une attention particulière a été accordée à l'optimisation mobile (Responsive Design) et à l'amélioration globale de l'expérience utilisateur (UX/UI). Tout au long du projet, des échanges réguliers ont été menés avec le client afin d'adapter l'arborescence, valider le design et répondre précisément à ses attentes professionnelles.",
+        context: "Stage en milieu professionnel (décembre 2025 - janvier 2026)",
+        role: "Développeur Web & Concepteur UX/UI",
+        duration: "6 semaines",
+        image: "/images/mazarin-conduite.jpg",
+        technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "SEO", "Responsive Design"],
+        category: 'Stage',
+        projectSize: 'Léger',
+        tags: ["Stage", "Web Showcase", "Responsive Design", "Client Relations"],
+        highlights: [
+            "Conception et développement d'un site web responsive",
+            "Intégration et structuration des contenus (présentation, services, contact)",
+            "Optimisation de l'affichage mobile et amélioration de l'expérience utilisateur",
+            "Échanges réguliers et validations de livrables avec le client"
+        ],
+        competencies: [
+            { id: "B1.2", description: "Prise en compte des retours et demandes d'évolution du client pour adapter l'arborescence et l'interface." },
+            { id: "B1.3", description: "Structuration et intégration complète des contenus professionnels pour valoriser la présence en ligne locale." },
+            { id: "B1.4", description: "Travail en mode projet avec le client via des échanges réguliers et des revues de maquettes périodiques." },
+            { id: "B1.5", description: "Optimisation de l'accessibilité mobile, des performances d'affichage et mise en production du site." },
+            { id: "B2.1", description: "Développement frontend moderne avec Next.js et Tailwind CSS d'un site web responsive et adaptatif." }
+        ],
+        proofs: [
+            { title: "Site en ligne", type: "link", url: "https://mazarinconduiteformation.fr/" }
+        ],
+        demo: "https://mazarinconduiteformation.fr/",
+        showInE5: true,
+        e5Order: 12
+    },
+    {
+        id: "palais-mobile",
+        title: "Palais Mobile — Plateforme d'achat international",
         shortDescription: "Application web full-stack facilitant l'achat de produits à l'international avec suivi de commande en temps réel et chat intégré.",
-        fullDescription: "Initialement prévu pour créer un portail d'auto-école (projet bloqué par des problèmes de locaux), le stage a été réorienté vers Palais Mobile, un projet stratégique. L'application permet aux résidents d'Afrique de l'Ouest de commander des produits depuis l'Europe, les USA et l'Asie. Elle gère le cycle complet : soumission de demande d'achat (via URL ou saisie manuelle), génération de devis, validation, paiement, suivi de livraison en temps réel et messagerie avec le support. Le projet a été réalisé en binôme avec répartition des tâches via Git (branches et merge requests).",
-        context: "Stage en milieu professionnel (décembre 2025-janvier 2026)",
+        fullDescription: "Palais Mobile est une application web full-stack conçue pour faciliter l'achat de produits à l'international. L'application permet aux résidents d'Afrique de l'Ouest de commander des produits depuis l'Europe, les USA et l'Asie. Elle gère le cycle complet : soumission de demande d'achat (via URL ou saisie manuelle), génération de devis, validation, paiement, suivi de livraison en temps réel et messagerie directe avec le support client. Le projet a été réalisé en binôme avec répartition des tâches via Git (branches et merge requests).",
+        context: "Projet personnel de développement (2025-2026)",
         role: "Développeur Full Stack (Dashboard Client, Auth, Sécurité, Chat temps réel)",
         duration: "6 semaines",
         teamSize: 2,
         image: "/images/palais-mobile.png",
-        technologies: ["React 19", "", "Tailwind CSS", "Firebase (Firestore, Auth, Hosting)", "Cloud Functions", "Google Gemini API", "Git/GitHub"],
-        category: 'Stage',
+        technologies: ["React 19", "Tailwind CSS", "Firebase (Firestore, Auth, Hosting)", "Cloud Functions", "Google Gemini API", "Git/GitHub"],
+        category: 'Projet Personnel',
         projectSize: 'Lourd',
-        tags: ["Stage", "E-commerce", "Full Stack", "Firebase", "IA"],
+        tags: ["Personnel", "E-commerce", "Full Stack", "Firebase", "IA"],
         highlights: [
             "Suivi de commande en temps réel (WebSockets Firestore)",
             "Chat client-support intégré",
@@ -316,8 +349,9 @@ export const projectsData: Project[] = [
         proofs: [
             { title: "Lien Démo", type: "link", url: "https://palaismobile.com/" }
         ],
+        demo: "https://palaismobile.com/",
         showInE5: true,
-        e5Order: 12
+        e5Order: 13
     },
 
     // --- NON-E5 PROJECTS (Kept for normal projects route, hidden from E5 table) ---
@@ -343,8 +377,32 @@ export const projectsData: Project[] = [
         showInE5: false
     },
 
-    // --- PROJETS DATA / IA & DEV (Bachelor Data & IA, 2026) ---
-
+    {
+        id: "stagematch",
+        title: "StageMatch — Matching stages / alternances",
+        shortDescription: "Plateforme de mise en relation candidats / offres avec matching automatique par compétences et KPI.",
+        fullDescription: "StageMatch met en relation candidats et entreprises pour des stages et alternances. L'application s'appuie sur une architecture de données PostgreSQL / Supabase et un moteur de matching automatique qui score la compatibilité entre profils et offres à partir des compétences et d'indicateurs (KPI). Une API FastAPI expose la gestion des candidatures et des offres.",
+        context: "Projet personnel Data (2025-2026)",
+        role: "Développeur & Data / Architecture BDD",
+        duration: "En cours",
+        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1000",
+        technologies: ["Python", "FastAPI", "PostgreSQL", "Supabase", "SQL avancé"],
+        category: 'Projet Personnel',
+        projectSize: 'Lourd',
+        tags: ["Data", "Matching", "API", "Base de données"],
+        highlights: [
+            "Architecture de données PostgreSQL / Supabase",
+            "Matching automatique par compétences et KPI",
+            "API FastAPI pour la gestion des candidatures et des offres"
+        ],
+        competencies: [
+            { id: "B2.1", description: "Développement de l'API et de la logique de matching en Python (FastAPI)." },
+            { id: "B2.3", description: "Modélisation et exploitation d'une base relationnelle (PostgreSQL / Supabase) et requêtes avancées." }
+        ],
+        proofs: [],
+        github: "https://github.com/Othniel1704/stagematch",
+        showInE5: false
+    },
     {
         id: "fixinfo",
         title: "Fixinfo : gestion de parc et suivi des interventions de maintenance",
@@ -374,29 +432,6 @@ export const projectsData: Project[] = [
         showInE5: false
     },
     {
-        id: "stagematch",
-        title: "StageMatch : moteur de mise en relation stages et candidats",
-        shortDescription: "API de matching entre offres de stage et profils étudiants, avec traitement du langage naturel.",
-        fullDescription: "Projet Data orienté service : une API REST expose un moteur de rapprochement entre des offres de stage et des profils candidats. Les descriptions d'offres et les CV sont normalisés, les compétences sont extraites automatiquement, puis un score de correspondance est calculé et classé par requêtes SQL avancées (agrégations, fonctions de fenêtrage).",
-        context: "Projet personnel Data / BI (2026)",
-        role: "Développeur Data (modélisation, SQL, API)",
-        duration: "Continu",
-        image: "/images/stagematch.svg",
-        technologies: ["Python", "FastAPI", "PostgreSQL", "Supabase", "spaCy", "SQL avancé"],
-        category: 'Projet Personnel',
-        projectSize: 'Lourd',
-        tags: ["Data", "API", "NLP", "SQL"],
-        highlights: [
-            "Extraction automatique des compétences depuis les offres et les CV",
-            "Score de correspondance calculé côté base (SQL avancé)",
-            "API REST documentée avec FastAPI",
-            "Base PostgreSQL hébergée sur Supabase"
-        ],
-        competencies: [],
-        proofs: [],
-        showInE5: false
-    },
-    {
         id: "credit-scoring",
         title: "Scoring de risque de crédit : prédiction du défaut de paiement",
         shortDescription: "Modèle de classification prédisant le risque de défaut sur un jeu de 150 000 emprunteurs.",
@@ -415,7 +450,9 @@ export const projectsData: Project[] = [
             "Segmentation des emprunteurs en 3 classes de risque",
             "Lecture métier des résultats plutôt que score brut"
         ],
-        competencies: [],
+        competencies: [
+            { id: "B2.3", description: "Exploration et interrogation d'une base PostgreSQL pour l'analyse des données." }
+        ],
         proofs: [],
         showInE5: false
     },

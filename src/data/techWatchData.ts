@@ -1,5 +1,3 @@
-import { Share2, Brain, Sparkles, Code2, Bot } from 'lucide-react';
-
 export interface TechItem {
   id: number;
   title: string;

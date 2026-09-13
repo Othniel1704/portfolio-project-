@@ -54,4 +54,5 @@ Thumbs.db
 # Optional eslint cache
 .eslintcache
 
+# TypeScript incremental build info
 *.tsbuildinfo

@@ -1,36 +1,36 @@
-import React from 'react';
-import { Download, Atom, FileCode, FileCode2, FileJson2, Server, Database, GitBranch, FileText, Brain, BarChart3, Workflow, Bot, Cloud, Terminal } from 'lucide-react';
+import { Download, Atom, FileCode, FileCode2, FileJson2, Server, Database, GitBranch, Github, Brain, BarChart3, Flame, Boxes, FileSpreadsheet, Braces } from 'lucide-react';
 
 
 import Education from '../components/Education';
 import Certifications from '../components/Certifications';
 
 const skills = {
+  "Data & BI": [
+    { name: 'SQL avancé', icon: <Database size={18} /> },
+    { name: 'PostgreSQL / Supabase', icon: <Database size={18} /> },
+    { name: 'SQL Server / MySQL', icon: <Database size={18} /> },
+    { name: 'Machine Learning (notions)', icon: <Brain size={18} /> },
+    { name: 'Analyse & KPI', icon: <BarChart3 size={18} /> },
+  ],
   Frontend: [
     { name: 'React', icon: <Atom size={18} /> },
     { name: 'JavaScript', icon: <FileCode2 size={18} /> },
     { name: 'TypeScript', icon: <FileCode size={18} /> },
     { name: 'HTML/CSS', icon: <FileJson2 size={18} /> },
   ],
-  Backend: [
-    { name: 'Node.js', icon: <Server size={18} /> },
+  "Backend & API": [
     { name: 'Python', icon: <FileCode size={18} /> },
+    { name: 'FastAPI', icon: <Server size={18} /> },
+    { name: 'C# / .NET', icon: <Braces size={18} /> },
     { name: 'PHP', icon: <FileCode size={18} /> },
-    { name: 'MySQL/SQL', icon: <Database size={18} /> },
-  ],
-  "Data & IA": [
-    { name: 'pandas / NumPy', icon: <BarChart3 size={18} /> },
-    { name: 'scikit-learn', icon: <Brain size={18} /> },
-    { name: 'SQL avancé', icon: <Database size={18} /> },
-    { name: 'Power BI (notions)', icon: <BarChart3 size={18} /> },
-    { name: 'APIs IA (OpenAI, Gemini)', icon: <Bot size={18} /> },
-    { name: 'Automatisation n8n', icon: <Workflow size={18} /> },
+    { name: 'Node.js', icon: <Server size={18} /> },
   ],
   "Outils & DevOps": [
-    { name: 'Git / GitHub', icon: <GitBranch size={18} /> },
-    { name: 'Firebase', icon: <Cloud size={18} /> },
-    { name: 'PostgreSQL / Supabase', icon: <Database size={18} /> },
-    { name: 'Linux / Proxmox', icon: <Terminal size={18} /> },
+    { name: 'Git', icon: <GitBranch size={18} /> },
+    { name: 'GitHub', icon: <Github size={18} /> },
+    { name: 'Firebase', icon: <Flame size={18} /> },
+    { name: '.NET', icon: <Boxes size={18} /> },
+    { name: 'Excel', icon: <FileSpreadsheet size={18} /> },
   ],
 };
 
@@ -46,22 +46,22 @@ const About = () => {
               <div className="text-lg text-gray-300 mb-8 leading-relaxed space-y-6">
                 <div>
                   <h3 className="text-xl text-cyan-400 font-semibold mb-2">Mon approche technique</h3>
-                  <p>Ce que j'aime, c'est transformer des données brutes et des besoins flous en solutions exploitables.
-                    Je travaille aussi bien sur la modélisation et l'interrogation de bases de données (SQL avancé, PostgreSQL, SQL Server) que sur des modèles de prédiction en Python et sur l'intégration d'API d'intelligence artificielle dans des applications réelles.
+                  <p>Ce que j'aime dans le développement, c'est concevoir des solutions robustes à des problèmes concrets.
+                    J'ai notamment travaillé sur l'optimisation d'architectures de bases de données, la structuration d'API performantes et la création d'interfaces utilisateur interactives. Chaque bug est pour moi une opportunité d'améliorer la fiabilité du code.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-xl text-cyan-400 font-semibold mb-2">Mon parcours</h3>
                   <p>
                     J'ai découvert la programmation en licence Math-Info, où j'ai conçu des algorithmes d'optimisation en Python et structuré des logiques complexes.
-                    J'ai poursuivi en BTS SIO option SLAM (obtenu en 2026, Institut F2I), avec deux stages en entreprise : un site vitrine Next.js passé en production pour une auto-école, puis Palais Mobile, une plateforme d'achat international développée en binôme sur Firebase.
+                    Après un BTS SIO (option SLAM), je poursuis aujourd'hui un <span className="text-cyan-400 font-semibold">Bachelor Data &amp; Intelligence Artificielle (3ᵉ année) à PST&amp;B</span>, en mettant ces compétences au service de projets data et applicatifs concrets.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-xl text-cyan-400 font-semibold mb-2">Projet Professionnel</h3>
                   <p>
-                    Je suis aujourd'hui en Bachelor Data & Intelligence Artificielle (3ème année) à Paris School of Technology & Business, et je recherche une alternance à partir de septembre 2026 sur un poste Data Analyst, Développeur BI ou IA appliquée.
-                    Mon objectif : m'appuyer sur ma base de développeur pour livrer des analyses et des automatisations qui servent directement une décision métier.
+                    Entre développement Full Stack et Data / BI, je m'appuie sur une solide base en SQL, en conception de bases de données et en analyse de données.
+                    Je recherche une <span className="text-cyan-400 font-semibold">alternance en Data / BI / Développement en Île-de-France pour la rentrée de septembre 2026</span> (rythme 2 jours école / 3 jours entreprise). Mon objectif : monter en compétence sur des projets concrets tout en apportant l'autonomie et la rigueur acquises durant mes stages.
                   </p>
                 </div>
                 <div>
@@ -80,15 +80,6 @@ const About = () => {
                 >
                   Télécharger mon CV
                   <Download className="ml-2 h-5 w-5" />
-                </a>
-                <a
-                  href="/tableau_synthese.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 bg-slate-700 text-white rounded-full text-lg font-bold hover:bg-slate-600 transition transform hover:scale-105 border border-slate-600"
-                >
-                  Tableau de Synthèse
-                  <FileText className="ml-2 h-5 w-5" />
                 </a>
               </div>
             </div>
