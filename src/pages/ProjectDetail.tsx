@@ -16,7 +16,7 @@ const ProjectDetail = () => {
 
     if (!project) {
         return (
-            <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+            <div className="min-h-screen bg-ink-950 flex items-center justify-center">
                 <div className="text-center">
                     <h2 className="text-2xl text-white mb-4">Projet non trouvé</h2>
                     <Link to="/projects" className="text-cyan-400 hover:text-cyan-300">
@@ -28,7 +28,7 @@ const ProjectDetail = () => {
     }
 
     return (
-        <div className="min-h-screen bg-slate-950 pt-20 pb-12">
+        <div className="min-h-screen bg-ink-950 pt-20 pb-12">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.button
                     onClick={() => navigate('/projects')}
@@ -88,7 +88,7 @@ const ProjectDetail = () => {
                     <div className="lg:col-span-2 space-y-12">
 
                         {/* Context Section */}
-                        <section className="bg-slate-900/50 rounded-2xl p-8 border border-slate-800">
+                        <section className="bg-ink-900/50 rounded-2xl p-8 border border-slate-800">
                             <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
                                 <FileText className="w-6 h-6 mr-3 text-cyan-400" />
                                 Contexte & Besoin
@@ -117,7 +117,7 @@ const ProjectDetail = () => {
                                         rel="noopener noreferrer"
                                         className="flex items-center p-4 bg-slate-800 hover:bg-slate-750 border border-slate-700 hover:border-cyan-500/50 rounded-xl transition-all group"
                                     >
-                                        <div className="p-3 bg-slate-900 rounded-lg mr-4 group-hover:scale-110 transition-transform">
+                                        <div className="p-3 bg-ink-900 rounded-lg mr-4 group-hover:scale-110 transition-transform">
                                             {proof.type === 'image' && <ImageIcon className="w-5 h-5 text-blue-400" />}
                                             {proof.type === 'pdf' && <FileText className="w-5 h-5 text-red-400" />}
                                             {proof.type === 'code' && <Code2 className="w-5 h-5 text-yellow-400" />}
@@ -152,7 +152,7 @@ const ProjectDetail = () => {
 
                     <div className="space-y-8">
                         {/* Competencies Section - Crucial for BTS SIO */}
-                        <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 sticky top-24">
+                        <div className="bg-ink-900 rounded-2xl p-6 border border-slate-800 sticky top-24">
                             <h3 className="text-xl font-bold text-white mb-6 flex items-center">
                                 <CheckCircle2 className="w-5 h-5 mr-3 text-green-400" />
                                 Compétences Validées

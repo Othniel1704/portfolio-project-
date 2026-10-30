@@ -7,11 +7,14 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
     const [scrolled, setScrolled] = useState(false);
+    const [progress, setProgress] = useState(0);
 
     // Handle scroll effect
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            setProgress(max > 0 ? window.scrollY / max : 0);
         };
         handleScroll();
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -32,14 +35,14 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900/95 backdrop-blur-md border-b border-slate-800 shadow-md' : 'bg-transparent'
+        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-ink-950/85 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
             }`}>
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <div className="flex-shrink-0 flex items-center">
                         <Link to="/" className="text-xl font-bold text-white hover:text-cyan-400 transition flex items-center gap-2">
-                            <span aria-hidden="true" className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center text-white text-sm">
+                            <span aria-hidden="true" className="w-8 h-8 bg-gradient-to-br from-cyan-400 via-violet-500 to-rose-400 rounded-lg font-display flex items-center justify-center text-white text-sm">
                                 KO
                             </span>
                             <span>Konan Kouakou</span>
@@ -95,7 +98,7 @@ const Navbar = () => {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         id="menu-mobile"
-                        className="md:hidden bg-slate-900 border-b border-slate-800 overflow-hidden"
+                        className="md:hidden bg-ink-950 border-b border-white/10 overflow-hidden"
                     >
                         <div className="px-4 pt-2 pb-6 space-y-2">
                             {navLinks.map((link) => (
@@ -126,6 +129,12 @@ const Navbar = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
+            {/* Barre de progression de lecture */}
+            <div
+                className="absolute left-0 bottom-0 h-[2px] w-full origin-left bg-gradient-to-r from-cyan-300 via-violet-400 to-rose-400"
+                style={{ transform: `scaleX(${progress})` }}
+                aria-hidden="true"
+            />
         </nav>
     );
 };

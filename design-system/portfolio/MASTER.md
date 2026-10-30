@@ -7,7 +7,7 @@ Portfolio d'alternant Data / BI / IA, lu par des recruteurs et des chargés RH e
 disponibilité, profil et projets Data visibles dès le premier écran.
 
 ## Style
-Sombre, sobre, technique. Fond slate très foncé, accents cyan, quelques halos flous en arrière-plan (décoratifs, `aria-hidden`).
+Fond « encre » bleu nuit (`ink-950` #070b1c), palette data à 5 couleurs (cyan, violet, rose, ambre, menthe) : une couleur par famille de compétences et par projet. Aurore animée en fond du hero. Élément signature : l’animation de points du hero (DataField) qui passe des données brutes à un histogramme de risque puis à une tendance.
 Pas d'emoji comme icône : uniquement Lucide (trait 2px).
 
 ## Couleurs (Tailwind)
@@ -22,7 +22,7 @@ Pas d'emoji comme icône : uniquement Lucide (trait 2px).
 | Statut « disponible » | `emerald-300/400` + pastille, jamais la couleur seule |
 
 ## Typographie
-Outfit (titres et texte), chargée via Google Fonts avec `display=swap`.
+Bricolage Grotesque (titres, `font-display`) et Instrument Sans (texte), via Google Fonts avec `display=swap`.
 Échelle : 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 48 / 60. Titres 700, labels 600, texte 400, interligne 1.5 à 1.75.
 
 ## Espacements et formes

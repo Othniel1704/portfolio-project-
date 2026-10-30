@@ -42,10 +42,10 @@ function App() {
     <Router>
       <MotionConfig reducedMotion="user">
       <RouteChangeHandler mainRef={mainRef} />
-      <div className="min-h-dvh bg-slate-950">
+      <div className="min-h-dvh bg-ink-950">
         <a
           href="#contenu"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-cyan-500 focus:text-slate-950 focus:font-semibold"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-cyan-300 focus:text-ink-950 focus:font-semibold"
         >
           Aller au contenu
         </a>
@@ -67,7 +67,7 @@ function App() {
         </main>
 
 
-        <footer className="bg-slate-900 border-t border-slate-800 py-12">
+        <footer className="bg-ink-950 border-t border-white/10 py-12">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
               <div className="text-gray-400 text-sm">

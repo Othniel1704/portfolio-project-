@@ -6,7 +6,7 @@ import { skillGroups } from '../data/profile';
 
 const About = () => {
   return (
-    <div className="min-h-dvh py-20 px-4 bg-slate-950">
+    <div className="min-h-dvh py-20 px-4 bg-ink-950">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-center mb-16">
           <span className="block text-2xl sm:text-3xl font-bold text-white mb-3">À propos de</span>

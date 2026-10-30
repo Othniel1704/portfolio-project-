@@ -71,10 +71,10 @@ const Contact = () => {
   };
 
   const inputClasses =
-    'w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition';
+    'w-full px-4 py-3 bg-ink-900 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition';
 
   return (
-    <section className="min-h-screen py-24 px-4 bg-slate-950 relative overflow-hidden">
+    <section className="min-h-screen py-24 px-4 bg-ink-950 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
 

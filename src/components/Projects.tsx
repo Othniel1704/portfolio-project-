@@ -28,7 +28,7 @@ const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => {
       className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 flex flex-col h-full group"
       whileHover={{ y: -5 }}
     >
-      <Link to={`/projects/${project.id}`} className="block relative h-48 overflow-hidden bg-slate-900">
+      <Link to={`/projects/${project.id}`} className="block relative h-48 overflow-hidden bg-ink-900">
         <img
           src={project.image}
           alt=""
@@ -40,13 +40,13 @@ const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60" />
         <div className="absolute top-4 right-4 flex flex-col items-end gap-2">
           {project.duration && (
-            <div className="px-3 py-1 bg-slate-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-full text-xs text-cyan-400 font-semibold flex items-center shadow-lg">
+            <div className="px-3 py-1 bg-ink-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-full text-xs text-cyan-400 font-semibold flex items-center shadow-lg">
               <Calendar className="w-3 h-3 mr-1" />
               {project.duration}
             </div>
           )}
           {project.projectSize && (
-            <div className={`px-3 py-1 bg-slate-900/80 backdrop-blur-sm border rounded-full text-xs font-semibold flex items-center shadow-lg ${project.projectSize === 'Lourd' ? 'border-purple-500/30 text-purple-400' : 'border-emerald-500/30 text-emerald-400'
+            <div className={`px-3 py-1 bg-ink-900/80 backdrop-blur-sm border rounded-full text-xs font-semibold flex items-center shadow-lg ${project.projectSize === 'Lourd' ? 'border-purple-500/30 text-purple-400' : 'border-emerald-500/30 text-emerald-400'
               }`}>
               {project.projectSize === 'Lourd'
                 ? <><Layers className="w-3 h-3 mr-1" aria-hidden="true" />Projet lourd</>
@@ -125,7 +125,7 @@ const Projects = () => {
   );
 
   return (
-    <section id="projects" className="py-24 bg-slate-950 relative overflow-hidden">
+    <section id="projects" className="py-24 bg-ink-950 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-20 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />

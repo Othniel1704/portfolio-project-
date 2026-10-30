@@ -35,23 +35,23 @@ const AdminLayout = () => {
     };
 
     if (loading) {
-        return <div className="min-h-screen bg-slate-950 flex items-center justify-center text-white">Loading...</div>;
+        return <div className="min-h-screen bg-ink-950 flex items-center justify-center text-white">Loading...</div>;
     }
 
     // If not logged in and not on login page, redirect to login
     if (!session && location.pathname !== '/admin/login') {
         // For demo purposes, we might want to allow bypassing auth if keys are missing
         // But for now, let's enforce a simple check or mock login in the login component
-        return <div className="min-h-screen bg-slate-950 flex items-center justify-center text-white">
+        return <div className="min-h-screen bg-ink-950 flex items-center justify-center text-white">
             <Link to="/admin/login" className="text-cyan-400 hover:underline">Please Log In</Link>
         </div>;
     }
 
     return (
-        <div className="min-h-screen bg-slate-950 flex">
+        <div className="min-h-screen bg-ink-950 flex">
             {/* Sidebar */}
             {session && (
-                <aside className="w-64 bg-slate-900 border-r border-slate-800 text-white hidden md:block">
+                <aside className="w-64 bg-ink-900 border-r border-slate-800 text-white hidden md:block">
                     <div className="p-6 border-b border-slate-800">
                         <h2 className="text-xl font-bold text-cyan-400">Veille Admin</h2>
                     </div>

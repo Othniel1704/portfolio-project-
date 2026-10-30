@@ -6,12 +6,12 @@ const Legal = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-slate-950 pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-ink-950 pt-24 pb-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
                 <h1 className="text-4xl font-bold text-white mb-8">Mentions Légales</h1>
 
                 <div className="space-y-8 text-gray-300 leading-relaxed">
-                    <section className="bg-slate-900/50 p-6 rounded-xl border border-slate-800">
+                    <section className="bg-ink-900/50 p-6 rounded-xl border border-slate-800">
                         <h2 className="text-xl font-bold text-cyan-400 mb-4">1. Éditeur du site</h2>
                         <p>
                             Le présent site est édité par <strong>Konan Othniel Kouakou</strong>.<br />
@@ -20,7 +20,7 @@ const Legal = () => {
                         </p>
                     </section>
 
-                    <section className="bg-slate-900/50 p-6 rounded-xl border border-slate-800">
+                    <section className="bg-ink-900/50 p-6 rounded-xl border border-slate-800">
                         <h2 className="text-xl font-bold text-cyan-400 mb-4">2. Hébergement</h2>
                         <p>
                             Ce site est hébergé par <strong>Netlify</strong>.<br />
@@ -29,7 +29,7 @@ const Legal = () => {
                         </p>
                     </section>
 
-                    <section className="bg-slate-900/50 p-6 rounded-xl border border-slate-800">
+                    <section className="bg-ink-900/50 p-6 rounded-xl border border-slate-800">
                         <h2 className="text-xl font-bold text-cyan-400 mb-4">3. Propriété Intellectuelle</h2>
                         <p>
                             L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle.
@@ -37,7 +37,7 @@ const Legal = () => {
                         </p>
                     </section>
 
-                    <section className="bg-slate-900/50 p-6 rounded-xl border border-slate-800">
+                    <section className="bg-ink-900/50 p-6 rounded-xl border border-slate-800">
                         <h2 className="text-xl font-bold text-cyan-400 mb-4">4. Données Personnelles</h2>
                         <p>
                             Ce site ne collecte aucune donnée personnelle à l'insu de l'utilisateur.
