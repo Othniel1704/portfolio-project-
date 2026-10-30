@@ -1,4 +1,4 @@
-import { Calendar, CheckCircle, Clock } from 'lucide-react';
+import { Calendar, CheckCircle, Clock, ExternalLink } from 'lucide-react';
 
 const certifications = [
    
@@ -8,7 +8,7 @@ const certifications = [
         date: "Octobre 2025",
         status: "Obtenu",
         description: "Formation en sécurité informatique : cryptographie, sécurisation des systèmes, et bonnes pratiques",
-        icon: <CheckCircle className="w-6 h-6" />,
+        icon: <CheckCircle className="w-5 h-5" aria-hidden="true" />,
         fileUrl: "/certif_ANSSI..pdf"
     },
     {
@@ -17,7 +17,7 @@ const certifications = [
         date: "Octobre 2025",
         status: "Obtenu",
         description: "Fondamentaux de la cybersécurité, protection des données, et sécurité des réseaux",
-        icon: <CheckCircle className="w-6 h-6" />,
+        icon: <CheckCircle className="w-5 h-5" aria-hidden="true" />,
         fileUrl: "/Introduction_to_Cybersecurity_certificate_kkonanothniel-gmail-com_19a402e8-8a99-4c74-9794-dd67322d84b4.pdf"
     },
     {
@@ -26,68 +26,56 @@ const certifications = [
         date: "2026",
         status: "En cours",
         description: "Conception de prompts, appels d'API de modèles de langage et intégration de l'IA générative dans des applications",
-        icon: <Clock className="w-6 h-6" />,
+        icon: <Clock className="w-5 h-5" aria-hidden="true" />,
         fileUrl: ""
     }
 ];
 
-const Certifications = () => {
-    return (
-        <section className="py-16">
-            <div className="max-w-6xl mx-auto">
-                <h3 className="text-3xl font-bold text-white mb-8 text-center">
-                    Formations & <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Certifications</span>
-                </h3>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {certifications.map((cert, index) => (
-                        <div
-                            key={index}
-                            className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-xl border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 group"
-                        >
-                            <div className="flex items-start gap-4">
-                                <div className="bg-cyan-500/10 p-3 rounded-lg text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors">
-                                    {cert.icon}
-                                </div>
-                                <div className="flex-1">
-                                    <div className="flex items-start justify-between mb-2">
-                                        <h4 className="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">
-                                            {cert.title}
-                                        </h4>
-                                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${cert.status === 'En cours'
-                                            ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-                                            : 'bg-green-500/10 text-green-400 border border-green-500/20'
-                                            }`}>
-                                            {cert.status}
-                                        </span>
-                                    </div>
-                                    <p className="text-sm text-gray-400 mb-2">{cert.issuer}</p>
-                                    <p className="text-sm text-gray-500 mb-3 flex items-center gap-2">
-                                        <Calendar className="w-4 h-4" />
-                                        {cert.date}
-                                    </p>
-                                    <p className="text-sm text-gray-400 leading-relaxed">{cert.description}</p>
-                                    {cert.fileUrl && (
-                                        <a
-                                            href={cert.fileUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="mt-4 inline-flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300 font-medium transition-colors"
-                                        >
-                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                            </svg>
-                                            Voir le certificat
-                                        </a>
-                                    )}
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+const Certifications = () => (
+  <section aria-labelledby="certif-title">
+    <h2 id="certif-title" className="text-3xl font-extrabold tracking-tight text-white mb-8">
+      Formations et certifications
+    </h2>
+    <ul className="grid grid-cols-1 md:grid-cols-3 gap-5">
+      {certifications.map((cert) => {
+        const done = cert.status === 'Obtenu';
+        return (
+          <li key={cert.title} className="surface p-6 flex flex-col">
+            <div className="flex items-center justify-between gap-3 mb-4">
+              <span className={`p-2.5 rounded-xl ${done ? 'bg-emerald-400/10 text-emerald-300' : 'bg-violet-400/10 text-violet-300'}`}>
+                {cert.icon}
+              </span>
+              <span
+                className={`px-3 py-1 rounded-full text-xs font-semibold border ${
+                  done ? 'bg-emerald-400/10 text-emerald-300 border-emerald-400/30' : 'bg-violet-400/10 text-violet-300 border-violet-400/30'
+                }`}
+              >
+                {cert.status}
+              </span>
             </div>
-        </section>
-    );
-};
+            <h3 className="text-lg font-bold text-white mb-1 leading-snug">{cert.title}</h3>
+            <p className="text-sm text-slate-400">{cert.issuer}</p>
+            <p className="mt-2 text-sm text-slate-500 inline-flex items-center gap-2">
+              <Calendar className="w-4 h-4" aria-hidden="true" />
+              {cert.date}
+            </p>
+            <p className="mt-3 text-sm text-slate-300 leading-relaxed">{cert.description}</p>
+            {cert.fileUrl && (
+              <a
+                href={cert.fileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto pt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-300 hover:text-emerald-200"
+              >
+                Voir le certificat
+                <ExternalLink className="w-4 h-4" aria-hidden="true" />
+              </a>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  </section>
+);
 
 export default Certifications;

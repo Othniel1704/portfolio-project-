@@ -51,8 +51,8 @@ const AdminLayout = () => {
         <div className="min-h-screen bg-ink-950 flex">
             {/* Sidebar */}
             {session && (
-                <aside className="w-64 bg-ink-900 border-r border-slate-800 text-white hidden md:block">
-                    <div className="p-6 border-b border-slate-800">
+                <aside className="w-64 bg-ink-900 border-r border-white/10 text-white hidden md:block">
+                    <div className="p-6 border-b border-white/10">
                         <h2 className="text-xl font-bold text-cyan-400">Veille Admin</h2>
                     </div>
                     <nav className="p-4 space-y-2">
@@ -60,7 +60,7 @@ const AdminLayout = () => {
                             to="/admin/dashboard"
                             className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${location.pathname === '/admin/dashboard'
                                 ? 'bg-cyan-500/10 text-cyan-400'
-                                : 'text-gray-400 hover:bg-slate-800 hover:text-white'
+                                : 'text-gray-400 hover:bg-ink-800 hover:text-white'
                                 }`}
                         >
                             <LayoutDashboard size={20} />
@@ -70,7 +70,7 @@ const AdminLayout = () => {
                             to="/admin/articles"
                             className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${location.pathname === '/admin/articles'
                                 ? 'bg-cyan-500/10 text-cyan-400'
-                                : 'text-gray-400 hover:bg-slate-800 hover:text-white'
+                                : 'text-gray-400 hover:bg-ink-800 hover:text-white'
                                 }`}
                         >
                             <Newspaper size={20} />
@@ -80,14 +80,14 @@ const AdminLayout = () => {
                             to="/admin/sources"
                             className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${location.pathname === '/admin/sources'
                                 ? 'bg-cyan-500/10 text-cyan-400'
-                                : 'text-gray-400 hover:bg-slate-800 hover:text-white'
+                                : 'text-gray-400 hover:bg-ink-800 hover:text-white'
                                 }`}
                         >
                             <Router size={20} />
                             Sources
                         </Link>
                     </nav>
-                    <div className="absolute bottom-0 w-64 p-4 border-t border-slate-800">
+                    <div className="absolute bottom-0 w-64 p-4 border-t border-white/10">
                         <button
                             onClick={handleLogout}
                             className="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-red-400 transition-colors w-full"

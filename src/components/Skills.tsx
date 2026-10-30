@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { skillGroups } from '../data/profile';
 
 // Une couleur par famille de compétences, reprise dans tout le bloc.
-const styles: Record<string, { icon: ReactNode; text: string; dot: string; ring: string; glow: string }> = {
+export const skillStyles: Record<string, { icon: ReactNode; text: string; dot: string; ring: string; glow: string }> = {
   'Data & BI': {
     icon: <BarChart3 className="w-5 h-5" aria-hidden="true" />,
     text: 'text-cyan-300',
@@ -46,7 +46,7 @@ const Skills = () => (
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {skillGroups.map((group) => {
-          const st = styles[group.category];
+          const st = skillStyles[group.category];
           return (
             <div
               key={group.category}

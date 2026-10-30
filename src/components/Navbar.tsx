@@ -108,13 +108,13 @@ const Navbar = () => {
                                     aria-current={location.pathname === link.path ? 'page' : undefined}
                                     className={`block px-3 py-3 rounded-md text-base font-medium ${location.pathname === link.path
                                         ? 'bg-cyan-500/10 text-cyan-400'
-                                        : 'text-gray-300 hover:text-white hover:bg-slate-800'
+                                        : 'text-gray-300 hover:text-white hover:bg-ink-800'
                                         }`}
                                 >
                                     {link.name}
                                 </Link>
                             ))}
-                            <div className="pt-4 flex justify-center gap-4 border-t border-slate-800 mt-4">
+                            <div className="pt-4 flex justify-center gap-4 border-t border-white/10 mt-4">
                                 <a href="https://github.com/Othniel1704" aria-label="GitHub" className="p-2 text-gray-400 hover:text-cyan-400">
                                     <Github className="w-6 h-6" aria-hidden="true" />
                                 </a>

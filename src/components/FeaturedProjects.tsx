@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
-import type { MouseEvent } from 'react';
 import { motion } from 'framer-motion';
 import { projectsData } from '../data/projectsData';
+import { trackSpotlight } from '../lib/spotlight';
 
 // Projets mis en avant sur l'accueil, chacun avec sa couleur.
 const FEATURED = [
@@ -10,13 +10,6 @@ const FEATURED = [
   { id: 'stagematch', kind: 'Base de données et matching', accent: '34 211 238', text: 'text-cyan-300' },
   { id: 'ai-document-generator', kind: 'Automatisation IA', accent: '52 211 153', text: 'text-emerald-300' },
 ];
-
-// Halo lumineux qui suit le curseur sur la carte survolée.
-const trackSpotlight = (e: MouseEvent<HTMLElement>) => {
-  const r = e.currentTarget.getBoundingClientRect();
-  e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`);
-  e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
-};
 
 const FeaturedProjects = () => {
   const featured = FEATURED.map((f) => ({ ...f, project: projectsData.find((p) => p.id === f.id) })).filter(
@@ -62,11 +55,7 @@ const FeaturedProjects = () => {
                 style={{ ['--accent' as string]: accent }}
                 className="group relative flex flex-col h-full rounded-3xl overflow-hidden bg-ink-900 border border-white/10 hover:border-[rgb(var(--accent)/0.6)] transition-colors"
               >
-                <span
-                  className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: 'radial-gradient(380px circle at var(--mx) var(--my), rgb(var(--accent) / 0.16), transparent 60%)' }}
-                  aria-hidden="true"
-                />
+                <span className="spotlight" aria-hidden="true" />
                 <span className="h-1 w-full" style={{ background: 'rgb(var(--accent))' }} aria-hidden="true" />
                 <div className="aspect-[16/9] bg-ink-800 overflow-hidden">
                   <img
