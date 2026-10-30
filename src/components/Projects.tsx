@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Github, ArrowRight, Calendar } from 'lucide-react';
+import { Github, ArrowRight, Calendar, Check, Briefcase, GraduationCap, Rocket, Layers, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { projectsData } from '../data/projectsData';
@@ -31,7 +31,10 @@ const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => {
       <Link to={`/projects/${project.id}`} className="block relative h-48 overflow-hidden bg-slate-900">
         <img
           src={project.image}
-          alt={project.title}
+          alt=""
+          loading="lazy"
+          width={640}
+          height={384}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60" />
@@ -45,7 +48,9 @@ const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => {
           {project.projectSize && (
             <div className={`px-3 py-1 bg-slate-900/80 backdrop-blur-sm border rounded-full text-xs font-semibold flex items-center shadow-lg ${project.projectSize === 'Lourd' ? 'border-purple-500/30 text-purple-400' : 'border-emerald-500/30 text-emerald-400'
               }`}>
-              {project.projectSize === 'Lourd' ? '💪 Projet Lourd' : '⚡ Projet Léger'}
+              {project.projectSize === 'Lourd'
+                ? <><Layers className="w-3 h-3 mr-1" aria-hidden="true" />Projet lourd</>
+                : <><Zap className="w-3 h-3 mr-1" aria-hidden="true" />Projet léger</>}
             </div>
           )}
         </div>
@@ -65,7 +70,7 @@ const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => {
             <ul className="space-y-1">
               {project.highlights.slice(0, 3).map((highlight, idx) => (
                 <li key={idx} className="text-xs text-gray-400 flex items-start">
-                  <span className="text-cyan-400 mr-2">✓</span>
+                  <Check className="w-3.5 h-3.5 text-cyan-400 mr-2 mt-0.5 shrink-0" aria-hidden="true" />
                   {highlight}
                 </li>
               ))}
@@ -96,11 +101,12 @@ const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => {
           {project.github && (
             <a
               href={project.github}
-              className="inline-flex items-center text-gray-400 hover:text-white font-medium transition-colors group/git"
+              className="inline-flex items-center p-2 -m-2 text-gray-400 hover:text-white font-medium transition-colors group/git"
+              aria-label={`Code source de ${project.title} sur GitHub (nouvel onglet)`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Github className="h-5 w-5 group-hover/git:scale-110 transition-transform" />
+              <Github className="h-5 w-5 group-hover/git:scale-110 transition-transform" aria-hidden="true" />
             </a>
           )}
         </div>
@@ -112,7 +118,7 @@ const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => {
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState<string>('Tous');
 
-  const categories = ['Tous', 'Stage', 'Projet Personnel', 'Projet Académique (PPE)'];
+  const categories = ['Tous', 'Projet Personnel', 'Stage', 'Projet Académique (PPE)'];
 
   const filteredProjects = projectsData.filter(project =>
     activeCategory === 'Tous' || project.category === activeCategory
@@ -130,7 +136,7 @@ const Projects = () => {
             Mes <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Projets</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Une sélection de mes réalisations techniques et créatives, démontrant mes compétences en développement.
+            Projets data et IA, stages en entreprise et projets du BTS SIO : chaque fiche détaille le contexte, mon rôle et les technologies.
           </p>
         </div>
 
@@ -142,7 +148,7 @@ const Projects = () => {
               onClick={() => setActiveCategory(category)}
               className={`
                 px-5 py-2 rounded-full text-sm font-semibold
-                transition-all duration-300 focus:outline-none focus:ring-2
+                transition-all duration-300 min-h-[44px]
                 ${activeCategory === category
                   ? 'bg-cyan-500 text-slate-950 shadow-lg'
                   : 'bg-slate-800/60 text-gray-400 hover:text-cyan-400'}
@@ -161,11 +167,11 @@ const Projects = () => {
 
               return (
                 <div key={category}>
-                  <h3 className="text-2xl font-bold text-white mb-6 border-b border-slate-700/50 pb-2">
-                    {category === 'Stage' && '💼 '}
-                    {category === 'Projet Académique (PPE)' && '🎓 '}
-                    {category === 'Projet Personnel' && '🚀 '}
-                    {category}
+                  <h3 className="flex items-center gap-3 text-2xl font-bold text-white mb-6 border-b border-slate-700/50 pb-2">
+                    {category === 'Stage' && <Briefcase className="w-6 h-6 text-cyan-400" aria-hidden="true" />}
+                    {category === 'Projet Académique (PPE)' && <GraduationCap className="w-6 h-6 text-cyan-400" aria-hidden="true" />}
+                    {category === 'Projet Personnel' && <Rocket className="w-6 h-6 text-cyan-400" aria-hidden="true" />}
+                    {category === 'Projet Personnel' ? 'Projets personnels (Data, IA, Web)' : category}
                   </h3>
                   <motion.div
                     variants={containerVariants}
@@ -199,7 +205,7 @@ const Projects = () => {
 
         {filteredProjects.length === 0 && (
           <p className="text-center text-gray-400 mt-12">
-            Aucun projet dans cette catégorie pour le moment 👀
+            Aucun projet dans cette catégorie pour le moment.
           </p>
         )}
       </div>

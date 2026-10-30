@@ -1,89 +1,46 @@
-import {
-  Atom,
-  FileCode2,
-  FileCode,
-  FileJson2,
-  Server,
-  Database,
-  GitBranch,
-  Github,
-  Brain,
-  BarChart3,
-  Flame,
-  Boxes,
-  FileSpreadsheet,
-  Braces,
-} from 'lucide-react';
+import { BarChart3, Bot, Code2, Wrench } from 'lucide-react';
+import type { ReactNode } from 'react';
+import { skillGroups } from '../data/profile';
 
-
-const skills = {
-  "Data & BI": [
-    { name: 'SQL avancé', icon: <Database className="text-blue-300" /> },
-    { name: 'PostgreSQL / Supabase', icon: <Database className="text-emerald-400" /> },
-    { name: 'SQL Server / MySQL', icon: <Database className="text-sky-400" /> },
-    { name: 'Machine Learning (notions)', icon: <Brain className="text-pink-400" /> },
-    { name: 'Analyse & KPI', icon: <BarChart3 className="text-cyan-400" /> },
-    { name: 'pandas / scikit-learn', icon: <Brain className="text-purple-400" /> },
-    { name: 'Power BI (notions)', icon: <BarChart3 className="text-yellow-400" /> },
-    { name: 'APIs IA (OpenAI, Gemini)', icon: <Braces className="text-cyan-300" /> },
-    { name: 'Automatisation n8n', icon: <Boxes className="text-pink-400" /> },
-  ],
-  Frontend: [
-    { name: 'React', icon: <Atom className="text-cyan-400" /> },
-    { name: 'JavaScript', icon: <FileCode2 className="text-yellow-400" /> },
-    { name: 'TypeScript', icon: <FileCode className="text-blue-400" /> },
-    { name: 'HTML/CSS', icon: <FileJson2 className="text-orange-400" /> },
-  ],
-  "Backend & API": [
-    { name: 'Python', icon: <FileCode className="text-yellow-500" /> },
-    { name: 'FastAPI', icon: <Server className="text-teal-400" /> },
-    { name: 'C# / .NET', icon: <Braces className="text-violet-400" /> },
-    { name: 'PHP', icon: <FileCode className="text-indigo-400" /> },
-    { name: 'Node.js', icon: <Server className="text-green-400" /> },
-  ],
-  "Outils & DevOps": [
-    { name: 'Git', icon: <GitBranch className="text-red-400" /> },
-    { name: 'GitHub', icon: <Github className="text-gray-300" /> },
-    { name: 'Firebase', icon: <Flame className="text-amber-400" /> },
-    { name: '.NET', icon: <Boxes className="text-purple-400" /> },
-    { name: 'Excel', icon: <FileSpreadsheet className="text-green-500" /> },
-  ],
+const icons: Record<string, ReactNode> = {
+  'Data & BI': <BarChart3 className="w-5 h-5" aria-hidden="true" />,
+  'IA & Automatisation': <Bot className="w-5 h-5" aria-hidden="true" />,
+  Développement: <Code2 className="w-5 h-5" aria-hidden="true" />,
+  'Outils & Infra': <Wrench className="w-5 h-5" aria-hidden="true" />,
 };
 
-const Skills = () => {
-  return (
-    <section className="py-24 bg-slate-900 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+const Skills = () => (
+  <section aria-labelledby="skills-title" className="py-20 sm:py-24 bg-slate-900">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="skills-title" className="text-3xl sm:text-4xl font-bold text-white mb-3">
+        Compétences
+      </h2>
+      <p className="text-slate-400 mb-10 max-w-2xl">
+        Le cœur de mon profil : la donnée, de la requête SQL au modèle, avec un socle de développement solide.
+      </p>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-white mb-16 text-center">
-          Mes <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Compétences</span>
-        </h2>
-
-        {Object.entries(skills).map(([category, skillList], index) => (
-          <div key={index} className="mb-16 last:mb-0">
-            <h3 className="text-2xl font-bold text-gray-200 mb-8 border-l-4 border-cyan-500 pl-4">
-              {category}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {skillGroups.map((group) => (
+          <div key={group.category} className="rounded-2xl bg-slate-800/50 border border-slate-700/60 p-6">
+            <h3 className="flex items-center gap-3 text-lg font-semibold text-white mb-4">
+              <span className="p-2 rounded-lg bg-cyan-500/10 text-cyan-400">{icons[group.category]}</span>
+              {group.category}
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {skillList.map((skill, skillIndex) => (
-                <div
-                  key={skillIndex}
-                  className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300 group flex items-center justify-start gap-4"
+            <ul className="flex flex-wrap gap-2">
+              {group.items.map((skill) => (
+                <li
+                  key={skill}
+                  className="px-3 py-1.5 rounded-lg bg-slate-900/70 border border-slate-700 text-sm text-slate-200"
                 >
-                  <span className="p-3 bg-slate-700/50 rounded-lg group-hover:bg-slate-700 transition-colors">
-                    {skill.icon}
-                  </span>
-                  <h4 className="text-lg font-semibold text-white">{skill.name}</h4>
-                </div>
+                  {skill}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Skills;

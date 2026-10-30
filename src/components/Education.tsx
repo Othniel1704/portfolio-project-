@@ -3,10 +3,24 @@ import { Calendar, Briefcase, Code } from 'lucide-react';
 const experiences = [
   {
     type: 'education',
-    date: 'En cours - 2026',
+    date: '2026 - 2027',
     title: 'Bachelor Data & Intelligence Artificielle (3ᵉ année)',
     institution: 'Paris School of Technology & Business (PST&B), Paris',
-    description: 'Data / BI, bases de données relationnelles, analyse de données et KPI, notions de Machine Learning et développement d\'applications. En recherche d\'alternance (2 jours école / 3 jours entreprise).',
+    description: 'Data / BI, Big Data (Hadoop, Spark), bases de données relationnelles, analyse de données et KPI, Machine Learning et IA appliquée. En recherche d\'alternance (3 jours entreprise / 2 jours école).',
+  },
+  {
+    type: 'work',
+    date: 'Déc. 2025 - Janv. 2026',
+    title: 'Stage Développeur Web',
+    institution: 'Mazarin Conduite & Formation (MC&F), Chilly-Mazarin',
+    description: 'Conception et mise en production du site de l\'auto-école en Next.js et Tailwind CSS, en lien direct avec le gérant.',
+  },
+  {
+    type: 'work',
+    date: 'Mai - Juin 2025',
+    title: 'Stage Développeur Web',
+    institution: 'NB Auto-École de la Mairie, Vigneux-sur-Seine',
+    description: 'Seul développeur : site React.js + Firebase, du cahier des charges à la mise en ligne.',
   },
   {
     type: 'education',
@@ -35,19 +49,19 @@ const Education = () => {
   const getIcon = (type: string) => {
     switch (type) {
       case 'education':
-        return <Calendar className="w-6 h-6 text-purple-400" />;
+        return <Calendar className="w-6 h-6 text-cyan-400" />;
       case 'work':
-        return <Briefcase className="w-6 h-6 text-purple-400" />;
+        return <Briefcase className="w-6 h-6 text-cyan-400" />;
       case 'project':
-        return <Code className="w-6 h-6 text-purple-400" />;
+        return <Code className="w-6 h-6 text-cyan-400" />;
       default:
-        return <Calendar className="w-6 h-6 text-purple-400" />;
+        return <Calendar className="w-6 h-6 text-cyan-400" />;
     }
   };
 
   return (
     <div className="bg-slate-800/50 p-8 rounded-2xl border border-slate-700">
-      <h3 className="text-2xl font-semibold text-white mb-8">Parcours et Expériences</h3>
+      <h2 className="text-2xl font-semibold text-white mb-8">Parcours et expériences</h2>
       <div className="relative">
         {experiences.map((experience, index) => (
           <div key={index} className="mb-8 last:mb-0">
@@ -57,11 +71,11 @@ const Education = () => {
               </div>
               <div>
                 <div className="flex items-center mb-1">
-                  <span className="text-sm text-purple-400">{experience.date}</span>
+                  <span className="text-sm text-cyan-400">{experience.date}</span>
                 </div>
-                <h4 className="text-lg font-medium text-white mb-1">{experience.title}</h4>
+                <h3 className="text-lg font-medium text-white mb-1">{experience.title}</h3>
                 <p className="text-sm text-gray-400 mb-2">{experience.institution}</p>
-                <p className="text-gray-300">{experience.description}</p>
+                {experience.description && <p className="text-gray-300">{experience.description}</p>}
               </div>
             </div>
             {index !== experiences.length - 1 && (

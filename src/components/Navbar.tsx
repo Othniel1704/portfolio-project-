@@ -13,7 +13,8 @@ const Navbar = () => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
         };
-        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -38,10 +39,10 @@ const Navbar = () => {
                     {/* Logo */}
                     <div className="flex-shrink-0 flex items-center">
                         <Link to="/" className="text-xl font-bold text-white hover:text-cyan-400 transition flex items-center gap-2">
-                            <span className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center text-white text-sm">
+                            <span aria-hidden="true" className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center text-white text-sm">
                                 KO
                             </span>
-                            Portfolio
+                            <span>Konan Kouakou</span>
                         </Link>
                     </div>
 
@@ -51,7 +52,8 @@ const Navbar = () => {
                             <Link
                                 key={link.path}
                                 to={link.path}
-                                className={`text-sm font-medium transition-colors duration-200 ${location.pathname === link.path
+                                aria-current={location.pathname === link.path ? 'page' : undefined}
+                                className={`text-sm font-medium py-2 transition-colors duration-200 ${location.pathname === link.path
                                     ? 'text-cyan-400'
                                     : 'text-gray-300 hover:text-white'
                                     }`}
@@ -63,9 +65,10 @@ const Navbar = () => {
                             href="https://github.com/Othniel1704"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-gray-400 hover:text-white transition"
+                            aria-label="GitHub (nouvel onglet)"
+                            className="p-2 text-gray-400 hover:text-white transition"
                         >
-                            <Github className="w-5 h-5" />
+                            <Github className="w-5 h-5" aria-hidden="true" />
                         </a>
                     </div>
 
@@ -74,7 +77,9 @@ const Navbar = () => {
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="text-gray-300 hover:text-white p-2"
-                            aria-label="Toggle menu"
+                            aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+                            aria-expanded={isOpen}
+                            aria-controls="menu-mobile"
                         >
                             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                         </button>
@@ -89,6 +94,7 @@ const Navbar = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
+                        id="menu-mobile"
                         className="md:hidden bg-slate-900 border-b border-slate-800 overflow-hidden"
                     >
                         <div className="px-4 pt-2 pb-6 space-y-2">
@@ -96,6 +102,7 @@ const Navbar = () => {
                                 <Link
                                     key={link.path}
                                     to={link.path}
+                                    aria-current={location.pathname === link.path ? 'page' : undefined}
                                     className={`block px-3 py-3 rounded-md text-base font-medium ${location.pathname === link.path
                                         ? 'bg-cyan-500/10 text-cyan-400'
                                         : 'text-gray-300 hover:text-white hover:bg-slate-800'
@@ -104,15 +111,15 @@ const Navbar = () => {
                                     {link.name}
                                 </Link>
                             ))}
-                            <div className="pt-4 flex justify-center space-x-6 border-t border-slate-800 mt-4">
-                                <a href="https://github.com/Othniel1704" className="text-gray-400 hover:text-cyan-400">
-                                    <Github className="w-6 h-6" />
+                            <div className="pt-4 flex justify-center gap-4 border-t border-slate-800 mt-4">
+                                <a href="https://github.com/Othniel1704" aria-label="GitHub" className="p-2 text-gray-400 hover:text-cyan-400">
+                                    <Github className="w-6 h-6" aria-hidden="true" />
                                 </a>
-                                <a href="https://www.linkedin.com/in/othniel-kouakou" className="text-gray-400 hover:text-cyan-400">
-                                    <Linkedin className="w-6 h-6" />
+                                <a href="https://www.linkedin.com/in/othniel-kouakou" aria-label="LinkedIn" className="p-2 text-gray-400 hover:text-cyan-400">
+                                    <Linkedin className="w-6 h-6" aria-hidden="true" />
                                 </a>
-                                <a href="mailto:kkonanothniel@gmail.com" className="text-gray-400 hover:text-cyan-400">
-                                    <Mail className="w-6 h-6" />
+                                <a href="mailto:kkonanothniel@gmail.com" aria-label="E-mail" className="p-2 text-gray-400 hover:text-cyan-400">
+                                    <Mail className="w-6 h-6" aria-hidden="true" />
                                 </a>
                             </div>
                         </div>
