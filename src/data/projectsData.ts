@@ -127,7 +127,7 @@ export const projectsData: Project[] = [
             { title: "Code source", type: "link", url: "https://github.com/Othniel1704/portfolio-project-" }
         ],
         github: "https://github.com/Othniel1704/portfolio-project-",
-        demo: "https://othniel-portfolio.netlify.app",
+        demo: "https://studiokonan.netlify.app",
         showInE5: true,
         e5Order: 5
     },
@@ -379,13 +379,13 @@ export const projectsData: Project[] = [
 
     {
         id: "stagematch",
-        title: "StageMatch — Matching stages / alternances",
+        title: "StageMatch : matching stages et alternances",
         shortDescription: "Plateforme de mise en relation candidats / offres avec matching automatique par compétences et KPI.",
         fullDescription: "StageMatch met en relation candidats et entreprises pour des stages et alternances. L'application s'appuie sur une architecture de données PostgreSQL / Supabase et un moteur de matching automatique qui score la compatibilité entre profils et offres à partir des compétences et d'indicateurs (KPI). Une API FastAPI expose la gestion des candidatures et des offres.",
         context: "Projet personnel Data (2025-2026)",
         role: "Développeur & Data / Architecture BDD",
         duration: "En cours",
-        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1000",
+        image: "/images/stagematch.svg",
         technologies: ["Python", "FastAPI", "PostgreSQL", "Supabase", "SQL avancé"],
         category: 'Projet Personnel',
         projectSize: 'Lourd',
@@ -400,7 +400,8 @@ export const projectsData: Project[] = [
             { id: "B2.3", description: "Modélisation et exploitation d'une base relationnelle (PostgreSQL / Supabase) et requêtes avancées." }
         ],
         proofs: [],
-        github: "https://github.com/Othniel1704/stagematch",
+        github: "https://github.com/Othniel1704/stageMatch",
+        demo: "https://stagematchs.netlify.app",
         showInE5: false
     },
     {

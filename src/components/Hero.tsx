@@ -1,158 +1,156 @@
 import { Link } from 'react-router-dom';
-
-import { ArrowRight, Github, Linkedin } from 'lucide-react';
+import { ArrowRight, Download, Github, Linkedin, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { profile } from '../data/profile';
+import { projectsData } from '../data/projectsData';
+import DataField from './DataField';
 
-const MotionLink = motion(Link);
-
-const containerVariants = {
+const container = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 }
-  }
+  visible: { opacity: 1, transition: { staggerChildren: 0.09 } },
 };
 
-const itemFadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 50 } }
+const item = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 120, damping: 18 } },
 };
+
+const stats = [
+  { value: `${projectsData.length}`, label: 'projets documentés', color: 'text-cyan-300' },
+  { value: '2', label: 'stages en entreprise', color: 'text-violet-300' },
+  { value: '0,854', label: 'AUC de mon modèle de scoring', color: 'text-rose-300' },
+];
 
 const Hero = () => (
-  <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-slate-950">
-    {/* Animated gradient background */}
-    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900" />
-
-    {/* Glowing orbs */}
-    <div className="absolute top-20 right-20 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
-    <div className="absolute bottom-20 left-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+  <section aria-labelledby="hero-title" className="relative overflow-hidden bg-ink-950 pt-10 pb-20 sm:pt-16 sm:pb-28">
+    {/* Aurore de fond : trois halos colorés qui dérivent lentement */}
+    <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div className="absolute -top-40 -left-32 w-[36rem] h-[36rem] rounded-full bg-violet-600/25 blur-[110px] motion-safe:animate-aurora" />
+      <div className="absolute top-10 right-[-10rem] w-[34rem] h-[34rem] rounded-full bg-cyan-500/20 blur-[110px] motion-safe:animate-aurora-slow" />
+      <div className="absolute bottom-[-14rem] left-1/3 w-[30rem] h-[30rem] rounded-full bg-rose-500/15 blur-[110px] motion-safe:animate-aurora" />
+      <div
+        className="absolute inset-0 opacity-[0.35]"
+        style={{
+          backgroundImage: 'radial-gradient(rgba(148,163,184,0.18) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+          maskImage: 'radial-gradient(ellipse at 50% 30%, black 30%, transparent 75%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at 50% 30%, black 30%, transparent 75%)',
+        }}
+      />
+    </div>
 
     <motion.div
-      className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
-      variants={containerVariants}
+      className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center"
+      variants={container}
       initial="hidden"
       animate="visible"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="max-w-4xl">
-          <motion.div variants={itemFadeUp}>
-            <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-medium text-sm mb-6">
-              🎯 En recherche d'une alternance • Île-de-France • Rentrée septembre 2026
+      <div>
+        <motion.p variants={item}>
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-400/10 border border-emerald-400/30 text-emerald-300 text-sm font-medium">
+            <span className="relative flex h-2 w-2" aria-hidden="true">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 motion-safe:animate-ping" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
             </span>
-          </motion.div>
+            {profile.availabilityShort} pour une alternance Data
+          </span>
+        </motion.p>
 
-          <motion.h1
-            className="text-2xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-8"
-            variants={itemFadeUp}
+        <h1 id="hero-title" className="mt-6">
+          <motion.span variants={item} className="block text-lg sm:text-xl font-semibold text-slate-300">
+            Konan Othniel Kouakou
+          </motion.span>
+          <motion.span
+            variants={item}
+            className="block mt-2 font-display text-[2.6rem] leading-[1.02] sm:text-6xl lg:text-[4.4rem] font-extrabold tracking-[-0.03em] text-transparent bg-clip-text bg-[linear-gradient(100deg,#ffffff_0%,#a5f3fc_35%,#c4b5fd_65%,#f9a8d4_100%)] text-balance"
           >
-            <span className='text-cyan-400 text-2xl'>
-              Bonjour, je m'appelle
-            </span>
-            <br />
-            Kouakou Konan Othniel
-            <br />
-          </motion.h1>
-          <motion.h2
-            className="text-2xl sm:text-5xl font-bold text-cyan-400 tracking-tight leading-tight mb-8"
-            variants={itemFadeUp}
-          >
-            Data · BI · Développement
-            <br />
-            <span className="text-xl sm:text-3xl text-gray-400 font-semibold">Bachelor Data &amp; IA (PST&amp;B) · BTS SIO option SLAM</span>
-          </motion.h2>
+            Des données brutes aux décisions.
+          </motion.span>
+        </h1>
 
-          <motion.p
-            className="text-xl sm:text-2xl text-gray-300 max-w-2xl mb-6 leading-relaxed"
-            variants={itemFadeUp}
-          >
-            Je recherche une <span className="text-cyan-400 font-semibold">alternance en Data / BI / Développement en Île-de-France pour la rentrée de septembre 2026</span> (2 jours école / 3 jours entreprise). Découvrez mes projets, mes stages en entreprise et mon CV.
-          </motion.p>
+        <motion.p variants={item} className="mt-6 text-lg sm:text-xl text-slate-300 max-w-xl leading-relaxed">
+          J'analyse, je modélise et j'automatise avec SQL, Python et les APIs IA. Étudiant en {profile.school},
+          après un BTS SIO SLAM et deux stages de développement.
+        </motion.p>
 
-          <motion.div
-            className="flex flex-wrap gap-6 mb-10 text-gray-400"
-            variants={itemFadeUp}
+        <motion.p variants={item} className="mt-3 flex items-start gap-2 text-slate-400 max-w-xl">
+          <MapPin className="w-5 h-5 mt-0.5 shrink-0 text-amber-300" aria-hidden="true" />
+          <span>{profile.availabilityLong}</span>
+        </motion.p>
+
+        <motion.div variants={item} className="mt-8 flex flex-col sm:flex-row gap-3">
+          <Link
+            to="/projects"
+            className="group inline-flex justify-center items-center gap-2 min-h-[50px] px-6 rounded-xl font-bold whitespace-nowrap text-ink-950 bg-gradient-to-r from-cyan-300 via-violet-300 to-rose-300 bg-[length:200%_100%] bg-left hover:bg-right transition-[background-position] duration-500 shadow-lg shadow-violet-500/25"
           >
-            <div className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-cyan-400">15+</span>
-              <span className="text-sm">Projets<br />réalisés</span>
+            Voir mes projets
+            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+          </Link>
+          <a
+            href="/cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex justify-center items-center gap-2 min-h-[50px] px-6 bg-white/5 text-white border border-white/15 rounded-xl font-semibold whitespace-nowrap hover:bg-white/10 hover:border-white/30 transition-colors backdrop-blur"
+          >
+            <Download className="h-5 w-5" aria-hidden="true" />
+            Télécharger mon CV
+          </a>
+        </motion.div>
+
+        <motion.dl variants={item} className="mt-10 grid grid-cols-3 gap-4 max-w-lg">
+          {stats.map((s) => (
+            <div key={s.label}>
+              <dt className="sr-only">{s.label}</dt>
+              <dd className={`font-display text-3xl sm:text-4xl font-bold tabular-nums ${s.color}`}>{s.value}</dd>
+              <dd className="mt-1 text-xs sm:text-sm text-slate-400 leading-snug">{s.label}</dd>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-cyan-400">20+</span>
-              <span className="text-sm">Technologies</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-cyan-400">2</span>
-              <span className="text-sm">Stages en<br />entreprise</span>
-            </div>
-          </motion.div>
+          ))}
+        </motion.dl>
 
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4"
-            variants={itemFadeUp}
+        <motion.div variants={item} className="mt-8 flex items-center gap-2">
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Mon GitHub (nouvel onglet)"
+            className="p-3 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-colors"
           >
-            <MotionLink
-              to="/projects"
-              className="inline-flex justify-center items-center px-8 py-4 bg-cyan-500 text-slate-950 rounded-xl text-lg font-bold shadow-lg shadow-cyan-500/30 hover:bg-cyan-400 hover:shadow-cyan-400/40 transition-all duration-300"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Voir mes projets
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </MotionLink>
-
-            <MotionLink
-              to="/contact"
-              className="inline-flex justify-center items-center px-8 py-4 bg-slate-800 text-white border border-slate-700 rounded-xl text-lg font-semibold hover:border-cyan-500/50 hover:bg-slate-700 transition-all duration-300"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Me contacter
-            </MotionLink>
-
-            <motion.a
-              href="/cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex justify-center items-center px-8 py-4 bg-slate-800 text-white border border-slate-700 rounded-xl text-lg font-semibold hover:border-cyan-500/50 hover:bg-slate-700 transition-all duration-300"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Télécharger CV
-            </motion.a>
-          </motion.div>
-
-          <motion.div
-            className="flex gap-6 mt-12"
-            variants={itemFadeUp}
+            <Github className="w-6 h-6" aria-hidden="true" />
+          </a>
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Mon LinkedIn (nouvel onglet)"
+            className="p-3 rounded-lg text-slate-400 hover:text-sky-300 hover:bg-white/5 transition-colors"
           >
-            <a href="https://github.com/Othniel1704" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-              <Github size={32} />
-            </a>
-            <a href="https://www.linkedin.com/in/othniel-kouakou" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-500 transition-colors">
-              <Linkedin size={32} />
-            </a>
-          </motion.div>
-        </div>
-
-        <motion.div
-          className="relative hidden lg:block"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          <div className="relative z-10 w-full max-w-[500px] mx-auto aspect-square rounded-3xl overflow-hidden border-2 border-cyan-500/30 shadow-2xl shadow-cyan-500/20">
-            <img
-              src="/images/hero-avatar.png"
-              alt="Konan Othniel Portrait"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
-          </div>
-          {/* Decorative elements */}
-          <div className="absolute -top-6 -right-6 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl animate-pulse" />
-          <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+            <Linkedin className="w-6 h-6" aria-hidden="true" />
+          </a>
+          <Link to="/contact" className="ml-2 inline-flex items-center min-h-[44px] px-2 text-slate-300 font-semibold hover:text-white underline-offset-4 hover:underline">
+            Me contacter
+          </Link>
         </motion.div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 24, rotate: -1.5 }}
+        animate={{ opacity: 1, y: 0, rotate: 0 }}
+        transition={{ type: 'spring', stiffness: 70, damping: 16, delay: 0.35 }}
+      >
+        <DataField />
+        <div className="mt-4 hidden lg:flex items-center gap-3">
+          <img
+            src="/images/hero-avatar.png"
+            alt="Portrait de Konan Othniel Kouakou"
+            width={48}
+            height={48}
+            className="w-12 h-12 rounded-full object-cover ring-2 ring-violet-400/60"
+          />
+          <p className="text-sm text-slate-400">
+            Passez la souris sur les points : chaque point est une donnée.
+          </p>
+        </div>
+      </motion.div>
     </motion.div>
   </section>
 );

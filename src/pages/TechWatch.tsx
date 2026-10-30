@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import PageHeader from '../components/PageHeader';
 import { supabase } from '../lib/supabaseClient';
 import { techWatchData } from '../data/techWatchData'; // Fallback data
 import { fetchRSS, RSSArticle } from '../services/rssService';
@@ -68,28 +69,24 @@ const TechWatch = () => {
 
 
     return (
-        <div className="min-h-screen bg-slate-950 pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-6xl mx-auto">
-                <header className="mb-16 text-center">
-                    <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-                        Veille <span className="text-cyan-400">Technologique</span>
-                    </h1>
-                    <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
-                        Ma stratégie pour rester à jour dans un écosystème en constante évolution.
-                        Outils, thèmes de prédilection et synthèse des dernières découvertes.
-                    </p>
-                </header>
+        <div className="min-h-dvh bg-ink-950 pb-24">
+            <PageHeader
+                tone="mint"
+                title="Veille technologique"
+                subtitle="Comment je reste à jour : mes outils, les thèmes que je suis et les derniers articles lus."
+            />
+            <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Section 1: Outils de Veille */}
                 <section className="mb-20">
-                    <h2 className="text-3xl font-bold text-white mb-10 flex items-center border-b border-slate-800 pb-4">
+                    <h2 className="text-3xl font-bold text-white mb-10 flex items-center border-b border-white/10 pb-4">
                         <Monitor className="mr-3 text-cyan-400" />
                         Mes Outils de Veille
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {tools.map((tool, idx) => (
-                            <div key={idx} className="bg-slate-900/50 p-6 rounded-xl border border-slate-800 hover:border-cyan-500/30 transition-all hover:-translate-y-1">
-                                <div className="mb-4 bg-slate-800 w-12 h-12 rounded-lg flex items-center justify-center">
+                            <div key={idx} className="bg-ink-900/50 p-6 rounded-xl border border-white/10 hover:border-cyan-500/30 transition-all hover:-translate-y-1">
+                                <div className="mb-4 bg-ink-800 w-12 h-12 rounded-lg flex items-center justify-center">
                                     {tool.icon}
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-2">{tool.name}</h3>
@@ -101,7 +98,7 @@ const TechWatch = () => {
 
                 {/* Section 2: Thèmes Suivis */}
                 <section className="mb-20">
-                    <h2 className="text-3xl font-bold text-white mb-10 flex items-center border-b border-slate-800 pb-4">
+                    <h2 className="text-3xl font-bold text-white mb-10 flex items-center border-b border-white/10 pb-4">
                         <Layers className="mr-3 text-purple-400" />
                         Thèmes Suivis
                     </h2>
@@ -109,15 +106,15 @@ const TechWatch = () => {
                     {/* Featured Theme */}
                     <div className="mb-12">
                         <div className="relative group">
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                            <div className="relative flex flex-col md:flex-row items-center p-8 bg-slate-900 rounded-2xl border border-slate-800 leading-none">
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-400 via-violet-500 to-rose-400 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                            <div className="relative flex flex-col md:flex-row items-center p-8 bg-ink-900 rounded-2xl border border-white/10 leading-none">
                                 <div className="p-5 bg-cyan-500/10 rounded-2xl text-cyan-400 mb-6 md:mb-0 md:mr-8 shrink-0">
                                     <Brain size={48} />
                                 </div>
                                 <div className="flex-1">
                                     <div className="flex items-center gap-2 mb-2">
-                                        <span className="px-2 py-1 bg-cyan-500 text-slate-950 text-[10px] font-black uppercase rounded tracking-widest">Thème Principal</span>
-                                        <span className="text-gray-500 text-xs">• Veille Active</span>
+                                        <span className="px-2.5 py-1 bg-gradient-to-r from-cyan-300 to-violet-300 text-ink-950 text-xs font-bold rounded-full">Thème principal</span>
+                                        <span className="text-slate-400 text-xs">Veille active</span>
                                     </div>
                                     <h3 className="text-3xl font-bold text-white mb-4">L'impact de l'IA sur le métier de développeur</h3>
                                     <div className="text-gray-400 text-base lg:text-lg leading-relaxed max-w-4xl space-y-4">
@@ -149,7 +146,7 @@ const TechWatch = () => {
 
                 {/* Section 3: Veille Active en Direct */}
                 <section className="mb-20">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-10 border-b border-slate-800 pb-4 gap-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-10 border-b border-white/10 pb-4 gap-4">
                         <h2 className="text-3xl font-bold text-white flex items-center">
                             <Rss className="mr-3 text-orange-400" />
                             Flux en Direct : IA & Code
@@ -157,7 +154,7 @@ const TechWatch = () => {
                         <button 
                             onClick={loadRSS}
                             disabled={rssLoading}
-                            className="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-cyan-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50"
+                            className="flex items-center gap-2 px-4 py-2 bg-ink-800 hover:bg-white/10 text-cyan-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50"
                         >
                             <RefreshCw className={`w-4 h-4 ${rssLoading ? 'animate-spin' : ''}`} />
                             {rssLoading ? 'Actualisation...' : 'Actualiser'}
@@ -167,7 +164,7 @@ const TechWatch = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {rssLoading ? (
                             Array(6).fill(0).map((_, i) => (
-                                <div key={i} className="bg-slate-900/50 rounded-xl h-48 animate-pulse border border-slate-800"></div>
+                                <div key={i} className="bg-ink-900/50 rounded-xl h-48 animate-pulse border border-white/10"></div>
                             ))
                         ) : rssArticles.length > 0 ? (
                             rssArticles.map((article, idx) => {
@@ -179,7 +176,7 @@ const TechWatch = () => {
                                         href={article.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex flex-col p-6 bg-slate-900/50 rounded-xl border border-slate-800 hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/10 hover:-translate-y-1 transition-all group"
+                                        className="flex flex-col p-6 bg-ink-900/50 rounded-xl border border-white/10 hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/10 hover:-translate-y-1 transition-all group"
                                     >
                                         <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
                                             <Calendar size={14} />
@@ -198,7 +195,7 @@ const TechWatch = () => {
                                 );
                             })
                         ) : (
-                            <div className="col-span-full text-center text-gray-500 py-8 bg-slate-900/30 rounded-xl border border-slate-800 border-dashed">
+                            <div className="col-span-full text-center text-gray-500 py-8 bg-ink-900/30 rounded-xl border border-white/10 border-dashed">
                                 Impossible de charger le flux RSS pour le moment.
                             </div>
                         )}
@@ -207,7 +204,7 @@ const TechWatch = () => {
 
                 {/* Section 4: Mes Synthèses */}
                 <section>
-                    <h2 className="text-3xl font-bold text-white mb-10 flex items-center border-b border-slate-800 pb-4">
+                    <h2 className="text-3xl font-bold text-white mb-10 flex items-center border-b border-white/10 pb-4">
                         <Newspaper className="mr-3 text-green-400" />
                         Synthèse & Actualités
                     </h2>
@@ -220,10 +217,10 @@ const TechWatch = () => {
                                 return (
                                     <div
                                         key={item.id}
-                                        className="bg-slate-900/50 rounded-xl p-6 border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10 group"
+                                        className="bg-ink-900/50 rounded-xl p-6 border border-white/10 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10 group"
                                     >
                                         <div className="flex items-start gap-4">
-                                            <div className="hidden sm:flex p-3 bg-slate-800 rounded-lg group-hover:bg-cyan-500/20 group-hover:text-cyan-400 transition-colors">
+                                            <div className="hidden sm:flex p-3 bg-ink-800 rounded-lg group-hover:bg-cyan-500/20 group-hover:text-cyan-400 transition-colors">
                                                 <Icon size={24} />
                                             </div>
                                             <div className="flex-1">

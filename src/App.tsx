@@ -1,6 +1,8 @@
-import { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { lazy, Suspense, useEffect, useRef } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { MotionConfig } from 'framer-motion';
+import { profile } from './data/profile';
 
 import Navbar from './components/Navbar';
 
@@ -21,13 +23,35 @@ const PageLoader = () => (
   </div>
 );
 
+// À chaque changement de page : retour en haut et focus sur le contenu
+// principal (lecteurs d'écran), sauf au premier chargement.
+const RouteChangeHandler = ({ mainRef }: { mainRef: React.RefObject<HTMLElement> }) => {
+  const { pathname } = useLocation();
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) { first.current = false; return; }
+    window.scrollTo(0, 0);
+    mainRef.current?.focus({ preventScroll: true });
+  }, [pathname, mainRef]);
+  return null;
+};
+
 function App() {
+  const mainRef = useRef<HTMLElement>(null);
   return (
     <Router>
-      <div className="min-h-screen bg-slate-950">
+      <MotionConfig reducedMotion="user">
+      <RouteChangeHandler mainRef={mainRef} />
+      <div className="min-h-dvh bg-ink-950">
+        <a
+          href="#contenu"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-cyan-300 focus:text-ink-950 focus:font-semibold"
+        >
+          Aller au contenu
+        </a>
         <Navbar />
 
-        <main className="pt-16">
+        <main id="contenu" ref={mainRef} tabIndex={-1} className="pt-16 focus:outline-none">
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Home />} />
@@ -43,29 +67,30 @@ function App() {
         </main>
 
 
-        <footer className="bg-slate-900 border-t border-slate-800 py-12">
+        <footer className="bg-ink-950 border-t border-white/10 py-12">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
               <div className="text-gray-400 text-sm">
-                <p>© 2026 Konan Othniel Kouakou.</p>
+                <p>© {new Date().getFullYear()} {profile.name}</p>
                 <Link to="/mentions-legales" className="hover:text-cyan-400 transition">Mentions Légales</Link>
               </div>
-              <div className="flex space-x-6 mt-4 md:mt-0">
-                <a href="https://github.com/Othniel1704" className="text-gray-400 hover:text-cyan-400 transition">
-                  <Github className="w-6 h-6" />
+              <div className="flex gap-2 mt-4 md:mt-0">
+                <a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub (nouvel onglet)" className="p-2 text-gray-400 hover:text-cyan-400 transition">
+                  <Github className="w-6 h-6" aria-hidden="true" />
                 </a>
-                <a href="https://www.linkedin.com/in/othniel-kouakou" className="text-gray-400 hover:text-cyan-400 transition">
-                  <Linkedin className="w-6 h-6" />
+                <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (nouvel onglet)" className="p-2 text-gray-400 hover:text-cyan-400 transition">
+                  <Linkedin className="w-6 h-6" aria-hidden="true" />
                 </a>
-                <a href="mailto:kkonanothniel@gmail.com" className="text-gray-400 hover:text-cyan-400 transition">
-                  <Mail className="w-6 h-6" />
+                <a href={`mailto:${profile.email}`} aria-label="Envoyer un e-mail" className="p-2 text-gray-400 hover:text-cyan-400 transition">
+                  <Mail className="w-6 h-6" aria-hidden="true" />
                 </a>
               </div>
             </div>
           </div>
         </footer>
-      </div >
-    </Router >
+      </div>
+      </MotionConfig>
+    </Router>
   );
 }
 

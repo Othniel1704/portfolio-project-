@@ -4,12 +4,53 @@
 
 @layer base {
   html {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Instrument Sans', system-ui, sans-serif;
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-slate-950 text-white antialiased;
+    @apply bg-ink-950 text-white antialiased;
+  }
+
+  /* Anneau de focus visible au clavier sur tous les éléments interactifs */
+  :focus-visible {
+    @apply outline-none ring-2 ring-cyan-400 ring-offset-2 ring-offset-ink-950;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer base {
+  h1, h2, h3 { font-family: 'Bricolage Grotesque', 'Instrument Sans', sans-serif; }
+}
+
+@layer components {
+  /* Bouton principal : dégradé data cyan, violet, rose */
+  .btn-primary {
+    @apply inline-flex justify-center items-center gap-2 min-h-[48px] px-6 rounded-xl font-bold text-ink-950
+      bg-gradient-to-r from-cyan-300 via-violet-300 to-rose-300 bg-[length:200%_100%] bg-left
+      shadow-lg shadow-violet-500/20 transition-[background-position,filter] duration-500 hover:bg-right
+      disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex justify-center items-center gap-2 min-h-[48px] px-6 rounded-xl font-semibold text-white
+      bg-white/5 border border-white/15 transition-colors hover:bg-white/10 hover:border-white/30;
+  }
+  /* Surface de carte sur fond encre */
+  .surface {
+    @apply bg-ink-800/60 border border-white/10 rounded-3xl backdrop-blur-sm;
+  }
+  /* Halo qui suit le curseur (voir lib/spotlight.ts), couleur via --accent */
+  .spotlight {
+    @apply pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100;
+    background: radial-gradient(380px circle at var(--mx) var(--my), rgb(var(--accent) / 0.16), transparent 60%);
   }
 }
 

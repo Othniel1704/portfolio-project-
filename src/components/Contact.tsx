@@ -28,11 +28,11 @@ const Contact = () => {
     });
   };
 
-  const inputClasses = "w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition duration-200";
+  const inputClasses = "w-full bg-ink-800/60 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition duration-200";
   const labelClasses = "block text-sm font-semibold text-gray-300 mb-2";
 
   return (
-    <section id="contact" className="py-24 bg-slate-950 relative overflow-hidden">
+    <section id="contact" className="py-24 bg-ink-950 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
@@ -46,7 +46,7 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-white mb-4">
-            Me <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Contacter</span>
+            Me <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-violet-300 to-rose-300">Contacter</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Vous avez un projet ou une opportunité ? Discutons-en ensemble.
@@ -62,12 +62,12 @@ const Contact = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700/50">
+            <div className="bg-ink-800/60 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
               <h3 className="text-2xl font-bold text-white mb-8">Mes Coordonnées</h3>
 
               <div className="space-y-8">
                 <div className="flex items-start space-x-4 group">
-                  <div className="bg-cyan-500/10 p-3 rounded-lg text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors">
+                  <div className="bg-cyan-500/10 p-3 rounded-lg text-cyan-400 group-hover:bg-cyan-500 group-hover:text-ink-950 transition-colors">
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
@@ -77,7 +77,7 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start space-x-4 group">
-                  <div className="bg-cyan-500/10 p-3 rounded-lg text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors">
+                  <div className="bg-cyan-500/10 p-3 rounded-lg text-cyan-400 group-hover:bg-cyan-500 group-hover:text-ink-950 transition-colors">
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
@@ -87,7 +87,7 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start space-x-4 group">
-                  <div className="bg-cyan-500/10 p-3 rounded-lg text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors">
+                  <div className="bg-cyan-500/10 p-3 rounded-lg text-cyan-400 group-hover:bg-cyan-500 group-hover:text-ink-950 transition-colors">
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
@@ -97,16 +97,16 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="mt-10 pt-8 border-t border-slate-700">
+              <div className="mt-10 pt-8 border-t border-white/10">
                 <h4 className="text-white font-semibold mb-4">Réseaux Sociaux</h4>
                 <div className="flex space-x-4">
-                  <a href="https://github.com/Othniel1704" target="_blank" rel="noopener noreferrer" className="bg-slate-700 p-3 rounded-full text-gray-400 hover:bg-slate-600 hover:text-white transition-all duration-300">
+                  <a href="https://github.com/Othniel1704" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full text-gray-400 hover:bg-slate-600 hover:text-white transition-all duration-300">
                     <Github className="w-5 h-5" />
                   </a>
-                  <a href="https://www.linkedin.com/in/othniel-kouakou" target="_blank" rel="noopener noreferrer" className="bg-slate-700 p-3 rounded-full text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                  <a href="https://www.linkedin.com/in/othniel-kouakou" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300">
                     <Linkedin className="w-5 h-5" />
                   </a>
-                  <a href="#" className="bg-slate-700 p-3 rounded-full text-gray-400 hover:bg-sky-500 hover:text-white transition-all duration-300">
+                  <a href="#" className="bg-white/10 p-3 rounded-full text-gray-400 hover:bg-sky-500 hover:text-white transition-all duration-300">
                     <Twitter className="w-5 h-5" />
                   </a>
                 </div>
@@ -120,7 +120,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700/50"
+            className="bg-ink-800/60 backdrop-blur-sm p-8 rounded-2xl border border-white/10"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -168,7 +168,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full flex justify-center items-center px-6 py-4 border border-transparent text-lg font-bold rounded-xl text-slate-950 bg-cyan-500 hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition-all duration-300 transform hover:scale-[1.02] shadow-lg shadow-cyan-500/30 ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
+                className={`w-full flex justify-center items-center px-6 py-4 border border-transparent text-lg font-bold rounded-xl text-ink-950 bg-cyan-500 hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition-all duration-300 transform hover:scale-[1.02] shadow-lg shadow-cyan-500/30 ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
               >
                 {isSubmitting ? (
                   <span className="flex items-center">
